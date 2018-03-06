@@ -1,9 +1,8 @@
 import * as forge from 'node-forge'
 import * as NodeRSA from 'node-rsa'
-import base64url from 'base64url'
+import * as base64url from 'base64-url'
 import * as crypto from 'crypto'
-import { sign } from 'jsonwebtoken';
-import { jwt } from './index';
+import { sign } from 'jsonwebtoken'
 
 export type JWKS = {
   keys: [
@@ -41,7 +40,7 @@ export const createJWKS = ({ privateKey, publicKey }): JWKS => {
   const certDer = forge.util.encode64(forge.asn1.toDer(forge.pki.certificateToAsn1(forge.pki.certificateFromPem(certPem))).getBytes())
   const sha1gen = forge.md.sha1.create()
   sha1gen.update(certPem)
-  const thumbprint = base64url(getCertThumbprint(certDer))
+  const thumbprint = base64url.encode(getCertThumbprint(certDer))
   return {
     keys: [
       {
@@ -84,10 +83,6 @@ export const createCertificate = ({publicKey, privateKey}) => {
   cert.sign(privateKey)
   return forge.pki.certificateToPem(cert)
 }
-export type header = {
-  alg: string,
-  typ: string
-}
 
 export type jwtPayload = {
   sub?: string,
@@ -99,9 +94,9 @@ export type jwtPayload = {
   jti?: string
 }
 
-export const signJwt = (privateKey, jwtPayload: jwtPayload) => {
+export const signJwt = (privateKey, jwtPayload: jwtPayload, kid) => {
   const bufferedJwt = new Buffer(JSON.stringify(jwtPayload))
-  return sign(bufferedJwt, forge.pki.privateKeyToPem(privateKey), { algorithm: 'RS256' })
+  return sign(bufferedJwt, forge.pki.privateKeyToPem(privateKey), { algorithm: 'RS256', header: { kid } })
 }
 
 /* HARDCODED MOCK RSA KEYS */

@@ -3,5 +3,9 @@
     "outDir": "build",
     "module": "commonjs",
     "lib": ["es2016"]
-  }
+  },
+  "exclude": [
+    "./example",
+    "./**/__tests__"
+  ]
 }

@@ -22,8 +22,8 @@ const createAuth0Mock = () => {
     kid() {
       return JWKS.keys[0].kid
     },
-    token() {
-      return signJwt(privateKey, { iss: 'hallo'})
+    token(token) {
+      return signJwt(privateKey, token, this.kid())
     }
   }
 }

@@ -4,7 +4,10 @@
   "description": "A tool to mock auth0 for development of microservices who consume auth0 jwts",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "build": "tsc",
+    "test": "jest",
+    "clean": "rm -rf .build",
+    "prebuild": "npm run clean"
   },
   "repository": {
     "type": "git",
@@ -31,17 +34,19 @@
     "@types/jest": "^22.2.0",
     "@types/jsonwebtoken": "^7.2.5",
     "@types/nock": "^9.1.2",
-    "@types/node-forge": "^0.7.2",
     "jest": "^22.4.2",
     "jwks-rsa": "^1.2.1",
+    "koa": "^2.5.0",
+    "koa-jwt": "^3.3.0",
+    "koa-router": "^7.4.0",
+    "supertest": "^3.0.0",
     "ts-jest": "^22.4.1",
     "tslint": "^5.9.1",
     "tslint-config-standard": "^7.0.0",
     "typescript": "^2.7.2"
   },
   "dependencies": {
-    "base64url": "^2.0.0",
-    "forge": "^2.3.0",
+    "base64-url": "^2.2.0",
     "jsonwebtoken": "^8.2.0",
     "nock": "^9.2.3",
     "node-forge": "^0.7.3",

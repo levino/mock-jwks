@@ -1,5 +1,5 @@
-import { signJwt, createKeyPair, jwt } from '../tools'
-import { verify, decode } from 'jsonwebtoken'
+import { signJwt, createKeyPair } from '../tools'
+import { verify } from 'jsonwebtoken'
 import { pki } from 'node-forge'
 
 describe('Tests for jwt creation', () => {
