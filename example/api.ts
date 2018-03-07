@@ -1,40 +1,29 @@
-
 const Koa = require('koa')
 const Router = require('koa-router')
 const jwt = require('koa-jwt')
 const jwksRsa = require('jwks-rsa')
 
-// Start the server.
-
-const createApp = ({jwksHost}) => {
+const createApp = ({ jwksHost }) => {
   const app = new Koa()
-// Custom 401 handling (first middleware)
-  app.use(function (ctx, next) {
-    return next().catch((err) => {
-      if (err.status === 401) {
-        ctx.status = 401;
-        ctx.body = {
-          error: err.originalError ? err.originalError.message : err.message
-        };
-      } else {
-        throw err;
-      }
-    });
-  });
-  app.use(jwt({
-    secret: jwksRsa.koaJwtSecret({
-      cache: true,
-      rateLimit: true,
-      jwksRequestsPerMinute: 2,
-      jwksUri: `${jwksHost}/.well-known/jwks.json`
-    }),
-    audience: 'private',
-    issuer: 'master',
-    algorithms: [ 'RS256' ]
-  }))
+
+  // We are setting up the jwksRsa client as usual (with production host)
+  // We switch off caching to show how things work in ours tests.
+
+  app.use(
+    jwt({
+      secret: jwksRsa.koaJwtSecret({
+        cache: false,
+        jwksUri: `${jwksHost}/.well-known/jwks.json`
+      }),
+      audience: 'private',
+      issuer: 'master',
+      algorithms: ['RS256']
+    })
+  )
 
   const router = new Router()
 
+  // This route is protected by the authentication middleware
   router.get('/', ctx => {
     ctx.body = 'Authenticated!'
   })

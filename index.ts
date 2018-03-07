@@ -1,20 +1,26 @@
 import { createJWKS, createKeyPair, signJwt } from './tools'
 import * as nock from 'nock'
-
-const createAuth0Mock = () => {
+import request from 'superagent'
+const createAuth0Mock = (jkwsHost) => {
   const keypair = createKeyPair()
   const { privateKey, publicKey } = keypair
   const JWKS = createJWKS(keypair)
   let jwksUrlNock
   return {
     start () {
-      jwksUrlNock = nock('https://hardfork.eu.auth0.com')
+      jwksUrlNock = nock(`${jkwsHost}`)
         .get('/.well-known/jwks.json')
         .reply(200, JWKS)
         .persist()
     },
-    stop () {
-      jwksUrlNock.persist(false)
+    async stop () {
+      if (jwksUrlNock) {
+        jwksUrlNock.persist(false)
+        try {
+          await request(`${jkwsHost}/.well-known/jwks.json`)
+        } catch (err) {
+        }
+      }
     },
     kid () {
       return JWKS.keys[0].kid

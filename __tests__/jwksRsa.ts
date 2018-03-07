@@ -3,7 +3,7 @@ import * as jwksClient from 'jwks-rsa'
 import { verify } from 'jsonwebtoken'
 
 describe('Tests for JWKS being correctly consumed by jwks-rsa client', () => {
-  const auth0Mock = createAuth0Mock()
+  const auth0Mock = createAuth0Mock('https://hardfork.eu.auth0.com')
   beforeEach(() => {
     auth0Mock.start()
   })
