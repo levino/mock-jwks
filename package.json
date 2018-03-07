@@ -7,7 +7,8 @@
     "build": "tsc",
     "test": "jest",
     "clean": "rm -rf .build",
-    "prebuild": "npm run clean"
+    "prebuild": "npm run clean",
+    "prettify": "prettier-standard"
   },
   "repository": {
     "type": "git",
@@ -39,6 +40,7 @@
     "koa": "^2.5.0",
     "koa-jwt": "^3.3.0",
     "koa-router": "^7.4.0",
+    "prettier-standard": "^8.0.0",
     "supertest": "^3.0.0",
     "ts-jest": "^22.4.1",
     "tslint": "^5.9.1",

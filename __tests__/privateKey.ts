@@ -11,7 +11,6 @@ describe('Testing the private key creation for mocking', () => {
   })
   it('should create a JWKS from a keypair', () => {
     const keypair = createKeyPair()
-    console.log(createJWKS(keypair))
     expect(createJWKS(keypair)).toBeDefined()
   })
 })

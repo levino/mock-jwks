@@ -1,8 +1,8 @@
 import createAuth0Mock from '../index'
 import * as jwksClient from 'jwks-rsa'
-import { sign, verify } from 'jsonwebtoken'
+import { verify } from 'jsonwebtoken'
 
-describe('Some Test', () => {
+describe('Tests for JWKS being correctly consumed by jwks-rsa client', () => {
   const auth0Mock = createAuth0Mock()
   beforeEach(() => {
     auth0Mock.start()
@@ -17,14 +17,8 @@ describe('Some Test', () => {
     })
 
     const kid = auth0Mock.kid()
-    client.getSigningKey(kid, (err, key) => {
-      if (err) {
-        return done(err)
-      }
-      const signingKey = key.publicKey || key.rsaPublicKey
-      console.log(signingKey)
-      // Now I can use this to configure my Express or Hapi middleware
-      done()
+    client.getSigningKey(kid, (err) => {
+      return done(err)
     })
   })
   it('should verify a token with the public key from the JWKS', (done) => {
@@ -44,7 +38,6 @@ describe('Some Test', () => {
       } catch (err) {
         return done(err)
       }
-      // Now I can use this to configure my Express or Hapi middleware
       done()
     })
   })

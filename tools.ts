@@ -36,7 +36,6 @@ export const createJWKS = ({ privateKey, publicKey }): JWKS => {
     e: exponent
   } = helperKey.exportKey('components')
   const certPem = createCertificate({ privateKey, publicKey })
-  console.log(certPem)
   const certDer = forge.util.encode64(forge.asn1.toDer(forge.pki.certificateToAsn1(forge.pki.certificateFromPem(certPem))).getBytes())
   const sha1gen = forge.md.sha1.create()
   sha1gen.update(certPem)
