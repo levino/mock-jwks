@@ -1,6 +1,7 @@
 import createAuth0Mock from '../../index'
 import createApp from '../api'
 import * as supertest from 'supertest'
+import * as superagent from 'superagent'
 
 let server
 let request
@@ -33,7 +34,7 @@ describe('Some tests for authentication for our api', () => {
   it('should not get access with mock token when auth0Mock is not running', async () => {
     const access_token = auth0Mock.token({
       aud: 'private',
-      iss: 'mister'
+      iss: 'master'
     })
     await request.get('/').set('Authorization' , `Bearer ${access_token}`).expect(401)
   })

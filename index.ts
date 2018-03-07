@@ -1,6 +1,6 @@
 import { createJWKS, createKeyPair, signJwt } from './tools'
 import * as nock from 'nock'
-import request from 'superagent'
+import * as request from 'superagent'
 const createAuth0Mock = (jkwsHost) => {
   const keypair = createKeyPair()
   const { privateKey, publicKey } = keypair
@@ -17,8 +17,11 @@ const createAuth0Mock = (jkwsHost) => {
       if (jwksUrlNock) {
         jwksUrlNock.persist(false)
         try {
-          await request(`${jkwsHost}/.well-known/jwks.json`)
+          // Kinda hacky but I did not find a good way to stop intercepting without using .cleanAll() which
+          // might have side effects.
+          await request.get(`${jkwsHost}/.well-known/jwks.json`)
         } catch (err) {
+          console.log(err)
         }
       }
     },
