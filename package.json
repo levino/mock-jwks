@@ -2,7 +2,7 @@
   "name": "mock-auth0-test",
   "version": "0.0.2",
   "description": "A tool to mock auth0 for development of microservices who consume auth0 jwts",
-  "main": "index.js",
+  "main": "build/index.js",
   "scripts": {
     "build": "tsc",
     "test": "jest",
