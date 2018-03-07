@@ -2,7 +2,7 @@
 A tool to mock the auth0 authentication service for development of microservices CONSUMING auth0 jwts
 
 ## Background
-If you use auth0 for authentication and authorization of your users against your microservices, you want to
+If you use auth0 for authentication and authorization of your users against your microservices, you want to automatically unit
 test the authentication in your microservice for security. Happy and unhappy paths. Doing this while actually using the
 auth0 backend is slow and annoying, so auth0 suggest you mock their api. This turns out to be somewhat difficult, especially
 in the case of using RSA for signing of the tokens and not wanting to heavily dependency inject the middleware for
