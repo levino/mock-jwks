@@ -79,7 +79,7 @@ describe('Some tests for authentication for our api', () => {
     await server.close()
     await auth0Mock.stop()
   })
-  it.skip('should not get acces without correct token', async () => {
+  it('should not get acces without correct token', async () => {
     // We start intercepting queries (see below)
     auth0Mock.start()
     await request.get('/').expect(401)
