@@ -1,5 +1,5 @@
 {
-  "name": "mock-auth0",
+  "name": "mock-auth0-test",
   "version": "0.0.2",
   "description": "A tool to mock auth0 for development of microservices who consume auth0 jwts",
   "main": "index.js",
@@ -8,7 +8,7 @@
     "test": "jest",
     "clean": "rm -rf .build",
     "prebuild": "npm run clean",
-    "prettify": "prettier-standard"
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
