@@ -1,14 +1,14 @@
 {
   "name": "mock-jwks",
-  "version": "0.0.1",
   "description": "A tool to mock a JWKS for development of microservices who consume jwts signed with RSA",
-  "main": "index.js",
+  "version": "0.0.3",
+  "main": "build/index.js",
   "scripts": {
     "build": "tsc",
     "test": "jest",
     "clean": "rm -rf .build",
     "prebuild": "npm run clean",
-    "prettify": "prettier-standard"
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -40,7 +40,6 @@
     "koa": "^2.5.0",
     "koa-jwt": "^3.3.0",
     "koa-router": "^7.4.0",
-    "prettier-standard": "^8.0.0",
     "superagent": "^3.8.2",
     "supertest": "^3.0.0",
     "ts-jest": "^22.4.1",

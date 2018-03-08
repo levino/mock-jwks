@@ -57,5 +57,7 @@ typings/
 # dotenv environment variables file
 .env
 
-# Exclude IDE settings
+# IDE settings
 .idea
+
+build
