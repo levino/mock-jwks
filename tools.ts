@@ -28,14 +28,14 @@ const getCertThumbprint = (certificate) => {
   return shasum.digest('base64')
 }
 
-export const createJWKS = ({ privateKey, publicKey }): JWKS => {
+export const createJWKS = ({ privateKey, publicKey, jwksHost }): JWKS => {
   const helperKey = new NodeRSA()
   helperKey.importKey(forge.pki.privateKeyToPem(privateKey))
   const {
     n: modulus,
     e: exponent
   } = helperKey.exportKey('components')
-  const certPem = createCertificate({ privateKey, publicKey })
+  const certPem = createCertificate({ privateKey, publicKey, jwksHost })
   const certDer = forge.util.encode64(forge.asn1.toDer(forge.pki.certificateToAsn1(forge.pki.certificateFromPem(certPem))).getBytes())
   const sha1gen = forge.md.sha1.create()
   sha1gen.update(certPem)
@@ -67,13 +67,13 @@ export const createKeyPair = () => {
   }
 }
 
-export const createCertificate = ({publicKey, privateKey}) => {
+export const createCertificate = ({publicKey, privateKey, jwksHost}) => {
   const cert = forge.pki.createCertificate()
   cert.publicKey = publicKey
   cert.serialNumber = '123'
   const attrs = [{
     name: 'commonName',
-    value: 'hardfork.eu.auth0.com'
+    value: `${jwksHost}`
   }]
   cert.validity.notBefore = new Date()
   cert.validity.notAfter = new Date()
