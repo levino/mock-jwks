@@ -12,10 +12,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Levino/mock-auth0.git"
+    "url": "git+https://github.com/Levino/mock-jwks.git"
   },
   "keywords": [
-    "auth0",
+    "jwks",
     "jwt",
     "mock",
     "testing"
@@ -23,14 +23,14 @@
   "author": "Levin Keller",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Levino/mock-auth0/issues"
+    "url": "https://github.com/Levino/mock-jwks/issues"
   },
   "standard": {
     "env": {
       "jest": true
     }
   },
-  "homepage": "https://github.com/Levino/mock-auth0#readme",
+  "homepage": "https://github.com/Levino/mock-jwks#readme",
   "devDependencies": {
     "@types/jest": "^22.2.0",
     "@types/jsonwebtoken": "^7.2.5",
