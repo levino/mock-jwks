@@ -41,22 +41,23 @@ const createApp = ({ jwksHost }) => {
   // This route is protected by the authentication middleware
   router.get('/', ctx => {
     ctx.body = 'Authenticated!'
-  })
+})
 
   app.use(router.middleware())
   return app
 }
 
-export default createApp
+module.exports = createApp
+
 
 ```
 
 You can easily unit test the authenticaion  of this app like so:
 
 ```js
-import createJWKSMock from '../../index'
-import createApp from '../api'
-import * as supertest from 'supertest'
+const createJWKSMock = require('mock-jwks').default
+const createApp = require('./index')
+const supertest = require('supertest')
 
 let server
 let request
@@ -103,6 +104,7 @@ describe('Some tests for authentication for our api', () => {
     await request.get('/').set('Authorization' , `Bearer ${access_token}`).expect(401)
   })
 })
+
 
 ```
 

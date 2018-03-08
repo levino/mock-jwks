@@ -32,4 +32,4 @@ const createApp = ({ jwksHost }) => {
   return app
 }
 
-export default createApp
+module.exports = createApp
