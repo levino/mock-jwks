@@ -13,6 +13,7 @@ authentication in your koa or express app. This is why I made this tool, which r
 Lets say you have a pretty standard koa app (I use a factory function to make the app, so I can scope nicely):
 
 ```js
+// File index.js
 const Koa = require('koa')
 const Router = require('koa-router')
 const jwt = require('koa-jwt')
@@ -55,6 +56,7 @@ module.exports = createApp
 You can easily unit test the authenticaion  of this app like so:
 
 ```js
+// File index.test.js
 const createJWKSMock = require('mock-jwks').default
 const createApp = require('./index')
 const supertest = require('supertest')
