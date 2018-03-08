@@ -1,6 +1,7 @@
 import { createJWKS, createKeyPair, signJwt } from './tools'
 import * as nock from 'nock'
 import * as request from 'superagent'
+
 const createJWKSMock = (jwksHost) => {
   const keypair = createKeyPair()
   const { privateKey } = keypair
