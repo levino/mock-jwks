@@ -5,3 +5,4 @@ jest.config.js
 tsconfig.json
 tslint.json
 .idea
+types/node-forge.ts
