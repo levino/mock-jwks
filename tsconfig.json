@@ -1,8 +1,14 @@
 {
   "compilerOptions": {
     "outDir": "build",
-    "module": "commonjs",
-    "lib": ["es2016"]
+    "target": "ES6",
+    "moduleResolution": "node",
+    "lib": ["es6", "dom", "esnext"],
+    "strict": true,
+    "typeRoots": [
+      "./types/",
+      "./node_modules/@types",
+    ]
   },
   "exclude": [
     "./example",

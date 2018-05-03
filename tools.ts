@@ -1,12 +1,13 @@
-import * as forge from 'node-forge'
-import * as NodeRSA from 'node-rsa'
 import * as base64url from 'base64-url'
 import * as crypto from 'crypto'
 import { sign } from 'jsonwebtoken'
+import * as forge from 'node-forge'
+import * as NodeRSA from 'node-rsa'
 
 /* HARDCODED MOCK RSA KEYS */
 
-const PRIVATE_KEY_PEM = '-----BEGIN RSA PRIVATE KEY-----\n' +
+const PRIVATE_KEY_PEM =
+  '-----BEGIN RSA PRIVATE KEY-----\n' +
   'MIIEpAIBAAKCAQEApoocpO3bbUF6o8eyJlQCfwLahEsunWdVF++yOEyKu4Lp1j0m\n' +
   '2j/P7iHOtxBAkjdM2X2oW3qO1mR0sIFefqnm93g0q2nRuYEoS+W3o6X50wjOVm8f\n' +
   'r/tLqELzy5BoET0AQl7Axp1DNsb0HNOBcoIBt+xVY4I+k6uXJJJMzbgvahAgSLZ9\n' +
@@ -34,7 +35,8 @@ const PRIVATE_KEY_PEM = '-----BEGIN RSA PRIVATE KEY-----\n' +
   'Cd0GrJvf1t0QIdDCXAy+RpgU1SLSq4Q6Lomc0WA5C5nBw9RKEUOV9A==\n' +
   '-----END RSA PRIVATE KEY-----\n'
 
-const PUBLIC_KEY_PEM = '-----BEGIN PUBLIC KEY-----\n' +
+const PUBLIC_KEY_PEM =
+  '-----BEGIN PUBLIC KEY-----\n' +
   'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApoocpO3bbUF6o8eyJlQC\n' +
   'fwLahEsunWdVF++yOEyKu4Lp1j0m2j/P7iHOtxBAkjdM2X2oW3qO1mR0sIFefqnm\n' +
   '93g0q2nRuYEoS+W3o6X50wjOVm8fr/tLqELzy5BoET0AQl7Axp1DNsb0HNOBcoIB\n' +
@@ -44,31 +46,39 @@ const PUBLIC_KEY_PEM = '-----BEGIN PUBLIC KEY-----\n' +
   'HwIDAQAB\n' +
   '-----END PUBLIC KEY-----\n'
 
-export type JWKS = {
+export interface IJWKS {
   keys: [
     {
       alg: string
       kty: string
       use: string
-      x5c: [
-        string
-        ]
+      x5c: [string]
       n: string
       e: string
       kid: string
-      x5t: string
+      x5t: string,
     }
-    ]
+  ]
 }
 
-export const createCertificate = ({ publicKey, privateKey, jwksHost }) => {
+export const createCertificate = ({
+  publicKey,
+  privateKey,
+  jwksHost,
+}: {
+  publicKey: string
+  privateKey: string
+  jwksHost: string,
+}) => {
   const cert = forge.pki.createCertificate()
   cert.publicKey = publicKey
   cert.serialNumber = '123'
-  const attrs = [{
-    name: 'commonName',
-    value: `${jwksHost}`
-  }]
+  const attrs = [
+    {
+      name: 'commonName',
+      value: `${jwksHost}`,
+    },
+  ]
   cert.validity.notBefore = new Date()
   cert.validity.notAfter = new Date()
   cert.validity.notAfter.setFullYear(cert.validity.notBefore.getFullYear() + 1)
@@ -77,40 +87,39 @@ export const createCertificate = ({ publicKey, privateKey, jwksHost }) => {
   return forge.pki.certificateToPem(cert)
 }
 
-const getCertThumbprint = (certificate) => {
+const getCertThumbprint = (certificate: string) => {
   const shasum = crypto.createHash('sha1')
   const der = new Buffer(certificate).toString('binary')
   shasum.update(der)
   return shasum.digest('base64')
 }
 
-export const createJWKS = ({ privateKey, publicKey, jwksHost }): JWKS => {
+export const createJWKS = ({ privateKey, publicKey, jwksHost }: {privateKey: string, publicKey: string, jwksHost: string}): IJWKS => {
   const helperKey = new NodeRSA()
   helperKey.importKey(forge.pki.privateKeyToPem(privateKey))
-  const {
-    n: modulus,
-    e: exponent
-  } = helperKey.exportKey('components')
+  const { n: modulus, e: exponent } = helperKey.exportKey('components')
   const certPem = createCertificate({ privateKey, publicKey, jwksHost })
-  const certDer = forge.util.encode64(forge.asn1.toDer(forge.pki.certificateToAsn1(forge.pki.certificateFromPem(certPem))).getBytes())
+  const certDer = forge.util.encode64(
+    forge.asn1
+      .toDer(forge.pki.certificateToAsn1(forge.pki.certificateFromPem(certPem)))
+      .getBytes(),
+  )
   const sha1gen = forge.md.sha1.create()
   sha1gen.update(certPem)
   const thumbprint = base64url.encode(getCertThumbprint(certDer))
   return {
     keys: [
       {
-        n: modulus.toString('base64'),
-        e: exponent,
         alg: 'RSA256',
+        e: String(exponent),
+        kid: thumbprint,
         kty: 'RSA',
+        n: modulus.toString('base64'),
         use: 'sig',
-        x5c: [
-          certDer
-        ],
+        x5c: [certDer],
         x5t: thumbprint,
-        kid: thumbprint
-      }
-    ]
+      },
+    ],
   }
 }
 
@@ -119,21 +128,24 @@ export const createKeyPair = () => {
   const publicKey = forge.pki.publicKeyFromPem(PUBLIC_KEY_PEM)
   return {
     privateKey,
-    publicKey
+    publicKey,
   }
 }
 
-export type jwtPayload = {
-  sub?: string,
-  iss?: string,
-  aud?: string,
-  exp?: string,
-  nbf?: string,
-  iat?: string,
+export interface IJwtPayload {
+  sub?: string
+  iss?: string
+  aud?: string
+  exp?: string
+  nbf?: string
+  iat?: string
   jti?: string
 }
 
-export const signJwt = (privateKey, jwtPayload: jwtPayload, kid?) => {
+export const signJwt = (privateKey: string, jwtPayload: IJwtPayload, kid?: string) => {
   const bufferedJwt = new Buffer(JSON.stringify(jwtPayload))
-  return sign(bufferedJwt, forge.pki.privateKeyToPem(privateKey), { algorithm: 'RS256', header: { kid } })
+  return sign(bufferedJwt, forge.pki.privateKeyToPem(privateKey), {
+    algorithm: 'RS256',
+    header: { kid },
+  })
 }

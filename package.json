@@ -9,7 +9,8 @@
     "clean": "rm -rf .build",
     "prebuild": "npm run clean",
     "prepublishOnly": "npm run build",
-    "lint": "tslint --project ."
+    "lint": "tslint --project .",
+    "check:code": "tsc --noEmit"
   },
   "repository": {
     "type": "git",
@@ -31,11 +32,15 @@
       "jest": true
     }
   },
+  "types": "./index.d.ts",
   "homepage": "https://github.com/Levino/mock-jwks#readme",
   "devDependencies": {
+    "@types/base64-url": "^2.2.0",
     "@types/jest": "^22.2.0",
     "@types/jsonwebtoken": "^7.2.5",
     "@types/nock": "^9.1.2",
+    "@types/node-rsa": "^0.4.3",
+    "@types/superagent": "^3.5.8",
     "jest": "^22.4.2",
     "jwks-rsa": "^1.2.1",
     "koa": "^2.5.0",
