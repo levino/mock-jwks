@@ -46,7 +46,6 @@
     "koa": "^2.5.0",
     "koa-jwt": "^3.3.0",
     "koa-router": "^7.4.0",
-    "superagent": "^3.8.2",
     "supertest": "^3.0.0",
     "ts-jest": "^22.4.1",
     "tslint": "^5.9.1",
@@ -59,6 +58,7 @@
     "nock": "^9.2.3",
     "node-forge": "^0.7.3",
     "node-rsa": "^0.4.2",
-    "ursa": "^0.9.4"
+    "ursa": "^0.9.4",
+    "superagent": "^3.8.2"
   }
 }
