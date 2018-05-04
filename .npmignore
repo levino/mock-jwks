@@ -1,4 +1,5 @@
-**/*.ts
+index.ts
+tools.ts
 example
 __tests__
 jest.config.js
