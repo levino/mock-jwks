@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "outDir": "build",
-    "target": "ES6",
     "moduleResolution": "node",
     "lib": ["es6", "dom", "esnext"],
     "strict": true,
