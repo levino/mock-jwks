@@ -13,7 +13,7 @@ describe('Tests for JWKS being correctly consumed by jwks-rsa client', () => {
   it('should get the correct key from the jwks endpoint', (done) => {
     const client = jwksClient({
       strictSsl: true, // Default value
-      jwksUri: 'https://hardfork.eu.auth0.com/.well-known/jwks.json'
+      jwksUri: 'https://hardfork.eu.auth0.com/.well-known/jwks.json',
     })
 
     const kid = auth0Mock.kid()
@@ -24,7 +24,7 @@ describe('Tests for JWKS being correctly consumed by jwks-rsa client', () => {
   it('should verify a token with the public key from the JWKS', (done) => {
     const client = jwksClient({
       strictSsl: true, // Default value
-      jwksUri: 'https://hardfork.eu.auth0.com/.well-known/jwks.json'
+      jwksUri: 'https://hardfork.eu.auth0.com/.well-known/jwks.json',
     })
 
     const kid = auth0Mock.kid()

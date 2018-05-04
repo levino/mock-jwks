@@ -10,6 +10,7 @@
     "prebuild": "npm run clean",
     "prepublishOnly": "npm run build",
     "lint": "tslint --project .",
+    "format": "prettier --write '{,!(node_modules)/**/}*.ts'",
     "check:code": "tsc --noEmit"
   },
   "repository": {

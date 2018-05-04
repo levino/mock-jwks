@@ -56,7 +56,7 @@ export interface IJWKS {
       n: string
       e: string
       kid: string
-      x5t: string,
+      x5t: string
     }
   ]
 }
@@ -68,7 +68,7 @@ export const createCertificate = ({
 }: {
   publicKey: string
   privateKey: string
-  jwksHost: string,
+  jwksHost: string
 }) => {
   const cert = forge.pki.createCertificate()
   cert.publicKey = publicKey
@@ -94,7 +94,15 @@ const getCertThumbprint = (certificate: string) => {
   return shasum.digest('base64')
 }
 
-export const createJWKS = ({ privateKey, publicKey, jwksHost }: {privateKey: string, publicKey: string, jwksHost: string}): IJWKS => {
+export const createJWKS = ({
+  privateKey,
+  publicKey,
+  jwksHost,
+}: {
+  privateKey: string
+  publicKey: string
+  jwksHost: string
+}): IJWKS => {
   const helperKey = new NodeRSA()
   helperKey.importKey(forge.pki.privateKeyToPem(privateKey))
   const { n: modulus, e: exponent } = helperKey.exportKey('components')
@@ -102,7 +110,7 @@ export const createJWKS = ({ privateKey, publicKey, jwksHost }: {privateKey: str
   const certDer = forge.util.encode64(
     forge.asn1
       .toDer(forge.pki.certificateToAsn1(forge.pki.certificateFromPem(certPem)))
-      .getBytes(),
+      .getBytes()
   )
   const sha1gen = forge.md.sha1.create()
   sha1gen.update(certPem)
@@ -142,7 +150,11 @@ export interface IJwtPayload {
   jti?: string
 }
 
-export const signJwt = (privateKey: string, jwtPayload: IJwtPayload, kid?: string) => {
+export const signJwt = (
+  privateKey: string,
+  jwtPayload: IJwtPayload,
+  kid?: string
+) => {
   const bufferedJwt = new Buffer(JSON.stringify(jwtPayload))
   return sign(bufferedJwt, forge.pki.privateKeyToPem(privateKey), {
     algorithm: 'RS256',

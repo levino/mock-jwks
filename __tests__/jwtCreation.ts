@@ -6,7 +6,7 @@ describe('Tests for jwt creation', () => {
   it('should sign a jwt', () => {
     const keyPair = createKeyPair()
     const jwtPayload = {
-      iss: 'SOMETHING'
+      iss: 'SOMETHING',
     }
     const token = signJwt(keyPair.privateKey, jwtPayload)
     expect(token).toBeDefined()
