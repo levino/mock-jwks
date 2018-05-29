@@ -4,7 +4,7 @@
   "version": "0.1.5",
   "main": "build/index.js",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc -d",
     "test": "jest",
     "clean": "rm -rf build",
     "prebuild": "npm run clean",
