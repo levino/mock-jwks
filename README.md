@@ -6,7 +6,7 @@ If you use jtws for authentication and authorization of your users against your 
 test the authentication in your microservice for security. Happy and unhappy paths. Doing this while actually using a running JWKS
 deployment (like the auth0 backend) is slow and annoying, so e.g. auth0 suggest you mock their api. This turns out to be
 somewhat difficult, especially in the case of using RSA for signing of the tokens and not wanting to heavily dependency inject the middleware for
-authentication in your koa or express app. This is why I made this tool, which require less changes to your code.
+authentication in your koa or express app. This is why I made this tool, which requires less changes to your code.
 
 ## Usage
 
@@ -53,7 +53,7 @@ module.exports = createApp
 
 ```
 
-You can easily unit test the authenticaion  of this app like so:
+You can easily unit test the authentication of this app like so:
 
 ```js
 // File index.test.js
