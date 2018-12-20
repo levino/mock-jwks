@@ -9,11 +9,11 @@ let jwksMock
 
 const createContext = () => {
   // This creates the local PKI
-  jwksMock = createJWKSMock('https://hardfork.eu.auth0.com')
+  jwksMock = createJWKSMock('https://hardfork.eu.auth0.com/')
 
   // We start our app.
   server = createApp({
-    jwksHost: 'https://hardfork.eu.auth0.com',
+    jwksHost: 'https://hardfork.eu.auth0.com/',
   }).listen()
 
   request = supertest(server)
