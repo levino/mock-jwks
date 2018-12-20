@@ -33,7 +33,7 @@
       "jest": true
     }
   },
-  "types": "./index.d.ts",
+  "types": "build/index.d.ts",
   "homepage": "https://github.com/Levino/mock-jwks#readme",
   "devDependencies": {
     "@types/base64-url": "^2.2.0",
