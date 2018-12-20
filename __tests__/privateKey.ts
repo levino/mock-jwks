@@ -1,16 +1,19 @@
+import test from 'tape'
 import { createCertificate, createJWKS, createKeyPair } from '../tools'
-import { pki } from 'node-forge'
 
-describe('Testing the private key creation for mocking', () => {
-  it('should create a private key', () => {
-    expect(createKeyPair()).toBeDefined()
+test('Testing the private key creation for mocking', (t) => {
+  t.test('should create a private key', (assert) => {
+    assert.plan(1)
+    assert.ok(createKeyPair())
   })
-  it('should create a signed certificate from a keypair', () => {
+  t.test('should create a signed certificate from a keypair', (assert) => {
+    assert.plan(1)
     const keypair = createKeyPair()
-    expect(createCertificate(keypair)).toBeDefined()
+    assert.ok(createCertificate(keypair))
   })
-  it('should create a JWKS from a keypair', () => {
+  t.test('should create a JWKS from a keypair', (assert) => {
+    assert.plan(1)
     const keypair = createKeyPair()
-    expect(createJWKS(keypair)).toBeDefined()
+    assert.ok(createJWKS(keypair))
   })
 })
