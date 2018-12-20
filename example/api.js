@@ -2,6 +2,7 @@ const Koa = require('koa')
 const Router = require('koa-router')
 const jwt = require('koa-jwt')
 const jwksRsa = require('jwks-rsa')
+const url = require('url')
 
 const createApp = ({ jwksHost }) => {
   const app = new Koa()
@@ -13,18 +14,18 @@ const createApp = ({ jwksHost }) => {
     jwt({
       secret: jwksRsa.koaJwtSecret({
         cache: false,
-        jwksUri: `${jwksHost}/.well-known/jwks.json`
+        jwksUri: url.resolve(jwksHost, '/.well-known/jwks.json'),
       }),
       audience: 'private',
       issuer: 'master',
-      algorithms: ['RS256']
+      algorithms: ['RS256'],
     })
   )
 
   const router = new Router()
 
   // This route is protected by the authentication middleware
-  router.get('/', ctx => {
+  router.get('/', (ctx) => {
     ctx.body = 'Authenticated!'
   })
 

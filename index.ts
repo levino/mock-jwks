@@ -1,7 +1,7 @@
 import nock from 'nock'
+import normalizeUrl from 'normalize-url'
 import request from 'superagent'
 import { createJWKS, createKeyPair, signJwt } from './tools'
-
 export interface JWKSMock {
   start(): void
   stop(): Promise<void>
@@ -19,7 +19,7 @@ const createJWKSMock = (jwksHost: string): JWKSMock => {
   let jwksUrlNock: any
   return {
     start() {
-      jwksUrlNock = nock(`${jwksHost}`)
+      jwksUrlNock = nock(`${normalizeUrl(jwksHost)}`)
         .get('/.well-known/jwks.json')
         .reply(200, JWKS)
         .persist()
@@ -27,7 +27,7 @@ const createJWKSMock = (jwksHost: string): JWKSMock => {
     async stop() {
       if (jwksUrlNock) {
         jwksUrlNock.persist(false)
-        await request.get(`${jwksHost}/.well-known/jwks.json`)
+        await request.get(`${normalizeUrl(jwksHost)}/.well-known/jwks.json`) // Hack to remove the last nock.
       }
     },
     kid() {
