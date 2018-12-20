@@ -1,8 +1,15 @@
-import * as nock from 'nock'
-import * as request from 'superagent'
+import nock from 'nock'
+import request from 'superagent'
 import { createJWKS, createKeyPair, signJwt } from './tools'
 
-const createJWKSMock = (jwksHost: string) => {
+export interface JWKSMock {
+  start(): void
+  stop(): Promise<void>
+  kid(): string
+  token(token: {}): string
+}
+
+const createJWKSMock = (jwksHost: string): JWKSMock => {
   const keypair = createKeyPair()
   const { privateKey } = keypair
   const JWKS = createJWKS({

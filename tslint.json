@@ -1,8 +1,6 @@
 {
   "defaultSeverity": "error",
-  "extends": [
-    "tslint:recommended"
-  ],
+  "extends": ["tslint:recommended"],
   "jsRules": {},
   "rules": {
     "semicolon": [true, "never"],
@@ -18,7 +16,8 @@
         },
         "esSpecCompliant": true
       }
-    ]
+    ],
+    "interface-name": [true, "never-prefix"]
   },
   "rulesDirectory": []
 }

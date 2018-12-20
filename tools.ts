@@ -2,7 +2,7 @@ import * as base64url from 'base64-url'
 import * as crypto from 'crypto'
 import { sign } from 'jsonwebtoken'
 import * as forge from 'node-forge'
-import * as NodeRSA from 'node-rsa'
+import NodeRSA from 'node-rsa'
 
 /* HARDCODED MOCK RSA KEYS */
 
@@ -46,7 +46,7 @@ const PUBLIC_KEY_PEM =
   'HwIDAQAB\n' +
   '-----END PUBLIC KEY-----\n'
 
-export interface IJWKS {
+export interface JWKS {
   keys: [
     {
       alg: string
@@ -66,9 +66,9 @@ export const createCertificate = ({
   privateKey,
   jwksHost,
 }: {
-  publicKey: string
-  privateKey: string
-  jwksHost: string
+  publicKey: forge.pki.PublicKey
+  privateKey: forge.pki.PrivateKey
+  jwksHost?: string
 }) => {
   const cert = forge.pki.createCertificate()
   cert.publicKey = publicKey
@@ -99,10 +99,10 @@ export const createJWKS = ({
   publicKey,
   jwksHost,
 }: {
-  privateKey: string
-  publicKey: string
-  jwksHost: string
-}): IJWKS => {
+  privateKey: forge.pki.PrivateKey
+  publicKey: forge.pki.PublicKey
+  jwksHost?: string
+}): JWKS => {
   const helperKey = new NodeRSA()
   helperKey.importKey(forge.pki.privateKeyToPem(privateKey))
   const { n: modulus, e: exponent } = helperKey.exportKey('components')
@@ -140,7 +140,7 @@ export const createKeyPair = () => {
   }
 }
 
-export interface IJwtPayload {
+export interface JwtPayload {
   sub?: string
   iss?: string
   aud?: string
@@ -151,8 +151,8 @@ export interface IJwtPayload {
 }
 
 export const signJwt = (
-  privateKey: string,
-  jwtPayload: IJwtPayload,
+  privateKey: forge.pki.PrivateKey,
+  jwtPayload: JwtPayload,
   kid?: string
 ) => {
   const bufferedJwt = new Buffer(JSON.stringify(jwtPayload))

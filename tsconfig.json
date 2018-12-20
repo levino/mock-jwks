@@ -4,14 +4,8 @@
     "moduleResolution": "node",
     "lib": ["es6", "dom", "esnext"],
     "strict": true,
-    "typeRoots": [
-      "./types/",
-      "./node_modules/@types",
-    ]
+    "typeRoots": ["./typings", "./node_modules/@types"],
+    "esModuleInterop": true
   },
-  "exclude": [
-    "./example",
-    "./build",
-    "./**/__tests__"
-  ]
+  "exclude": ["./example", "./build", "./**/__tests__"]
 }
