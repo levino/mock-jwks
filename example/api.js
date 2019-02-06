@@ -4,7 +4,7 @@ const jwt = require('koa-jwt')
 const jwksRsa = require('jwks-rsa')
 const url = require('url')
 
-const createApp = ({ jwksHost }) => {
+const createApp = ({ jwksHost, jwksUri = undefined }) => {
   const app = new Koa()
 
   // We are setting up the jwksRsa client as usual (with production host)
@@ -14,7 +14,7 @@ const createApp = ({ jwksHost }) => {
     jwt({
       secret: jwksRsa.koaJwtSecret({
         cache: false,
-        jwksUri: url.resolve(jwksHost, '/.well-known/jwks.json'),
+        jwksUri: jwksUri || url.resolve(jwksHost, '/.well-known/jwks.json'),
       }),
       audience: 'private',
       issuer: 'master',
