@@ -9,7 +9,7 @@ export interface JWKSMock {
   token(token: {}): string
 }
 
-const createJWKSMock = (jwksHost: string): JWKSMock => {
+const createJWKSMock = (jwksHost: string, certPath: string = '/.well-known/jwks.json'): JWKSMock => {
   const keypair = createKeyPair()
   const { privateKey } = keypair
   const JWKS = createJWKS({
@@ -20,14 +20,14 @@ const createJWKSMock = (jwksHost: string): JWKSMock => {
   return {
     start() {
       jwksUrlNock = nock(`${normalizeUrl(jwksHost)}`)
-        .get('/.well-known/jwks.json')
+        .get(certPath)
         .reply(200, JWKS)
         .persist()
     },
     async stop() {
       if (jwksUrlNock) {
         jwksUrlNock.persist(false)
-        await request.get(`${normalizeUrl(jwksHost)}/.well-known/jwks.json`) // Hack to remove the last nock.
+        await request.get(`${normalizeUrl(jwksHost)}${certPath}`) // Hack to remove the last nock.
       }
     },
     kid() {
