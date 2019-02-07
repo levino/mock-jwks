@@ -25,6 +25,7 @@ test('Tests for JWKS being correctly consumed by jwks-rsa client', (t) => {
       })
     }
   )
+
   t.test(
     'should verify a token with the public key from the JWKS',
     (assert) => {
@@ -49,6 +50,28 @@ test('Tests for JWKS being correctly consumed by jwks-rsa client', (t) => {
           return assert.fail()
         }
         auth0Mock.stop()
+        assert.pass()
+      })
+    }
+  )
+
+  const auth0MockExplicit = createAuth0Mock('https://hardfork.eu.auth0.com', '/protocol/openid-connect/certs')
+  t.test(
+    'should access certificates at explicitly specified urls',
+    async (assert) => {
+      assert.plan(1)
+      auth0MockExplicit.start()
+      const client = jwksClient({
+        jwksUri: 'https://hardfork.eu.auth0.com/protocol/openid-connect/certs',
+        strictSsl: true, // Default value
+      })
+
+      const kid = auth0MockExplicit.kid()
+      client.getSigningKey(kid, (err) => {
+        auth0MockExplicit.stop()
+        if (err) {
+          return assert.fail()
+        }
         assert.pass()
       })
     }
