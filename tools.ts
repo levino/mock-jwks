@@ -64,11 +64,11 @@ export interface JWKS {
 export const createCertificate = ({
   publicKey,
   privateKey,
-  jwksHost,
+  jwksOrigin,
 }: {
   publicKey: forge.pki.PublicKey
   privateKey: forge.pki.PrivateKey
-  jwksHost?: string
+  jwksOrigin?: string
 }) => {
   const cert = forge.pki.createCertificate()
   cert.publicKey = publicKey
@@ -76,7 +76,7 @@ export const createCertificate = ({
   const attrs = [
     {
       name: 'commonName',
-      value: `${jwksHost}`,
+      value: `${jwksOrigin}`,
     },
   ]
   cert.validity.notBefore = new Date()
@@ -97,16 +97,20 @@ const getCertThumbprint = (certificate: string) => {
 export const createJWKS = ({
   privateKey,
   publicKey,
-  jwksHost,
+  jwksOrigin,
 }: {
   privateKey: forge.pki.PrivateKey
   publicKey: forge.pki.PublicKey
-  jwksHost?: string
+  jwksOrigin?: string
 }): JWKS => {
   const helperKey = new NodeRSA()
   helperKey.importKey(forge.pki.privateKeyToPem(privateKey))
   const { n: modulus, e: exponent } = helperKey.exportKey('components')
-  const certPem = createCertificate({ privateKey, publicKey, jwksHost })
+  const certPem = createCertificate({
+    jwksOrigin,
+    privateKey,
+    publicKey,
+  })
   const certDer = forge.util.encode64(
     forge.asn1
       .toDer(forge.pki.certificateToAsn1(forge.pki.certificateFromPem(certPem)))

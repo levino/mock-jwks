@@ -53,11 +53,10 @@ test('Some tests for authentication for our api', (t) => {
     assert.plan(1)
     const jwksMock = createJWKSMock(
       'https://hardfork.eu.auth0.com',
-      'https://hardfork.eu.auth0.com/protocol/openid-connect/certs'
+      '/protocol/openid-connect/certs'
     )
     // We start our app.
     const server = createApp({
-      jwksHost: 'https://hardfork.eu.auth0.com/',
       jwksUri: 'https://hardfork.eu.auth0.com/protocol/openid-connect/certs',
     }).listen()
 
@@ -82,7 +81,7 @@ const createContext = () => {
 
   // We start our app.
   const server = createApp({
-    jwksHost: 'https://hardfork.eu.auth0.com/',
+    jwksUri: 'https://hardfork.eu.auth0.com/.well-known/jwks.json',
   }).listen()
 
   const request = supertest(server)

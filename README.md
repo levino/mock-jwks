@@ -20,9 +20,8 @@ const Koa = require('koa')
 const Router = require('koa-router')
 const jwt = require('koa-jwt')
 const jwksRsa = require('jwks-rsa')
-const url = require('url')
 
-const createApp = ({ jwksHost, jwksUri = undefined }) => {
+const createApp = ({ jwksUri }) => {
   const app = new Koa()
 
   // We are setting up the jwksRsa client as usual (with production host)
@@ -32,7 +31,7 @@ const createApp = ({ jwksHost, jwksUri = undefined }) => {
     jwt({
       secret: jwksRsa.koaJwtSecret({
         cache: false,
-        jwksUri: jwksUri || url.resolve(jwksHost, '/.well-known/jwks.json'),
+        jwksUri,
       }),
       audience: 'private',
       issuer: 'master',
@@ -113,11 +112,10 @@ test('Some tests for authentication for our api', (t) => {
     assert.plan(1)
     const jwksMock = createJWKSMock(
       'https://hardfork.eu.auth0.com',
-      'https://hardfork.eu.auth0.com/protocol/openid-connect/certs'
+      '/protocol/openid-connect/certs'
     )
     // We start our app.
     const server = createApp({
-      jwksHost: 'https://hardfork.eu.auth0.com/',
       jwksUri: 'https://hardfork.eu.auth0.com/protocol/openid-connect/certs',
     }).listen()
 
@@ -142,7 +140,7 @@ const createContext = () => {
 
   // We start our app.
   const server = createApp({
-    jwksHost: 'https://hardfork.eu.auth0.com/',
+    jwksUri: 'https://hardfork.eu.auth0.com/.well-known/jwks.json',
   }).listen()
 
   const request = supertest(server)
@@ -164,6 +162,6 @@ See also the [example](example/).
 ## Under the hood
 
 `createJWKSMock` will create a local PKI and generate a working JWKS.json. Calling `jwksMock.start()` will use [nock](https://www.npmjs.com/package/nock)
-to intercept all calls to `` `${jwksHost}/.well-known/jwks.json` ``. So when the `jwks-rsa` middleware gets a token to validate
+to intercept all calls to `` `${ jwksOrigin }${ jwksPath || '/.well-known/jwks.json' }` ``. So when the `jwks-rsa` middleware gets a token to validate
 it will fetch the key to verify against from our local PKI instead of the production one and as such, the token is valid
 when signed with the local private key.

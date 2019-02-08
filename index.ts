@@ -10,27 +10,27 @@ export interface JWKSMock {
 }
 
 const createJWKSMock = (
-  jwksHost: string,
-  jwksUri: string = url.resolve(jwksHost, '/.well-known/jwks.json')
+  jwksOrigin: string,
+  jwksPath: string = '/.well-known/jwks.json'
 ): JWKSMock => {
   const keypair = createKeyPair()
   const { privateKey } = keypair
   const JWKS = createJWKS({
     ...keypair,
-    jwksHost,
+    jwksOrigin,
   })
   let jwksUrlNock: any
   return {
     start() {
-      jwksUrlNock = nock(new url.URL(jwksUri).origin)
-        .get(new url.URL(jwksUri).pathname)
+      jwksUrlNock = nock(jwksOrigin)
+        .get(jwksPath)
         .reply(200, JWKS)
         .persist()
     },
     async stop() {
       if (jwksUrlNock) {
         jwksUrlNock.persist(false)
-        await request.get(jwksUri) // Hack to remove the last nock.
+        await request.get(url.resolve(jwksOrigin, jwksPath)) // Hack to remove the last nock.
       }
     },
     kid() {
