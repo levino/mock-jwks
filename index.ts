@@ -31,6 +31,7 @@ const createJWKSMock = (
       if (jwksUrlNock) {
         jwksUrlNock.persist(false)
         await request.get(url.resolve(jwksOrigin, jwksPath)) // Hack to remove the last nock.
+        nock.cleanAll()
       }
     },
     kid() {
