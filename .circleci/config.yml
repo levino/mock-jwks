@@ -6,17 +6,17 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
+          key: dependency-cache-{{ checksum "yarn.lock" }}
       - run:
           name: install-dependencies
-          command: npm install
+          command: yarn
       - save_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
+          key: dependency-cache-{{ checksum "yarn.lock" }}
           paths:
             - ./node_modules
       - run:
           name: test
-          command: npm run test
+          command: yarn test
       - run:
           name: linting
-          command: npm run lint
+          command: yarn lint
