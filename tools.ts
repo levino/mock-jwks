@@ -1,5 +1,5 @@
 import * as base64url from 'base64-url'
-import * as crypto from 'crypto'
+import { createHash } from 'crypto'
 import { sign } from 'jsonwebtoken'
 import * as forge from 'node-forge'
 import NodeRSA from 'node-rsa'
@@ -88,8 +88,8 @@ export const createCertificate = ({
 }
 
 const getCertThumbprint = (certificate: string) => {
-  const shasum = crypto.createHash('sha1')
-  const der = new Buffer(certificate).toString('binary')
+  const shasum = createHash('sha1')
+  const der = Buffer.from(certificate).toString('binary')
   shasum.update(der)
   return shasum.digest('base64')
 }
@@ -159,7 +159,7 @@ export const signJwt = (
   jwtPayload: JwtPayload,
   kid?: string
 ) => {
-  const bufferedJwt = new Buffer(JSON.stringify(jwtPayload))
+  const bufferedJwt = Buffer.from(JSON.stringify(jwtPayload))
   return sign(bufferedJwt, forge.pki.privateKeyToPem(privateKey), {
     algorithm: 'RS256',
     header: { kid },
