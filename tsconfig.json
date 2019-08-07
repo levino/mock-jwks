@@ -5,7 +5,8 @@
     "lib": ["es6", "dom", "esnext"],
     "strict": true,
     "typeRoots": ["./typings", "./node_modules/@types"],
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "noUnusedLocals": true
   },
   "exclude": ["./example", "./build", "./**/__tests__"]
 }
