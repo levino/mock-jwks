@@ -116,8 +116,6 @@ export const createJWKS = ({
       .toDer(forge.pki.certificateToAsn1(forge.pki.certificateFromPem(certPem)))
       .getBytes()
   )
-  const sha1gen = forge.md.sha1.create()
-  sha1gen.update(certPem)
   const thumbprint = base64url.encode(getCertThumbprint(certDer))
   return {
     keys: [
