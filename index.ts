@@ -7,6 +7,7 @@ export interface JWKSMock {
   stop(): Promise<void>
   kid(): string
   token(token: {}): string
+  jwks: object
 }
 
 const createJWKSMock = (
@@ -39,6 +40,7 @@ const createJWKSMock = (
     token(token = {}) {
       return signJwt(privateKey, token, this.kid())
     },
+    jwks: JWKS,
   }
 }
 
