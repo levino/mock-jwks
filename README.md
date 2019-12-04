@@ -165,3 +165,7 @@ See also the [example](example/).
 to intercept all calls to `` `${ jwksOrigin }${ jwksPath || '/.well-known/jwks.json' }` ``. So when the `jwks-rsa` middleware gets a token to validate
 it will fetch the key to verify against from our local PKI instead of the production one and as such, the token is valid
 when signed with the local private key.
+
+## Contributing
+
+You found a bug or want to improve the software? Thank you for your support! Before you open a PR I kindly to read about [best practices](https://eli.thegreenplace.net/2019/how-to-send-good-pull-requests-on-github/) and subject your contribution to them.
