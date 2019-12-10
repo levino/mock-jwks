@@ -168,4 +168,4 @@ when signed with the local private key.
 
 ## Contributing
 
-You found a bug or want to improve the software? Thank you for your support! Before you open a PR I kindly to read about [best practices](https://eli.thegreenplace.net/2019/how-to-send-good-pull-requests-on-github/) and subject your contribution to them.
+You found a bug or want to improve the software? Thank you for your support! Before you open a PR I kindly invite you to read about [best practices](https://eli.thegreenplace.net/2019/how-to-send-good-pull-requests-on-github/) and subject your contribution to them.
