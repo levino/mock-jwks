@@ -1,5 +1,5 @@
 import { verify } from 'jsonwebtoken'
-import jwksClient from 'jwks-rsa'
+import jwksClient, { CertSigningKey, RsaSigningKey } from 'jwks-rsa'
 import test from 'tape'
 import createAuth0Mock from '../index'
 
@@ -41,7 +41,7 @@ test('Tests for JWKS being correctly consumed by jwks-rsa client', (t) => {
           auth0Mock.stop()
           return assert.fail()
         }
-        const signingKey = String(key.publicKey || key.rsaPublicKey)
+        const signingKey = String((key as CertSigningKey).publicKey || (key as RsaSigningKey).rsaPublicKey)
         try {
           verify(auth0Mock.token({}), signingKey)
         } catch (err) {
