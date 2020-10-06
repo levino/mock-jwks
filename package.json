@@ -80,7 +80,7 @@
   "dependencies": {
     "base64-url": "^2.2.0",
     "jsonwebtoken": "^8.2.0",
-    "node-forge": "^0.7.6",
+    "node-forge": "^0.10.0",
     "node-rsa": "^0.4.2",
     "superagent": "^3.8.2",
     "url": "^0.11.0"
