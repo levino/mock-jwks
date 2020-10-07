@@ -1,5 +1,5 @@
 import nock from 'nock'
-import request from 'superagent'
+import * as request from 'superagent'
 import url from 'url'
 import { createJWKS, createKeyPair, signJwt } from './tools'
 export interface JWKSMock {
