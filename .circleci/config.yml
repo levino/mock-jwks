@@ -2,21 +2,18 @@ version: 2
 jobs:
   build:
     docker:
-      - image: node:10-alpine
+      - image: node:12-alpine
     steps:
       - checkout
-      - restore_cache:
-          key: dependency-cache-{{ checksum "yarn.lock" }}
       - run:
           name: install-dependencies
           command: yarn
-      - save_cache:
-          key: dependency-cache-{{ checksum "yarn.lock" }}
-          paths:
-            - ./node_modules
       - run:
           name: test
           command: yarn test
       - run:
           name: linting
           command: yarn lint
+      - run:
+          name: prettier check
+          command: yarn format --check
