@@ -9,7 +9,7 @@
     "clean": "rm -rf build",
     "prebuild": "yarn run clean",
     "prepublishOnly": "yarn run build",
-    "lint": "tslint --project .",
+    "lint": "eslint 'src/**/*.ts'",
     "format": "prettier 'src/**/*.ts'",
     "check:code": "tsc --noEmit"
   },
