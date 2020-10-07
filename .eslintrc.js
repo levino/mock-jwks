@@ -8,4 +8,7 @@ module.exports = {
         'plugin:@typescript-eslint/recommended',
         'prettier'
     ],
+    env: {
+        node: true
+    }
 };
