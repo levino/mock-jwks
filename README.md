@@ -24,7 +24,7 @@ const jwksRsa = require('jwks-rsa')
 const createApp = ({ jwksUri }) => {
   const app = new Koa()
 
-  // We are setting up the jwksRsa client as usual (with production host)
+  // We set up the jwksRsa client as usual (with production host)
   // We switch off caching to show how things work in ours tests.
 
   app.use(

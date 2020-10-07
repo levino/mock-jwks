@@ -6,7 +6,7 @@ export interface JWKSMock {
   start(): void
   stop(): Promise<void>
   kid(): string
-  token(token: {}): string
+  token(token: Record<string, unknown>): string
 }
 
 const createJWKSMock = (
@@ -19,13 +19,10 @@ const createJWKSMock = (
     ...keypair,
     jwksOrigin,
   })
-  let jwksUrlNock: any
+  let jwksUrlNock: nock.Scope
   return {
     start() {
-      jwksUrlNock = nock(jwksOrigin)
-        .get(jwksPath)
-        .reply(200, JWKS)
-        .persist()
+      jwksUrlNock = nock(jwksOrigin).get(jwksPath).reply(200, JWKS).persist()
     },
     async stop() {
       if (jwksUrlNock) {

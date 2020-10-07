@@ -11,7 +11,6 @@ describe('Some tests for authentication for our api', () => {
   afterEach(async () => await tearDown({ jwksMock, server }))
 
   test('should not get access without correct token', async () => {
-    
     // We start intercepting queries (see below)
     jwksMock.start()
     const { status } = await request.get('/')

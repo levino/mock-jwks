@@ -10,7 +10,7 @@
     "prebuild": "yarn run clean",
     "prepublishOnly": "yarn run build",
     "lint": "tslint --project .",
-    "format": "prettier --write '{,!(node_modules)/**/}*.ts'",
+    "format": "prettier 'src/**/*.ts'",
     "check:code": "tsc --noEmit"
   },
   "contributors": [

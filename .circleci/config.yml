@@ -20,3 +20,6 @@ jobs:
       - run:
           name: linting
           command: yarn lint
+      - run:
+          name: prettier check
+          command: yarn format --check
