@@ -120,7 +120,7 @@ export const createJWKS = ({
   return {
     keys: [
       {
-        alg: 'RSA256',
+        alg: 'RS256',
         e: String(exponent),
         kid: thumbprint,
         kty: 'RSA',
