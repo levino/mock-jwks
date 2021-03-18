@@ -1,9 +1,0 @@
-index.ts
-tools.ts
-example
-__tests__
-jest.config.js
-tsconfig.json
-tslint.json
-.idea
-typings/

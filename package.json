@@ -1,10 +1,10 @@
 {
   "name": "mock-jwks",
   "description": "A tool to mock a JWKS for development of microservices who consume jwts signed with RSA",
-  "version": "0.3.0",
+  "version": "0.3.2",
   "main": "build/index.js",
   "scripts": {
-    "build": "tsc -d src/index.ts -p tsconfig.json",
+    "build": "tsc -d -p tsconfig.json",
     "test": "jest",
     "clean": "rm -rf build",
     "prebuild": "yarn run clean",
@@ -13,6 +13,9 @@
     "format": "prettier 'src/**/*.ts'",
     "check:code": "tsc --noEmit"
   },
+  "files": [
+    "build"
+  ],
   "contributors": [
     {
       "email": "post@levinkeller.de",
@@ -61,6 +64,7 @@
     "@types/jsonwebtoken": "^7.2.5",
     "@types/koa-jwt": "^3.3.0",
     "@types/nock": "^9.1.2",
+    "@types/node": "^14.14.35",
     "@types/node-forge": "^0.9.5",
     "@types/node-rsa": "^0.4.3",
     "@types/normalize-url": "^3.3.0",

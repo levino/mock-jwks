@@ -14,7 +14,6 @@ const createJWKSMock = (
   jwksPath = '/.well-known/jwks.json'
 ): JWKSMock => {
   const keypair = createKeyPair()
-  const { privateKey } = keypair
   const JWKS = createJWKS({
     ...keypair,
     jwksOrigin,
@@ -34,7 +33,7 @@ const createJWKSMock = (
       return JWKS.keys[0].kid
     },
     token(token = {}) {
-      return signJwt(privateKey, token, this.kid())
+      return signJwt(keypair.privateKey, token, this.kid())
     },
   }
 }
