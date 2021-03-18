@@ -58,7 +58,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@typescript-eslint/eslint-plugin", "virtual:20b17bebd789dc1b64d4251582dae484bf13d57f4e18b2fcfca46ba9d108a92f5fe4539a81cfebfc95c6201759f2dc50f47f4607640d21202dc4062f8daecc90#npm:4.4.0"],
             ["@typescript-eslint/parser", "virtual:20b17bebd789dc1b64d4251582dae484bf13d57f4e18b2fcfca46ba9d108a92f5fe4539a81cfebfc95c6201759f2dc50f47f4607640d21202dc4062f8daecc90#npm:4.4.0"],
             ["base64-url", "npm:2.3.3"],
-            ["base64url", "npm:3.0.1"],
             ["chai", "npm:4.2.0"],
             ["chai-as-promised", "virtual:20b17bebd789dc1b64d4251582dae484bf13d57f4e18b2fcfca46ba9d108a92f5fe4539a81cfebfc95c6201759f2dc50f47f4607640d21202dc4062f8daecc90#npm:7.1.1"],
             ["eslint", "npm:7.10.0"],
@@ -3659,15 +3658,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/base64-url-npm-2.3.3-0298403767-8fba86a924.zip/node_modules/base64-url/",
           "packageDependencies": [
             ["base64-url", "npm:2.3.3"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["base64url", [
-        ["npm:3.0.1", {
-          "packageLocation": "./.yarn/cache/base64url-npm-3.0.1-4c171c4917-e7c3424af4.zip/node_modules/base64url/",
-          "packageDependencies": [
-            ["base64url", "npm:3.0.1"]
           ],
           "linkType": "HARD",
         }]
@@ -7472,7 +7462,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@typescript-eslint/eslint-plugin", "virtual:20b17bebd789dc1b64d4251582dae484bf13d57f4e18b2fcfca46ba9d108a92f5fe4539a81cfebfc95c6201759f2dc50f47f4607640d21202dc4062f8daecc90#npm:4.4.0"],
             ["@typescript-eslint/parser", "virtual:20b17bebd789dc1b64d4251582dae484bf13d57f4e18b2fcfca46ba9d108a92f5fe4539a81cfebfc95c6201759f2dc50f47f4607640d21202dc4062f8daecc90#npm:4.4.0"],
             ["base64-url", "npm:2.3.3"],
-            ["base64url", "npm:3.0.1"],
             ["chai", "npm:4.2.0"],
             ["chai-as-promised", "virtual:20b17bebd789dc1b64d4251582dae484bf13d57f4e18b2fcfca46ba9d108a92f5fe4539a81cfebfc95c6201759f2dc50f47f4607640d21202dc4062f8daecc90#npm:7.1.1"],
             ["eslint", "npm:7.10.0"],
