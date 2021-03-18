@@ -83,7 +83,7 @@ export const createCertificate = ({
   cert.validity.notAfter = new Date()
   cert.validity.notAfter.setFullYear(cert.validity.notBefore.getFullYear() + 1)
   cert.setSubject(attrs)
-  cert.sign(privateKey)
+  cert.sign(privateKey, forge.md.sha256.create())
   return forge.pki.certificateToPem(cert)
 }
 
@@ -120,8 +120,10 @@ export const createJWKS = ({
   return {
     keys: [
       {
-        alg: 'RSA256',
-        e: String(exponent),
+        alg: 'RS256',
+        e: Buffer.isBuffer(exponent)
+          ? exponent.toString()
+          : bnToB64(String(exponent)),
         kid: thumbprint,
         kty: 'RSA',
         n: modulus.toString('base64'),
@@ -162,4 +164,30 @@ export const signJwt = (
     algorithm: 'RS256',
     header: { kid },
   })
+}
+
+// Below taken from https://coolaj86.com/articles/bigints-and-base64-in-javascript/
+// Binary string to ASCII (base64)
+function btoa(bin: string) {
+  return Buffer.from(bin, 'binary').toString('base64')
+}
+
+function bnToB64(bn: string) {
+  let hex = BigInt(bn).toString(16)
+  if (hex.length % 2) {
+    hex = '0' + hex
+  }
+
+  const bin = []
+  let i = 0
+  let d
+  let b
+  while (i < hex.length) {
+    d = parseInt(hex.slice(i, i + 2), 16)
+    b = String.fromCharCode(d)
+    bin.push(b)
+    i += 2
+  }
+
+  return btoa(bin.join(''))
 }
