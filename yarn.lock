@@ -1480,6 +1480,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@panva/asn1.js@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "@panva/asn1.js@npm:1.0.0"
+  checksum: 0563c1372d99051d8e2268541a6ef9ec5d0495e9b943b0b1b738eb40ffd21e8bf7690f313d5ce86cccb32e646f9bb75f1af3cd45bce5d04b85ad9c04f0b596aa
+  languageName: node
+  linkType: hard
+
 "@sinonjs/commons@npm:^1.7.0":
   version: 1.8.1
   resolution: "@sinonjs/commons@npm:1.8.1"
@@ -2870,7 +2877,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"debug@npm:^2.2.0, debug@npm:^2.3.3, debug@npm:^2.6.9":
+"debug@npm:^2.2.0, debug@npm:^2.3.3":
   version: 2.6.9
   resolution: "debug@npm:2.6.9"
   dependencies:
@@ -3956,7 +3963,7 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
-"har-validator@npm:~5.1.0, har-validator@npm:~5.1.3":
+"har-validator@npm:~5.1.3":
   version: 5.1.3
   resolution: "har-validator@npm:5.1.3"
   dependencies:
@@ -5002,6 +5009,15 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
+"jose@npm:^2.0.2":
+  version: 2.0.4
+  resolution: "jose@npm:2.0.4"
+  dependencies:
+    "@panva/asn1.js": ^1.0.0
+  checksum: 402054b230df5856278e154d7f4e2707eda9f45e50e0fd273f4b4f0823ff9316ac72438701b0124b58f5927f479722db35a4b204359fe802f9a974b620fca267
+  languageName: node
+  linkType: hard
+
 "js-tokens@npm:^3.0.0 || ^4.0.0, js-tokens@npm:^4.0.0":
   version: 4.0.0
   resolution: "js-tokens@npm:4.0.0"
@@ -5131,7 +5147,7 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
-"jsonwebtoken@npm:8.5.1, jsonwebtoken@npm:^8.2.0, jsonwebtoken@npm:^8.5.1":
+"jsonwebtoken@npm:8.5.1, jsonwebtoken@npm:^8.2.0":
   version: 8.5.1
   resolution: "jsonwebtoken@npm:8.5.1"
   dependencies:
@@ -5172,18 +5188,16 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
-"jwks-rsa@npm:^1.3.0":
-  version: 1.6.0
-  resolution: "jwks-rsa@npm:1.6.0"
+"jwks-rsa@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "jwks-rsa@npm:2.0.1"
   dependencies:
     "@types/express-jwt": 0.0.42
-    debug: ^2.6.9
-    jsonwebtoken: ^8.5.1
-    limiter: ^1.1.4
-    lru-memoizer: ^1.12.0
-    ms: ^2.1.1
-    request: ^2.88.0
-  checksum: 77dd711129b565073c5c33ebbcfd65acec84495d60edcdebcd2c64a5ed36638955e96e6d11f8fb8770217b0f013b9d7359acecd27413cdf2ec412e04a0dc4c22
+    debug: ^4.1.0
+    jose: ^2.0.2
+    limiter: ^1.1.5
+    lru-memoizer: ^2.1.2
+  checksum: 1225b5d5cf541df8fcaad6300df2b24677323b8adc61521b8b048d02759e7d203dc95b203f33583f493b31a75a9c7f432a8460ff0da87309c57de482c67746bd
   languageName: node
   linkType: hard
 
@@ -5371,7 +5385,7 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
-"limiter@npm:^1.1.4":
+"limiter@npm:^1.1.5":
   version: 1.1.5
   resolution: "limiter@npm:1.1.5"
   checksum: 83f7aa20fefdcfc72a76f034ce804ad8d0063cd94c3ebd9c9b08157051b3f76b099cb953ccd09a0117ed06b876773c6b3876afd88be8d11ced252a8a85603786
@@ -5394,10 +5408,10 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
-"lock@npm:~0.1.2":
-  version: 0.1.4
-  resolution: "lock@npm:0.1.4"
-  checksum: c4fff2c609b2f98e67ef7fcfc58076f905d8ea1c415b933d43aa38e23fb8209ff934d5bbbc907500f9c797fb037f107e9d736e91e3cadd80db9d0d291bbd18a6
+"lodash.clonedeep@npm:^4.5.0":
+  version: 4.5.0
+  resolution: "lodash.clonedeep@npm:4.5.0"
+  checksum: 41e2fe4c57c56a66a4775a6ddeebe9272f0ce4d257d97b3cb8724a9b01eeec9b09ce7e8603d6926baf5f48c287d988f0de4bf5aa244ea86b1f22c1e6f203cc27
   languageName: node
   linkType: hard
 
@@ -5457,7 +5471,7 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
-"lodash@npm:^4.17.13, lodash@npm:^4.17.14, lodash@npm:^4.17.15, lodash@npm:^4.17.19, lodash@npm:^4.17.4":
+"lodash@npm:^4.17.13, lodash@npm:^4.17.14, lodash@npm:^4.17.15, lodash@npm:^4.17.19":
   version: 4.17.20
   resolution: "lodash@npm:4.17.20"
   checksum: c62101d2500c383b5f174a7e9e6fe8098149ddd6e9ccfa85f36d4789446195f5c4afd3cfba433026bcaf3da271256566b04a2bf2618e5a39f6e67f8c12030cb6
@@ -5485,15 +5499,13 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
-"lru-memoizer@npm:^1.12.0":
-  version: 1.13.0
-  resolution: "lru-memoizer@npm:1.13.0"
+"lru-memoizer@npm:^2.1.2":
+  version: 2.1.4
+  resolution: "lru-memoizer@npm:2.1.4"
   dependencies:
-    lock: ~0.1.2
-    lodash: ^4.17.4
+    lodash.clonedeep: ^4.5.0
     lru-cache: ~4.0.0
-    very-fast-args: ^1.1.0
-  checksum: bac22ed6f805c506eb4a3ed26a2f65179fd3fe7dff8da5229483f3d265f37056cae5de40eb9ca340e46561fe4b898df5b25525e0f297eb31c24448be495c07db
+  checksum: 31f52aaec58f3185f256d78fb803398c11727adf5fb318fedc11cf77a4297815f409d36e509dad788cd2e19254756599f36ef40d0ec91db83320bc5ebcc91da3
   languageName: node
   linkType: hard
 
@@ -5739,7 +5751,7 @@ fsevents@^2.1.2:
     eslint-config-prettier: ^6.12.0
     jest: ^26.5.2
     jsonwebtoken: ^8.2.0
-    jwks-rsa: ^1.3.0
+    jwks-rsa: ^2.0.1
     koa: ^2.5.0
     koa-jwt: ^3.5.1
     koa-router: ^7.4.0
@@ -6641,34 +6653,6 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
-"request@npm:^2.88.0":
-  version: 2.88.0
-  resolution: "request@npm:2.88.0"
-  dependencies:
-    aws-sign2: ~0.7.0
-    aws4: ^1.8.0
-    caseless: ~0.12.0
-    combined-stream: ~1.0.6
-    extend: ~3.0.2
-    forever-agent: ~0.6.1
-    form-data: ~2.3.2
-    har-validator: ~5.1.0
-    http-signature: ~1.2.0
-    is-typedarray: ~1.0.0
-    isstream: ~0.1.2
-    json-stringify-safe: ~5.0.1
-    mime-types: ~2.1.19
-    oauth-sign: ~0.9.0
-    performance-now: ^2.1.0
-    qs: ~6.5.2
-    safe-buffer: ^5.1.2
-    tough-cookie: ~2.4.3
-    tunnel-agent: ^0.6.0
-    uuid: ^3.3.2
-  checksum: 2735b6a5d6dbd7bac9e1277843f3f920e8e306c6d24e1c979e5d8273e9a1719cf353286d5030505b663f494e92f6779b278a341836e8e889bd9dd49f83df5802
-  languageName: node
-  linkType: hard
-
 "request@npm:^2.88.2":
   version: 2.88.2
   resolution: "request@npm:2.88.2"
@@ -7503,7 +7487,7 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
-"tough-cookie@npm:^2.3.3, tough-cookie@npm:~2.4.3":
+"tough-cookie@npm:^2.3.3":
   version: 2.4.3
   resolution: "tough-cookie@npm:2.4.3"
   dependencies:
@@ -7848,13 +7832,6 @@ typescript@^4.0.3:
     core-util-is: 1.0.2
     extsprintf: ^1.2.0
   checksum: 38ea80312cb42e5e8b4ac562d108d675b2354a79f8f125d363671f692657461b9181fd26f4fc9acdca433f8afee099cb78058806e1303e6b15b8fb022affba94
-  languageName: node
-  linkType: hard
-
-"very-fast-args@npm:^1.1.0":
-  version: 1.1.0
-  resolution: "very-fast-args@npm:1.1.0"
-  checksum: 653c5793b0cf4d89f98b00b3c4bb7cfba31ea2bc679d7852a309057a81609d42eaa78d3345ea33f8a141b227ad7a352fd1386cf8007600fb6cca67a93cb8d40a
   languageName: node
   linkType: hard
 

@@ -64,7 +64,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-config-prettier", "virtual:20b17bebd789dc1b64d4251582dae484bf13d57f4e18b2fcfca46ba9d108a92f5fe4539a81cfebfc95c6201759f2dc50f47f4607640d21202dc4062f8daecc90#npm:6.12.0"],
             ["jest", "npm:26.5.2"],
             ["jsonwebtoken", "npm:8.5.1"],
-            ["jwks-rsa", "npm:1.6.0"],
+            ["jwks-rsa", "npm:2.0.1"],
             ["koa", "npm:2.11.0"],
             ["koa-jwt", "npm:3.6.0"],
             ["koa-router", "npm:7.4.0"],
@@ -2533,6 +2533,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@nodelib/fs.walk", "npm:1.2.4"],
             ["@nodelib/fs.scandir", "npm:2.1.3"],
             ["fastq", "npm:1.8.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@panva/asn1.js", [
+        ["npm:1.0.0", {
+          "packageLocation": "./.yarn/cache/@panva-asn1.js-npm-1.0.0-2bf51df722-0563c1372d.zip/node_modules/@panva/asn1.js/",
+          "packageDependencies": [
+            ["@panva/asn1.js", "npm:1.0.0"]
           ],
           "linkType": "HARD",
         }]
@@ -6644,6 +6653,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["jose", [
+        ["npm:2.0.4", {
+          "packageLocation": "./.yarn/cache/jose-npm-2.0.4-8e257b3aaa-402054b230.zip/node_modules/jose/",
+          "packageDependencies": [
+            ["jose", "npm:2.0.4"],
+            ["@panva/asn1.js", "npm:1.0.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["js-tokens", [
         ["npm:4.0.0", {
           "packageLocation": "./.yarn/cache/js-tokens-npm-4.0.0-0ac852e9e2-1fc4e4667a.zip/node_modules/js-tokens/",
@@ -6837,17 +6856,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["jwks-rsa", [
-        ["npm:1.6.0", {
-          "packageLocation": "./.yarn/cache/jwks-rsa-npm-1.6.0-f814fab362-77dd711129.zip/node_modules/jwks-rsa/",
+        ["npm:2.0.1", {
+          "packageLocation": "./.yarn/cache/jwks-rsa-npm-2.0.1-a553ff6548-1225b5d5cf.zip/node_modules/jwks-rsa/",
           "packageDependencies": [
-            ["jwks-rsa", "npm:1.6.0"],
+            ["jwks-rsa", "npm:2.0.1"],
             ["@types/express-jwt", "npm:0.0.42"],
-            ["debug", "virtual:2bcc47d217f870e3d52f0e55493dc34fd3da852877f7db32fa2940cc320151746026495daf6a34a974488cf5a949d93be1e2dc1ffba036faf081a9b15fcd2252#npm:2.6.9"],
-            ["jsonwebtoken", "npm:8.5.1"],
+            ["debug", "virtual:2395052be89e7cb60a9e457720a81c812457953cc762643b2dddf96818b24121417de8a1244c250c72573d9df94e1c92243e353c6f07da586de517860c3c8e2e#npm:4.1.1"],
+            ["jose", "npm:2.0.4"],
             ["limiter", "npm:1.1.5"],
-            ["lru-memoizer", "npm:1.13.0"],
-            ["ms", "npm:2.1.2"],
-            ["request", "npm:2.88.0"]
+            ["lru-memoizer", "npm:2.1.4"]
           ],
           "linkType": "HARD",
         }]
@@ -7078,20 +7095,20 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
-      ["lock", [
-        ["npm:0.1.4", {
-          "packageLocation": "./.yarn/cache/lock-npm-0.1.4-54a59097ba-c4fff2c609.zip/node_modules/lock/",
-          "packageDependencies": [
-            ["lock", "npm:0.1.4"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
       ["lodash", [
         ["npm:4.17.20", {
           "packageLocation": "./.yarn/cache/lodash-npm-4.17.20-c0db62021c-c62101d250.zip/node_modules/lodash/",
           "packageDependencies": [
             ["lodash", "npm:4.17.20"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["lodash.clonedeep", [
+        ["npm:4.5.0", {
+          "packageLocation": "./.yarn/cache/lodash.clonedeep-npm-4.5.0-fbc3cda4e5-41e2fe4c57.zip/node_modules/lodash.clonedeep/",
+          "packageDependencies": [
+            ["lodash.clonedeep", "npm:4.5.0"]
           ],
           "linkType": "HARD",
         }]
@@ -7190,14 +7207,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["lru-memoizer", [
-        ["npm:1.13.0", {
-          "packageLocation": "./.yarn/cache/lru-memoizer-npm-1.13.0-828133db77-bac22ed6f8.zip/node_modules/lru-memoizer/",
+        ["npm:2.1.4", {
+          "packageLocation": "./.yarn/cache/lru-memoizer-npm-2.1.4-d9af4a007a-31f52aaec5.zip/node_modules/lru-memoizer/",
           "packageDependencies": [
-            ["lru-memoizer", "npm:1.13.0"],
-            ["lock", "npm:0.1.4"],
-            ["lodash", "npm:4.17.20"],
-            ["lru-cache", "npm:4.0.2"],
-            ["very-fast-args", "npm:1.1.0"]
+            ["lru-memoizer", "npm:2.1.4"],
+            ["lodash.clonedeep", "npm:4.5.0"],
+            ["lru-cache", "npm:4.0.2"]
           ],
           "linkType": "HARD",
         }]
@@ -7468,7 +7483,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-config-prettier", "virtual:20b17bebd789dc1b64d4251582dae484bf13d57f4e18b2fcfca46ba9d108a92f5fe4539a81cfebfc95c6201759f2dc50f47f4607640d21202dc4062f8daecc90#npm:6.12.0"],
             ["jest", "npm:26.5.2"],
             ["jsonwebtoken", "npm:8.5.1"],
-            ["jwks-rsa", "npm:1.6.0"],
+            ["jwks-rsa", "npm:2.0.1"],
             ["koa", "npm:2.11.0"],
             ["koa-jwt", "npm:3.6.0"],
             ["koa-router", "npm:7.4.0"],
@@ -8477,33 +8492,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["request", [
-        ["npm:2.88.0", {
-          "packageLocation": "./.yarn/cache/request-npm-2.88.0-9de8117818-2735b6a5d6.zip/node_modules/request/",
-          "packageDependencies": [
-            ["request", "npm:2.88.0"],
-            ["aws-sign2", "npm:0.7.0"],
-            ["aws4", "npm:1.9.0"],
-            ["caseless", "npm:0.12.0"],
-            ["combined-stream", "npm:1.0.8"],
-            ["extend", "npm:3.0.2"],
-            ["forever-agent", "npm:0.6.1"],
-            ["form-data", "npm:2.3.3"],
-            ["har-validator", "npm:5.1.3"],
-            ["http-signature", "npm:1.2.0"],
-            ["is-typedarray", "npm:1.0.0"],
-            ["isstream", "npm:0.1.2"],
-            ["json-stringify-safe", "npm:5.0.1"],
-            ["mime-types", "npm:2.1.26"],
-            ["oauth-sign", "npm:0.9.0"],
-            ["performance-now", "npm:2.1.0"],
-            ["qs", "npm:6.5.2"],
-            ["safe-buffer", "npm:5.2.0"],
-            ["tough-cookie", "npm:2.4.3"],
-            ["tunnel-agent", "npm:0.6.0"],
-            ["uuid", "npm:3.3.3"]
-          ],
-          "linkType": "HARD",
-        }],
         ["npm:2.88.2", {
           "packageLocation": "./.yarn/cache/request-npm-2.88.2-f4a57c72c4-7a74841f30.zip/node_modules/request/",
           "packageDependencies": [
@@ -9853,15 +9841,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["assert-plus", "npm:1.0.0"],
             ["core-util-is", "npm:1.0.2"],
             ["extsprintf", "npm:1.4.0"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["very-fast-args", [
-        ["npm:1.1.0", {
-          "packageLocation": "./.yarn/cache/very-fast-args-npm-1.1.0-3fea1bf52b-653c5793b0.zip/node_modules/very-fast-args/",
-          "packageDependencies": [
-            ["very-fast-args", "npm:1.1.0"]
           ],
           "linkType": "HARD",
         }]
