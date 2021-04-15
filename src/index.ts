@@ -1,6 +1,4 @@
 import nock from 'nock'
-import * as request from 'superagent'
-import url from 'url'
 import { createJWKS, createKeyPair, signJwt } from './tools'
 export interface JWKSMock {
   start(): void
@@ -18,15 +16,15 @@ const createJWKSMock = (
     ...keypair,
     jwksOrigin,
   })
-  let jwksUrlNock: nock.Scope
+  let jwksUrlInterceptor: nock.Interceptor
   return {
     start() {
-      jwksUrlNock = nock(jwksOrigin).get(jwksPath).reply(200, JWKS).persist()
+      jwksUrlInterceptor = nock(jwksOrigin).get(jwksPath)
+      jwksUrlInterceptor.reply(200, JWKS).persist()
     },
     async stop() {
-      if (jwksUrlNock) {
-        jwksUrlNock.persist(false)
-        await request.get(url.resolve(jwksOrigin, jwksPath)) // Hack to remove the last nock.
+      if (jwksUrlInterceptor) {
+        nock.removeInterceptor(jwksUrlInterceptor)
       }
     },
     kid() {
