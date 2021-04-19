@@ -73,11 +73,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["node-rsa", "npm:0.4.2"],
             ["pify", "npm:5.0.0"],
             ["prettier", "npm:2.1.2"],
-            ["superagent", "npm:3.8.3"],
             ["supertest", "npm:3.4.2"],
             ["ts-node", "npm:7.0.1"],
-            ["typescript", "patch:typescript@npm%3A4.0.3#builtin<compat/typescript>::version=4.0.3&hash=a45b0e"],
-            ["url", "npm:0.11.0"]
+            ["typescript", "patch:typescript@npm%3A4.0.3#builtin<compat/typescript>::version=4.0.3&hash=a45b0e"]
           ],
           "linkType": "SOFT",
         }]
@@ -7492,11 +7490,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["node-rsa", "npm:0.4.2"],
             ["pify", "npm:5.0.0"],
             ["prettier", "npm:2.1.2"],
-            ["superagent", "npm:3.8.3"],
             ["supertest", "npm:3.4.2"],
             ["ts-node", "npm:7.0.1"],
-            ["typescript", "patch:typescript@npm%3A4.0.3#builtin<compat/typescript>::version=4.0.3&hash=a45b0e"],
-            ["url", "npm:0.11.0"]
+            ["typescript", "patch:typescript@npm%3A4.0.3#builtin<compat/typescript>::version=4.0.3&hash=a45b0e"]
           ],
           "linkType": "SOFT",
         }]
@@ -8275,13 +8271,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["punycode", [
-        ["npm:1.3.2", {
-          "packageLocation": "./.yarn/cache/punycode-npm-1.3.2-3727a84cea-e67fddacd8.zip/node_modules/punycode/",
-          "packageDependencies": [
-            ["punycode", "npm:1.3.2"]
-          ],
-          "linkType": "HARD",
-        }],
         ["npm:1.4.1", {
           "packageLocation": "./.yarn/cache/punycode-npm-1.4.1-be4c23e6d2-5ce1e044ce.zip/node_modules/punycode/",
           "packageDependencies": [
@@ -8309,15 +8298,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/qs-npm-6.9.1-8d42e91c8c-acc162048d.zip/node_modules/qs/",
           "packageDependencies": [
             ["qs", "npm:6.9.1"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["querystring", [
-        ["npm:0.2.0", {
-          "packageLocation": "./.yarn/cache/querystring-npm-0.2.0-421b870c92-1e76c51462.zip/node_modules/querystring/",
-          "packageDependencies": [
-            ["querystring", "npm:0.2.0"]
           ],
           "linkType": "HARD",
         }]
@@ -9743,17 +9723,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/urix-npm-0.1.0-bd5e55a13a-6bdfca4e7f.zip/node_modules/urix/",
           "packageDependencies": [
             ["urix", "npm:0.1.0"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["url", [
-        ["npm:0.11.0", {
-          "packageLocation": "./.yarn/cache/url-npm-0.11.0-32ce15acfb-537f785b16.zip/node_modules/url/",
-          "packageDependencies": [
-            ["url", "npm:0.11.0"],
-            ["punycode", "npm:1.3.2"],
-            ["querystring", "npm:0.2.0"]
           ],
           "linkType": "HARD",
         }]
