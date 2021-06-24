@@ -1,8 +1,13 @@
-version: 2
+version: 2.1
 jobs:
   build:
     docker:
-      - image: node:12-alpine
+      - image: node:16-alpine
+    parameters:
+      nock-version:
+        description: "nock version"
+        default: "13"
+        type: string
     steps:
       - checkout
       - run:
@@ -11,9 +16,26 @@ jobs:
       - run:
           name: test
           command: yarn test
+          environment:
+            NOCK_VERSION: << parameters.nock-version >>
+  lint:
+    docker:
+      - image: node:16-alpine
+    steps:
+      - checkout
       - run:
           name: linting
           command: yarn lint
       - run:
           name: prettier check
           command: yarn format --check
+
+workflows:
+  version: 2
+  main:
+    jobs:
+      - build:
+          matrix:
+            parameters:
+              nock-version: ["11", "12", "13"]
+      - lint
