@@ -68,7 +68,19 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["koa", "npm:2.11.0"],
             ["koa-jwt", "npm:3.6.0"],
             ["koa-router", "npm:7.4.0"],
-            ["nock", "npm:11.7.2"],
+            ["nock", "npm:13.1.0"],
+            ["nock-11", [
+              "nock",
+              "npm:11.9.1"
+            ]],
+            ["nock-12", [
+              "nock",
+              "npm:12.0.3"
+            ]],
+            ["nock-13", [
+              "nock",
+              "npm:13.1.0"
+            ]],
             ["node-forge", "npm:0.10.0"],
             ["node-rsa", "npm:0.4.2"],
             ["pify", "npm:5.0.0"],
@@ -7100,6 +7112,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["lodash", "npm:4.17.20"]
           ],
           "linkType": "HARD",
+        }],
+        ["npm:4.17.21", {
+          "packageLocation": "./.yarn/cache/lodash-npm-4.17.21-6382451519-4983720b9a.zip/node_modules/lodash/",
+          "packageDependencies": [
+            ["lodash", "npm:4.17.21"]
+          ],
+          "linkType": "HARD",
         }]
       ]],
       ["lodash.clonedeep", [
@@ -7170,6 +7189,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/lodash.once-npm-4.1.1-d8ba329ead-236e00ca5f.zip/node_modules/lodash.once/",
           "packageDependencies": [
             ["lodash.once", "npm:4.1.1"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["lodash.set", [
+        ["npm:4.3.2", {
+          "packageLocation": "./.yarn/cache/lodash.set-npm-4.3.2-7586c942c2-4dfedacae1.zip/node_modules/lodash.set/",
+          "packageDependencies": [
+            ["lodash.set", "npm:4.3.2"]
           ],
           "linkType": "HARD",
         }]
@@ -7441,6 +7469,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "HARD",
         }],
+        ["npm:0.5.5", {
+          "packageLocation": "./.yarn/cache/mkdirp-npm-0.5.5-6bc76534fc-9dd9792e89.zip/node_modules/mkdirp/",
+          "packageDependencies": [
+            ["mkdirp", "npm:0.5.5"],
+            ["minimist", "npm:1.2.5"]
+          ],
+          "linkType": "HARD",
+        }],
         ["npm:1.0.4", {
           "packageLocation": "./.yarn/cache/mkdirp-npm-1.0.4-37f6ef56b9-1aa3a6a2d7.zip/node_modules/mkdirp/",
           "packageDependencies": [
@@ -7485,7 +7521,19 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["koa", "npm:2.11.0"],
             ["koa-jwt", "npm:3.6.0"],
             ["koa-router", "npm:7.4.0"],
-            ["nock", "npm:11.7.2"],
+            ["nock", "npm:13.1.0"],
+            ["nock-11", [
+              "nock",
+              "npm:11.9.1"
+            ]],
+            ["nock-12", [
+              "nock",
+              "npm:12.0.3"
+            ]],
+            ["nock-13", [
+              "nock",
+              "npm:13.1.0"
+            ]],
             ["node-forge", "npm:0.10.0"],
             ["node-rsa", "npm:0.4.2"],
             ["pify", "npm:5.0.0"],
@@ -7561,14 +7609,36 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["nock", [
-        ["npm:11.7.2", {
-          "packageLocation": "./.yarn/cache/nock-npm-11.7.2-2fc5c66f84-89de49c99a.zip/node_modules/nock/",
+        ["npm:11.9.1", {
+          "packageLocation": "./.yarn/cache/nock-npm-11.9.1-6b45382e03-4cbbe7ee50.zip/node_modules/nock/",
           "packageDependencies": [
-            ["nock", "npm:11.7.2"],
+            ["nock", "npm:11.9.1"],
             ["debug", "virtual:2395052be89e7cb60a9e457720a81c812457953cc762643b2dddf96818b24121417de8a1244c250c72573d9df94e1c92243e353c6f07da586de517860c3c8e2e#npm:4.1.1"],
             ["json-stringify-safe", "npm:5.0.1"],
-            ["lodash", "npm:4.17.20"],
-            ["mkdirp", "npm:0.5.1"],
+            ["lodash", "npm:4.17.21"],
+            ["mkdirp", "npm:0.5.5"],
+            ["propagate", "npm:2.0.1"]
+          ],
+          "linkType": "HARD",
+        }],
+        ["npm:12.0.3", {
+          "packageLocation": "./.yarn/cache/nock-npm-12.0.3-6acd5fc71e-135b0be475.zip/node_modules/nock/",
+          "packageDependencies": [
+            ["nock", "npm:12.0.3"],
+            ["debug", "virtual:2395052be89e7cb60a9e457720a81c812457953cc762643b2dddf96818b24121417de8a1244c250c72573d9df94e1c92243e353c6f07da586de517860c3c8e2e#npm:4.1.1"],
+            ["json-stringify-safe", "npm:5.0.1"],
+            ["lodash", "npm:4.17.21"],
+            ["propagate", "npm:2.0.1"]
+          ],
+          "linkType": "HARD",
+        }],
+        ["npm:13.1.0", {
+          "packageLocation": "./.yarn/cache/nock-npm-13.1.0-51764cfbd0-a0191f0ed3.zip/node_modules/nock/",
+          "packageDependencies": [
+            ["nock", "npm:13.1.0"],
+            ["debug", "virtual:2395052be89e7cb60a9e457720a81c812457953cc762643b2dddf96818b24121417de8a1244c250c72573d9df94e1c92243e353c6f07da586de517860c3c8e2e#npm:4.1.1"],
+            ["json-stringify-safe", "npm:5.0.1"],
+            ["lodash.set", "npm:4.3.2"],
             ["propagate", "npm:2.0.1"]
           ],
           "linkType": "HARD",

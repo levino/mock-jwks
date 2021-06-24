@@ -5464,6 +5464,13 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
+"lodash.set@npm:^4.3.2":
+  version: 4.3.2
+  resolution: "lodash.set@npm:4.3.2"
+  checksum: 4dfedacae1c1cf86385a2b6e30ba538f06c90d703a0abd83a11432d80ec24b4016fe27359cdc0554a02a31a468789cbb282801dd755e54581cf0295477e2341d
+  languageName: node
+  linkType: hard
+
 "lodash.sortby@npm:^4.7.0":
   version: 4.7.0
   resolution: "lodash.sortby@npm:4.7.0"
@@ -5471,7 +5478,14 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
-"lodash@npm:^4.17.13, lodash@npm:^4.17.14, lodash@npm:^4.17.15, lodash@npm:^4.17.19":
+"lodash@npm:^4.17.13":
+  version: 4.17.21
+  resolution: "lodash@npm:4.17.21"
+  checksum: 4983720b9abca930a4a46f18db163d7dad8dd00dbed6db0cc7b499b33b717cce69f80928b27bbb1ff2cbd3b19d251ee90669a8b5ea466072ca81c2ebe91e7468
+  languageName: node
+  linkType: hard
+
+"lodash@npm:^4.17.14, lodash@npm:^4.17.15, lodash@npm:^4.17.19":
   version: 4.17.20
   resolution: "lodash@npm:4.17.20"
   checksum: c62101d2500c383b5f174a7e9e6fe8098149ddd6e9ccfa85f36d4789446195f5c4afd3cfba433026bcaf3da271256566b04a2bf2618e5a39f6e67f8c12030cb6
@@ -5700,7 +5714,18 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
-"mkdirp@npm:^0.5.0, mkdirp@npm:^0.5.1":
+"mkdirp@npm:^0.5.0":
+  version: 0.5.5
+  resolution: "mkdirp@npm:0.5.5"
+  dependencies:
+    minimist: ^1.2.5
+  bin:
+    mkdirp: bin/cmd.js
+  checksum: 9dd9792e891927b14ca02226dbe1daeb717b9517a001620d5e2658bbc72c5e4f06887b6cbcbb60595fa5a56e701073cf250f1ed69c1988a6b89faf9fd6a4d049
+  languageName: node
+  linkType: hard
+
+"mkdirp@npm:^0.5.1":
   version: 0.5.1
   resolution: "mkdirp@npm:0.5.1"
   dependencies:
@@ -5755,7 +5780,10 @@ fsevents@^2.1.2:
     koa: ^2.5.0
     koa-jwt: ^3.5.1
     koa-router: ^7.4.0
-    nock: ^11.7.2
+    nock: ^13.1.0
+    nock-11: "npm:nock@^11"
+    nock-12: "npm:nock@^12"
+    nock-13: "npm:nock@^13"
     node-forge: ^0.10.0
     node-rsa: ^0.4.2
     pify: ^5.0.0
@@ -5764,7 +5792,7 @@ fsevents@^2.1.2:
     ts-node: ^7.0.1
     typescript: ^4.0.3
   peerDependencies:
-    nock: ^11
+    nock: ">=11 <=13"
   languageName: unknown
   linkType: soft
 
@@ -5822,16 +5850,40 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
-"nock@npm:^11.7.2":
-  version: 11.7.2
-  resolution: "nock@npm:11.7.2"
+"nock-11@npm:nock@^11":
+  version: 11.9.1
+  resolution: "nock@npm:11.9.1"
   dependencies:
     debug: ^4.1.0
     json-stringify-safe: ^5.0.1
     lodash: ^4.17.13
     mkdirp: ^0.5.0
     propagate: ^2.0.0
-  checksum: 89de49c99a9404edf3fe3adbd62f63393b5198b8eb1a048cd28c27ead58f13c785552025497089841fddc28b8f2f50813f28763c3ad306aa316e8f7bf2ea2360
+  checksum: 4cbbe7ee50d7a1514c60dfdbd40e10b9ec51035b8f0282dbb1bdd795ae2dd6d8612713b5edcf7fb1034f2d6b4449f672be71880702f1f5d36e06b0e718731ffc
+  languageName: node
+  linkType: hard
+
+"nock-12@npm:nock@^12":
+  version: 12.0.3
+  resolution: "nock@npm:12.0.3"
+  dependencies:
+    debug: ^4.1.0
+    json-stringify-safe: ^5.0.1
+    lodash: ^4.17.13
+    propagate: ^2.0.0
+  checksum: 135b0be475ffd94b5cb1043e3d2de9061084d83c16e295c787eacf671682bf57c41df121efb17eb7bd4e8f5ef54008989d622e352a9ad57f5cacfdfd28b46894
+  languageName: node
+  linkType: hard
+
+"nock-13@npm:nock@^13, nock@npm:^13.1.0":
+  version: 13.1.0
+  resolution: "nock@npm:13.1.0"
+  dependencies:
+    debug: ^4.1.0
+    json-stringify-safe: ^5.0.1
+    lodash.set: ^4.3.2
+    propagate: ^2.0.0
+  checksum: a0191f0ed331361dc7ce65c92e6aa03599b29863f25b85b8485f5897a8e9a269adb8203097debe090be2ca01c3ca40aa68368e36b59659ed85a3e53bb6c32b16
   languageName: node
   linkType: hard
 
