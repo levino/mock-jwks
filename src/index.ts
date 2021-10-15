@@ -30,8 +30,8 @@ const createJWKSMock = (
     kid() {
       return JWKS.keys[0].kid
     },
-    token(token = {}) {
-      return signJwt(keypair.privateKey, token, this.kid())
+    token(token = {}, typ?: string) {
+      return signJwt(keypair.privateKey, token, this.kid(), typ)
     },
   }
 }

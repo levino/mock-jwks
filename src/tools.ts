@@ -157,12 +157,13 @@ export interface JwtPayload {
 export const signJwt = (
   privateKey: forge.pki.PrivateKey,
   jwtPayload: JwtPayload,
-  kid?: string
+  kid?: string,
+  typ?: string,
 ) => {
   const bufferedJwt = Buffer.from(JSON.stringify(jwtPayload))
   return sign(bufferedJwt, forge.pki.privateKeyToPem(privateKey), {
     algorithm: 'RS256',
-    header: { kid },
+    header: { kid, typ },
   })
 }
 
