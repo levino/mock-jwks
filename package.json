@@ -16,6 +16,9 @@
   "files": [
     "build"
   ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
   "contributors": [
     {
       "email": "post@levinkeller.de",
