@@ -1,11 +1,10 @@
 {
   "compilerOptions": {
-    "outDir": "build",
     "moduleResolution": "node",
     "lib": ["es6", "dom", "esnext"],
     "strict": true,
     "esModuleInterop": true,
-    "noUnusedLocals": true
-  },
-  "files": ["src/index.ts"]
+    "noUnusedLocals": true,
+    "allowJs": true
+  }
 }
