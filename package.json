@@ -1,7 +1,7 @@
 {
   "name": "mock-jwks",
   "description": "A tool to mock a JWKS for development of microservices who consume jwts signed with RSA",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "main": "build/index.js",
   "scripts": {
     "build": "tsc -p tsconfig.build.json",

@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.5](https://github.com/levino/mock-jwks/compare/v1.0.4...v1.0.5) (2022-10-16)
+
+
+### Miscellaneous Chores
+
+* use correct secret for npm publish ([78866a8](https://github.com/levino/mock-jwks/commit/78866a81ce98c986923ef35128f508b924450ebe))
+
 ## [1.0.4](https://github.com/levino/mock-jwks/compare/v0.3.3...v1.0.4) (2022-10-16)
 
 
