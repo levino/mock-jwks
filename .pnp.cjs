@@ -50,6 +50,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["base64-url", "npm:2.3.3"],\
             ["eslint", "npm:8.22.0"],\
             ["eslint-config-prettier", "virtual:20b17bebd789dc1b64d4251582dae484bf13d57f4e18b2fcfca46ba9d108a92f5fe4539a81cfebfc95c6201759f2dc50f47f4607640d21202dc4062f8daecc90#npm:8.5.0"],\
+            ["husky", "npm:8.0.1"],\
             ["jest", "virtual:20b17bebd789dc1b64d4251582dae484bf13d57f4e18b2fcfca46ba9d108a92f5fe4539a81cfebfc95c6201759f2dc50f47f4607640d21202dc4062f8daecc90#npm:29.2.0"],\
             ["jsonwebtoken", "npm:8.5.1"],\
             ["jwks-rsa", "npm:2.1.5"],\
@@ -5626,6 +5627,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["husky", [\
+        ["npm:8.0.1", {\
+          "packageLocation": "./.yarn/cache/husky-npm-8.0.1-85fede8470-943a73a13d.zip/node_modules/husky/",\
+          "packageDependencies": [\
+            ["husky", "npm:8.0.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["iconv-lite", [\
         ["npm:0.6.3", {\
           "packageLocation": "./.yarn/cache/iconv-lite-npm-0.6.3-24b8aae27e-3f60d47a5c.zip/node_modules/iconv-lite/",\
@@ -7151,6 +7161,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["base64-url", "npm:2.3.3"],\
             ["eslint", "npm:8.22.0"],\
             ["eslint-config-prettier", "virtual:20b17bebd789dc1b64d4251582dae484bf13d57f4e18b2fcfca46ba9d108a92f5fe4539a81cfebfc95c6201759f2dc50f47f4607640d21202dc4062f8daecc90#npm:8.5.0"],\
+            ["husky", "npm:8.0.1"],\
             ["jest", "virtual:20b17bebd789dc1b64d4251582dae484bf13d57f4e18b2fcfca46ba9d108a92f5fe4539a81cfebfc95c6201759f2dc50f47f4607640d21202dc4062f8daecc90#npm:29.2.0"],\
             ["jsonwebtoken", "npm:8.5.1"],\
             ["jwks-rsa", "npm:2.1.5"],\

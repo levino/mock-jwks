@@ -17,6 +17,7 @@ const createJWKSMock = (
     jwksOrigin,
   })
   let jwksUrlInterceptor: nock.Interceptor
+
   const kid = () => JWKS.keys[0].kid
 
   const start = () => {
