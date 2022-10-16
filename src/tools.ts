@@ -161,8 +161,7 @@ export const signJwt = (
 ) => {
   const bufferedJwt = Buffer.from(JSON.stringify(jwtPayload))
   return sign(bufferedJwt, forge.pki.privateKeyToPem(privateKey), {
-    algorithm: 'RS256',
-    header: { kid },
+    header: { kid, alg: 'RS256' },
   })
 }
 
