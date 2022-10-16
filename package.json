@@ -4,7 +4,7 @@
   "version": "0.3.2",
   "main": "build/index.js",
   "scripts": {
-    "build": "tsc -d -p tsconfig.json",
+    "build": "tsc -p tsconfig.build.json",
     "test": "jest",
     "clean": "rm -rf build",
     "prepack": "yarn clean && yarn build",
