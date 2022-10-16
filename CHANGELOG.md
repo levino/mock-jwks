@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.4](https://github.com/levino/mock-jwks/compare/v0.3.3...v1.0.4) (2022-10-16)
+
+
+### Miscellaneous Chores
+
+* fix publish script ([9a654d8](https://github.com/levino/mock-jwks/commit/9a654d814e012c521912c08b3ac0961a6c979010))
+
 ## [0.3.3](https://github.com/levino/mock-jwks/compare/v0.3.2...v0.3.3) (2022-10-16)
 
 
