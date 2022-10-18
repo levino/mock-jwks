@@ -1,4 +1,4 @@
-import { verify } from 'jsonwebtoken'
+import { verify, decode } from 'jsonwebtoken'
 import jwksClient, { CertSigningKey, RsaSigningKey } from 'jwks-rsa'
 import createAuth0Mock from './index'
 import pify from 'pify'
@@ -41,4 +41,50 @@ describe('Tests for JWKS being correctly consumed by jwks-rsa client', () => {
       verify(auth0Mock.token({ iat: 123, exp: 64779973980000 }), signingKey)
     ).not.toThrow()
   })
+  test('token payload is correctly encoded', () =>
+    expect(
+      decode(
+        auth0Mock.token({
+          nickname: 'jest.jester',
+          name: 'jest@itest.com',
+          updated_at: '2022-10-09T11:36:37.582Z',
+          email: 'jest@itest.com',
+          iss: 'https://jest.au.auth0.com/',
+          sub: 'auth0|633c191bd579670011607e98',
+          aud: 'TWqR7DTIezpfW82qXFt0lchMXixIpFLQ',
+          iat: 1665315399,
+          exp: 5665351399,
+          sid: 'lBZb4EUN7LpXu7Urp-lRQ3qnCzDVBf23',
+          nonce: 'RzZtVlVTT1dqZ1lvWFpSYzFnbnB2RXZkdWcuNDJQRkREUH5KMUVJNWdMSA==',
+          roles: ['admin'],
+          permissions: [
+            'create:all',
+            'read:all',
+            'write:all',
+            'update:all',
+            'delete:all',
+          ],
+        })
+      )
+    ).toEqual({
+      nickname: 'jest.jester',
+      name: 'jest@itest.com',
+      updated_at: '2022-10-09T11:36:37.582Z',
+      email: 'jest@itest.com',
+      iss: 'https://jest.au.auth0.com/',
+      sub: 'auth0|633c191bd579670011607e98',
+      aud: 'TWqR7DTIezpfW82qXFt0lchMXixIpFLQ',
+      iat: 1665315399,
+      exp: 5665351399,
+      sid: 'lBZb4EUN7LpXu7Urp-lRQ3qnCzDVBf23',
+      nonce: 'RzZtVlVTT1dqZ1lvWFpSYzFnbnB2RXZkdWcuNDJQRkREUH5KMUVJNWdMSA==',
+      roles: ['admin'],
+      permissions: [
+        'create:all',
+        'read:all',
+        'write:all',
+        'update:all',
+        'delete:all',
+      ],
+    }))
 })
