@@ -1,16 +1,11 @@
+import { JwtPayload } from 'jsonwebtoken'
 import nock from 'nock'
 import { createJWKS, createKeyPair, signJwt } from './tools'
-export interface JWKSMock {
-  start(): void
-  stop(): void
-  kid(): string
-  token(token: Record<string, unknown>): string
-}
 
 const createJWKSMock = (
   jwksOrigin: string,
   jwksPath = '/.well-known/jwks.json'
-): JWKSMock => {
+) => {
   const keypair = createKeyPair()
   const JWKS = createJWKS({
     ...keypair,
@@ -30,9 +25,8 @@ const createJWKSMock = (
     }
   }
 
-  const token = (token = {}) => {
-    return signJwt(keypair.privateKey, token, kid())
-  }
+  const token = (token: JwtPayload = {}) =>
+    signJwt(keypair.privateKey, token, kid())
 
   return {
     start,
