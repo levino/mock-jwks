@@ -1,6 +1,6 @@
 import * as base64url from 'base64-url'
 import { createHash } from 'crypto'
-import { sign } from 'jsonwebtoken'
+import { sign, JwtPayload } from 'jsonwebtoken'
 import * as forge from 'node-forge'
 import NodeRSA from 'node-rsa'
 
@@ -144,26 +144,14 @@ export const createKeyPair = () => {
   }
 }
 
-export interface JwtPayload {
-  sub?: string
-  iss?: string
-  aud?: string
-  exp?: string
-  nbf?: string
-  iat?: string
-  jti?: string
-}
-
 export const signJwt = (
   privateKey: forge.pki.PrivateKey,
   jwtPayload: JwtPayload,
   kid?: string
-) => {
-  const bufferedJwt = Buffer.from(JSON.stringify(jwtPayload))
-  return sign(bufferedJwt, forge.pki.privateKeyToPem(privateKey), {
+) =>
+  sign(jwtPayload, forge.pki.privateKeyToPem(privateKey), {
     header: { kid, alg: 'RS256' },
   })
-}
 
 // Below taken from https://coolaj86.com/articles/bigints-and-base64-in-javascript/
 // Binary string to ASCII (base64)

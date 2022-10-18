@@ -24,4 +24,21 @@ describe('Tests for JWKS being correctly consumed by jwks-rsa client', () => {
     )
     expect(verify(auth0Mock.token({}), signingKey)).toBeTruthy()
   })
+  test('iat and exp are numbers', async () => {
+    const key = await pify(client.getSigningKey)(auth0Mock.kid())
+    const signingKey = String(
+      (key as CertSigningKey).publicKey || (key as RsaSigningKey).rsaPublicKey
+    )
+    expect(() =>
+      // @ts-expect-error types should prevent using a string for iat
+      verify(auth0Mock.token({ iat: '123' }), signingKey)
+    ).toThrowError('iat')
+    expect(() =>
+      // @ts-expect-error types should prevent using a string for exp
+      verify(auth0Mock.token({ exp: '123' }), signingKey)
+    ).toThrowError('exp')
+    expect(() =>
+      verify(auth0Mock.token({ iat: 123, exp: 64779973980000 }), signingKey)
+    ).not.toThrow()
+  })
 })
