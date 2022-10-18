@@ -28,7 +28,7 @@ test("'Token should verify against the PKI'", async () => {
       'update:all',
       'delete:all',
     ],
-  } as Record<string, unknown>
+  }
 
   const token = signJwt(keyPair.privateKey, claims)
   const decoded = verify(
