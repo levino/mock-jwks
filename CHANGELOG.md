@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.6](https://github.com/levino/mock-jwks/compare/v1.0.5...v1.0.6) (2022-10-18)
+
+
+### Bug Fixes
+
+* disallow using numbers for "iat" and "exp" ([95f0777](https://github.com/levino/mock-jwks/commit/95f0777d4c06a31b7221c28a91abc65470ac55bf)), closes [#79](https://github.com/levino/mock-jwks/issues/79)
+
 ## [1.0.5](https://github.com/levino/mock-jwks/compare/v1.0.4...v1.0.5) (2022-10-16)
 
 
