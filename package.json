@@ -10,7 +10,7 @@
     "prepack": "yarn clean && yarn build",
     "postpack": "yarn clean",
     "lint": "eslint 'src/**/*.ts'",
-    "format": "prettier 'src/**/*.ts'",
+    "format": "prettier 'src/**/*.ts' --write",
     "check:code": "tsc --noEmit"
   },
   "files": [
