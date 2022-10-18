@@ -1,6 +1,6 @@
 import { verify } from 'jsonwebtoken'
 import { pki } from 'node-forge'
-import { createKeyPair, signJwt } from './tools'
+import { createKeyPair, signJwt } from '../src/tools'
 
 test("'Token should verify against the PKI'", async () => {
   const keyPair = createKeyPair()
@@ -31,15 +31,10 @@ test("'Token should verify against the PKI'", async () => {
   }
 
   const token = signJwt(keyPair.privateKey, claims)
-  const decoded = verify(
-    token,
-    pki.publicKeyToPem(keyPair.publicKey)
-  ) as Record<string, unknown>
+  const decoded = verify(token, pki.publicKeyToPem(keyPair.publicKey))
 
-  const namespaced_roles = decoded[
-    'https://jest.au.auth0.com/roles'
-  ] as string[]
-  const permissions = decoded['permissions'] as string[]
+  const namespaced_roles = decoded['https://jest.au.auth0.com/roles']
+  const permissions = decoded['permissions']
 
   expect(decoded).toBeTruthy()
 
