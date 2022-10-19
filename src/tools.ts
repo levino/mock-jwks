@@ -1,6 +1,7 @@
 import * as base64url from 'base64-url'
 import { createHash } from 'crypto'
 import { sign, JwtPayload } from 'jsonwebtoken'
+export type { JwtPayload } from 'jsonwebtoken'
 import * as forge from 'node-forge'
 import NodeRSA from 'node-rsa'
 

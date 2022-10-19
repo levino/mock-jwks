@@ -36,4 +36,6 @@ const createJWKSMock = (
   }
 }
 
+export type JWKSMock = ReturnType<typeof createJWKSMock>
+
 export default createJWKSMock
