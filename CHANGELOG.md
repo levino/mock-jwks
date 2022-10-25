@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.8](https://github.com/levino/mock-jwks/compare/v1.0.7...v1.0.8) (2022-10-25)
+
+
+### Bug Fixes
+
+* typo ([19ac2a0](https://github.com/levino/mock-jwks/commit/19ac2a0360666163254789416c38ed71964813b9))
+
 ## [1.0.7](https://github.com/levino/mock-jwks/compare/v1.0.6...v1.0.7) (2022-10-25)
 
 
