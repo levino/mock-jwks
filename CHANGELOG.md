@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.7](https://github.com/levino/mock-jwks/compare/v1.0.6...v1.0.7) (2022-10-25)
+
+
+### Bug Fixes
+
+* export JWKSMock interface and JwtPayload interface for convenience ([eea4b2e](https://github.com/levino/mock-jwks/commit/eea4b2e460c8167a35b78dceaed5c68e26fff54c)), closes [#83](https://github.com/levino/mock-jwks/issues/83)
+
 ## [1.0.6](https://github.com/levino/mock-jwks/compare/v1.0.5...v1.0.6) (2022-10-18)
 
 
