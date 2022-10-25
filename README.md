@@ -1,6 +1,6 @@
 # mock-jwks
 
-A tool to mock a JWKS authentication service for development of microservices CONSUMING authentication and authorization jwts
+A tool to mock a JWKS authentication service for development of microservices CONSUMING authentication and authorization jwts.
 
 ## Background
 
