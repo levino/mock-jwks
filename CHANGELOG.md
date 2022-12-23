@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.9](https://github.com/levino/mock-jwks/compare/v1.0.8...v1.0.9) (2022-12-23)
+
+
+### Bug Fixes
+
+* upgrade `jsonwebtoken` ([4976895](https://github.com/levino/mock-jwks/commit/4976895a17407a4418854e08d67f060eea2d6696))
+
 ## [1.0.8](https://github.com/levino/mock-jwks/compare/v1.0.7...v1.0.8) (2022-10-25)
 
 
