@@ -52,7 +52,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-config-prettier", "virtual:20b17bebd789dc1b64d4251582dae484bf13d57f4e18b2fcfca46ba9d108a92f5fe4539a81cfebfc95c6201759f2dc50f47f4607640d21202dc4062f8daecc90#npm:8.5.0"],\
             ["husky", "npm:8.0.1"],\
             ["jest", "virtual:20b17bebd789dc1b64d4251582dae484bf13d57f4e18b2fcfca46ba9d108a92f5fe4539a81cfebfc95c6201759f2dc50f47f4607640d21202dc4062f8daecc90#npm:29.2.0"],\
-            ["jsonwebtoken", "npm:8.5.1"],\
+            ["jsonwebtoken", "npm:9.0.0"],\
             ["jwks-rsa", "npm:2.1.5"],\
             ["koa", "npm:2.13.4"],\
             ["koa-jwt", "npm:4.0.3"],\
@@ -6541,6 +6541,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["semver", "npm:5.7.1"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:9.0.0", {\
+          "packageLocation": "./.yarn/cache/jsonwebtoken-npm-9.0.0-36fd1594c0-b9181cecf9.zip/node_modules/jsonwebtoken/",\
+          "packageDependencies": [\
+            ["jsonwebtoken", "npm:9.0.0"],\
+            ["jws", "npm:3.2.2"],\
+            ["lodash", "npm:4.17.21"],\
+            ["ms", "npm:2.1.3"],\
+            ["semver", "npm:7.3.8"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["jwa", [\
@@ -7163,7 +7174,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-config-prettier", "virtual:20b17bebd789dc1b64d4251582dae484bf13d57f4e18b2fcfca46ba9d108a92f5fe4539a81cfebfc95c6201759f2dc50f47f4607640d21202dc4062f8daecc90#npm:8.5.0"],\
             ["husky", "npm:8.0.1"],\
             ["jest", "virtual:20b17bebd789dc1b64d4251582dae484bf13d57f4e18b2fcfca46ba9d108a92f5fe4539a81cfebfc95c6201759f2dc50f47f4607640d21202dc4062f8daecc90#npm:29.2.0"],\
-            ["jsonwebtoken", "npm:8.5.1"],\
+            ["jsonwebtoken", "npm:9.0.0"],\
             ["jwks-rsa", "npm:2.1.5"],\
             ["koa", "npm:2.13.4"],\
             ["koa-jwt", "npm:4.0.3"],\
