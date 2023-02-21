@@ -1,0 +1,6 @@
+version: 2
+updates:
+  - commit-message:
+      prefix: fix
+      prefix-development: chore
+      include: scope
