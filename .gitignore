@@ -57,6 +57,7 @@ jspm_packages/
 
 # IDE settings
 .idea
+.vscode
 
 build
 .yarn/*
