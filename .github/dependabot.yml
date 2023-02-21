@@ -1,6 +1,10 @@
 version: 2
 updates:
-  - commit-message:
+  - package-ecosystem: npm
+    directory: "/"
+    schedule:
+      interval: weekly
+    commit-message:
       prefix: fix
       prefix-development: chore
       include: scope
