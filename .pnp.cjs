@@ -69,7 +69,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["node-forge", "npm:1.3.1"],\
             ["node-rsa", "npm:1.1.1"],\
             ["pify", "npm:5.0.0"],\
-            ["prettier", "npm:2.7.1"],\
+            ["prettier", "npm:2.8.4"],\
             ["supertest", "npm:6.3.0"],\
             ["ts-node", "virtual:20b17bebd789dc1b64d4251582dae484bf13d57f4e18b2fcfca46ba9d108a92f5fe4539a81cfebfc95c6201759f2dc50f47f4607640d21202dc4062f8daecc90#npm:10.9.1"],\
             ["typescript", "patch:typescript@npm%3A4.8.4#~builtin<compat/typescript>::version=4.8.4&hash=701156"]\
@@ -7191,7 +7191,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["node-forge", "npm:1.3.1"],\
             ["node-rsa", "npm:1.1.1"],\
             ["pify", "npm:5.0.0"],\
-            ["prettier", "npm:2.7.1"],\
+            ["prettier", "npm:2.8.4"],\
             ["supertest", "npm:6.3.0"],\
             ["ts-node", "virtual:20b17bebd789dc1b64d4251582dae484bf13d57f4e18b2fcfca46ba9d108a92f5fe4539a81cfebfc95c6201759f2dc50f47f4607640d21202dc4062f8daecc90#npm:10.9.1"],\
             ["typescript", "patch:typescript@npm%3A4.8.4#~builtin<compat/typescript>::version=4.8.4&hash=701156"]\
@@ -7690,10 +7690,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["prettier", [\
-        ["npm:2.7.1", {\
-          "packageLocation": "./.yarn/cache/prettier-npm-2.7.1-d1f40f5e1a-55a4409182.zip/node_modules/prettier/",\
+        ["npm:2.8.4", {\
+          "packageLocation": "./.yarn/cache/prettier-npm-2.8.4-ba64a351d1-c173064bf3.zip/node_modules/prettier/",\
           "packageDependencies": [\
-            ["prettier", "npm:2.7.1"]\
+            ["prettier", "npm:2.8.4"]\
           ],\
           "linkType": "HARD"\
         }]\
