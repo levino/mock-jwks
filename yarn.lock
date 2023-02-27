@@ -2230,12 +2230,12 @@ __metadata:
   linkType: hard
 
 "@types/superagent@npm:*, @types/superagent@npm:^4.1.15":
-  version: 4.1.15
-  resolution: "@types/superagent@npm:4.1.15"
+  version: 4.1.16
+  resolution: "@types/superagent@npm:4.1.16"
   dependencies:
     "@types/cookiejar": "*"
     "@types/node": "*"
-  checksum: 347cd74ef0a29e6b9c6d32253c3fb0dd39a31618b50752f84d36b6a9246237bb6b68c9b436c1f94adabc2df89d9f1939e4782f4c850f98b9c2fe431ad4e565a4
+  checksum: 187d1d32fdafd20b27e81728c46283160d3296ad904d56e0780769cf524105c94cc64bf5bafa170400cf5f1063d30826427de42ff0894d15b54df6d0fa31be4e
   languageName: node
   linkType: hard
 
