@@ -32,7 +32,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/preset-env", "virtual:20b17bebd789dc1b64d4251582dae484bf13d57f4e18b2fcfca46ba9d108a92f5fe4539a81cfebfc95c6201759f2dc50f47f4607640d21202dc4062f8daecc90#npm:7.19.4"],\
             ["@babel/preset-typescript", "virtual:20b17bebd789dc1b64d4251582dae484bf13d57f4e18b2fcfca46ba9d108a92f5fe4539a81cfebfc95c6201759f2dc50f47f4607640d21202dc4062f8daecc90#npm:7.21.0"],\
             ["@types/base64-url", "npm:2.2.0"],\
-            ["@types/chai", "npm:4.3.3"],\
+            ["@types/chai", "npm:4.3.4"],\
             ["@types/chai-as-promised", "npm:7.1.5"],\
             ["@types/jest", "npm:29.1.2"],\
             ["@types/jsonwebtoken", "npm:8.5.9"],\
@@ -3392,10 +3392,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@types/chai", [\
-        ["npm:4.3.3", {\
-          "packageLocation": "./.yarn/cache/@types-chai-npm-4.3.3-b99652dfb5-20cd094753.zip/node_modules/@types/chai/",\
+        ["npm:4.3.4", {\
+          "packageLocation": "./.yarn/cache/@types-chai-npm-4.3.4-fc230290e8-571184967b.zip/node_modules/@types/chai/",\
           "packageDependencies": [\
-            ["@types/chai", "npm:4.3.3"]\
+            ["@types/chai", "npm:4.3.4"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -3405,7 +3405,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-chai-as-promised-npm-7.1.5-c83fbd2182-7c1345c6e3.zip/node_modules/@types/chai-as-promised/",\
           "packageDependencies": [\
             ["@types/chai-as-promised", "npm:7.1.5"],\
-            ["@types/chai", "npm:4.3.3"]\
+            ["@types/chai", "npm:4.3.4"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -7379,7 +7379,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/preset-env", "virtual:20b17bebd789dc1b64d4251582dae484bf13d57f4e18b2fcfca46ba9d108a92f5fe4539a81cfebfc95c6201759f2dc50f47f4607640d21202dc4062f8daecc90#npm:7.19.4"],\
             ["@babel/preset-typescript", "virtual:20b17bebd789dc1b64d4251582dae484bf13d57f4e18b2fcfca46ba9d108a92f5fe4539a81cfebfc95c6201759f2dc50f47f4607640d21202dc4062f8daecc90#npm:7.21.0"],\
             ["@types/base64-url", "npm:2.2.0"],\
-            ["@types/chai", "npm:4.3.3"],\
+            ["@types/chai", "npm:4.3.4"],\
             ["@types/chai-as-promised", "npm:7.1.5"],\
             ["@types/jest", "npm:29.1.2"],\
             ["@types/jsonwebtoken", "npm:8.5.9"],\
