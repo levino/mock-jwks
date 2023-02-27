@@ -57,7 +57,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["koa", "npm:2.13.4"],\
             ["koa-jwt", "npm:4.0.4"],\
             ["koa-router", "npm:12.0.0"],\
-            ["nock", "npm:13.2.9"],\
+            ["nock", "npm:13.3.0"],\
             ["nock-11", [\
               "nock",\
               "npm:11.9.1"\
@@ -3456,7 +3456,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-nock-npm-11.1.0-01ed73d3fc-7da1724ea2.zip/node_modules/@types/nock/",\
           "packageDependencies": [\
             ["@types/nock", "npm:11.1.0"],\
-            ["nock", "npm:13.2.9"]\
+            ["nock", "npm:13.3.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -7308,7 +7308,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["koa", "npm:2.13.4"],\
             ["koa-jwt", "npm:4.0.4"],\
             ["koa-router", "npm:12.0.0"],\
-            ["nock", "npm:13.2.9"],\
+            ["nock", "npm:13.3.0"],\
             ["nock-11", [\
               "nock",\
               "npm:11.9.1"\
@@ -7386,10 +7386,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["npm:13.2.9", {\
-          "packageLocation": "./.yarn/cache/nock-npm-13.2.9-de18b54858-04a2dc60b4.zip/node_modules/nock/",\
+        ["npm:13.3.0", {\
+          "packageLocation": "./.yarn/cache/nock-npm-13.3.0-48c93e5ec9-118d04e95a.zip/node_modules/nock/",\
           "packageDependencies": [\
-            ["nock", "npm:13.2.9"],\
+            ["nock", "npm:13.3.0"],\
             ["debug", "virtual:57e0236e96705379df47070edacd8770cbe7ffeeeceaa4ff2f7da6d406821d9ea9e22a9f8f3a27f7bcc53423c9e923c2c164bb573c79e52a48d774f31275f918#npm:4.3.4"],\
             ["json-stringify-safe", "npm:5.0.1"],\
             ["lodash", "npm:4.17.21"],\
