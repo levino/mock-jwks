@@ -53,7 +53,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["husky", "npm:8.0.1"],\
             ["jest", "virtual:20b17bebd789dc1b64d4251582dae484bf13d57f4e18b2fcfca46ba9d108a92f5fe4539a81cfebfc95c6201759f2dc50f47f4607640d21202dc4062f8daecc90#npm:29.2.0"],\
             ["jsonwebtoken", "npm:9.0.0"],\
-            ["jwks-rsa", "npm:2.1.5"],\
+            ["jwks-rsa", "npm:3.0.1"],\
             ["koa", "npm:2.13.4"],\
             ["koa-jwt", "npm:4.0.4"],\
             ["koa-router", "npm:12.0.0"],\
@@ -3252,15 +3252,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
-      ["@panva/asn1.js", [\
-        ["npm:1.0.0", {\
-          "packageLocation": "./.yarn/cache/@panva-asn1.js-npm-1.0.0-2bf51df722-cb6bcc1918.zip/node_modules/@panva/asn1.js/",\
-          "packageDependencies": [\
-            ["@panva/asn1.js", "npm:1.0.0"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
       ["@sinclair/typebox", [\
         ["npm:0.24.46", {\
           "packageLocation": "./.yarn/cache/@sinclair-typebox-npm-0.24.46-d630eef884-19d708fe93.zip/node_modules/@sinclair/typebox/",\
@@ -3527,6 +3518,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-jsonwebtoken-npm-8.5.9-79c2843a81-33815ab02d.zip/node_modules/@types/jsonwebtoken/",\
           "packageDependencies": [\
             ["@types/jsonwebtoken", "npm:8.5.9"],\
+            ["@types/node", "npm:18.14.2"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:9.0.1", {\
+          "packageLocation": "./.yarn/cache/@types-jsonwebtoken-npm-9.0.1-5f660fdf38-a7f0925e9a.zip/node_modules/@types/jsonwebtoken/",\
+          "packageDependencies": [\
+            ["@types/jsonwebtoken", "npm:9.0.1"],\
             ["@types/node", "npm:18.14.2"]\
           ],\
           "linkType": "HARD"\
@@ -6725,11 +6724,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["jose", [\
-        ["npm:2.0.6", {\
-          "packageLocation": "./.yarn/cache/jose-npm-2.0.6-28b3274077-c13a95f38f.zip/node_modules/jose/",\
+        ["npm:4.13.0", {\
+          "packageLocation": "./.yarn/cache/jose-npm-4.13.0-7aadb67d50-6fc5941252.zip/node_modules/jose/",\
           "packageDependencies": [\
-            ["jose", "npm:2.0.6"],\
-            ["@panva/asn1.js", "npm:1.0.0"]\
+            ["jose", "npm:4.13.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -6849,14 +6847,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["jwks-rsa", [\
-        ["npm:2.1.5", {\
-          "packageLocation": "./.yarn/cache/jwks-rsa-npm-2.1.5-240c5250ab-3fe49f0921.zip/node_modules/jwks-rsa/",\
+        ["npm:3.0.1", {\
+          "packageLocation": "./.yarn/cache/jwks-rsa-npm-3.0.1-395a869533-943bf7792d.zip/node_modules/jwks-rsa/",\
           "packageDependencies": [\
-            ["jwks-rsa", "npm:2.1.5"],\
+            ["jwks-rsa", "npm:3.0.1"],\
             ["@types/express", "npm:4.17.14"],\
-            ["@types/jsonwebtoken", "npm:8.5.9"],\
+            ["@types/jsonwebtoken", "npm:9.0.1"],\
             ["debug", "virtual:29474417206615456729b7a578bf418b358d5457cdcef4bbfee11068b4718e28ceca45b525022e3820e15bd79419301ec7f358c2f28eae1e78ba4bae24d15383#npm:4.3.4"],\
-            ["jose", "npm:2.0.6"],\
+            ["jose", "npm:4.13.0"],\
             ["limiter", "npm:1.1.5"],\
             ["lru-memoizer", "npm:2.1.4"]\
           ],\
@@ -7402,7 +7400,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["husky", "npm:8.0.1"],\
             ["jest", "virtual:20b17bebd789dc1b64d4251582dae484bf13d57f4e18b2fcfca46ba9d108a92f5fe4539a81cfebfc95c6201759f2dc50f47f4607640d21202dc4062f8daecc90#npm:29.2.0"],\
             ["jsonwebtoken", "npm:9.0.0"],\
-            ["jwks-rsa", "npm:2.1.5"],\
+            ["jwks-rsa", "npm:3.0.1"],\
             ["koa", "npm:2.13.4"],\
             ["koa-jwt", "npm:4.0.4"],\
             ["koa-router", "npm:12.0.0"],\
