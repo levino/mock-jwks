@@ -42,7 +42,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/node-rsa", "npm:1.1.1"],\
             ["@types/normalize-url", "npm:4.2.0"],\
             ["@types/pify", "npm:5.0.1"],\
-            ["@types/superagent", "npm:4.1.15"],\
+            ["@types/superagent", "npm:4.1.16"],\
             ["@types/supertest", "npm:2.0.12"],\
             ["@types/tape", "npm:4.13.2"],\
             ["@typescript-eslint/eslint-plugin", "virtual:20b17bebd789dc1b64d4251582dae484bf13d57f4e18b2fcfca46ba9d108a92f5fe4539a81cfebfc95c6201759f2dc50f47f4607640d21202dc4062f8daecc90#npm:5.40.0"],\
@@ -3557,10 +3557,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@types/superagent", [\
-        ["npm:4.1.15", {\
-          "packageLocation": "./.yarn/cache/@types-superagent-npm-4.1.15-621c984fca-347cd74ef0.zip/node_modules/@types/superagent/",\
+        ["npm:4.1.16", {\
+          "packageLocation": "./.yarn/cache/@types-superagent-npm-4.1.16-2fb61656c0-187d1d32fd.zip/node_modules/@types/superagent/",\
           "packageDependencies": [\
-            ["@types/superagent", "npm:4.1.15"],\
+            ["@types/superagent", "npm:4.1.16"],\
             ["@types/cookiejar", "npm:2.1.2"],\
             ["@types/node", "npm:18.14.2"]\
           ],\
@@ -3572,7 +3572,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-supertest-npm-2.0.12-deccb2551b-f0e2b44f86.zip/node_modules/@types/supertest/",\
           "packageDependencies": [\
             ["@types/supertest", "npm:2.0.12"],\
-            ["@types/superagent", "npm:4.1.15"]\
+            ["@types/superagent", "npm:4.1.16"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -7293,7 +7293,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/node-rsa", "npm:1.1.1"],\
             ["@types/normalize-url", "npm:4.2.0"],\
             ["@types/pify", "npm:5.0.1"],\
-            ["@types/superagent", "npm:4.1.15"],\
+            ["@types/superagent", "npm:4.1.16"],\
             ["@types/supertest", "npm:2.0.12"],\
             ["@types/tape", "npm:4.13.2"],\
             ["@typescript-eslint/eslint-plugin", "virtual:20b17bebd789dc1b64d4251582dae484bf13d57f4e18b2fcfca46ba9d108a92f5fe4539a81cfebfc95c6201759f2dc50f47f4607640d21202dc4062f8daecc90#npm:5.40.0"],\
