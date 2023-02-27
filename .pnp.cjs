@@ -38,7 +38,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/jsonwebtoken", "npm:8.5.9"],\
             ["@types/nock", "npm:11.1.0"],\
             ["@types/node", "npm:18.14.2"],\
-            ["@types/node-forge", "npm:1.3.0"],\
+            ["@types/node-forge", "npm:1.3.1"],\
             ["@types/node-rsa", "npm:1.1.1"],\
             ["@types/normalize-url", "npm:4.2.0"],\
             ["@types/pify", "npm:5.0.1"],\
@@ -3560,10 +3560,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@types/node-forge", [\
-        ["npm:1.3.0", {\
-          "packageLocation": "./.yarn/cache/@types-node-forge-npm-1.3.0-e07f257c46-f811885f99.zip/node_modules/@types/node-forge/",\
+        ["npm:1.3.1", {\
+          "packageLocation": "./.yarn/cache/@types-node-forge-npm-1.3.1-83c4635dd7-88d1f85b5e.zip/node_modules/@types/node-forge/",\
           "packageDependencies": [\
-            ["@types/node-forge", "npm:1.3.0"],\
+            ["@types/node-forge", "npm:1.3.1"],\
             ["@types/node", "npm:18.14.2"]\
           ],\
           "linkType": "HARD"\
@@ -7385,7 +7385,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/jsonwebtoken", "npm:8.5.9"],\
             ["@types/nock", "npm:11.1.0"],\
             ["@types/node", "npm:18.14.2"],\
-            ["@types/node-forge", "npm:1.3.0"],\
+            ["@types/node-forge", "npm:1.3.1"],\
             ["@types/node-rsa", "npm:1.1.1"],\
             ["@types/normalize-url", "npm:4.2.0"],\
             ["@types/pify", "npm:5.0.1"],\
