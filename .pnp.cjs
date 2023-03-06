@@ -54,7 +54,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest", "virtual:20b17bebd789dc1b64d4251582dae484bf13d57f4e18b2fcfca46ba9d108a92f5fe4539a81cfebfc95c6201759f2dc50f47f4607640d21202dc4062f8daecc90#npm:29.2.0"],\
             ["jsonwebtoken", "npm:9.0.0"],\
             ["jwks-rsa", "npm:3.0.1"],\
-            ["koa", "npm:2.13.4"],\
+            ["koa", "npm:2.14.1"],\
             ["koa-jwt", "npm:4.0.4"],\
             ["koa-router", "npm:12.0.0"],\
             ["nock", "npm:13.3.0"],\
@@ -6892,10 +6892,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["koa", [\
-        ["npm:2.13.4", {\
-          "packageLocation": "./.yarn/cache/koa-npm-2.13.4-8aee05a69e-c9a6f9c803.zip/node_modules/koa/",\
+        ["npm:2.14.1", {\
+          "packageLocation": "./.yarn/cache/koa-npm-2.14.1-92dad86c35-84cfce48d7.zip/node_modules/koa/",\
           "packageDependencies": [\
-            ["koa", "npm:2.13.4"],\
+            ["koa", "npm:2.14.1"],\
             ["accepts", "npm:1.3.8"],\
             ["cache-content-type", "npm:1.0.1"],\
             ["content-disposition", "npm:0.5.4"],\
@@ -7401,7 +7401,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest", "virtual:20b17bebd789dc1b64d4251582dae484bf13d57f4e18b2fcfca46ba9d108a92f5fe4539a81cfebfc95c6201759f2dc50f47f4607640d21202dc4062f8daecc90#npm:29.2.0"],\
             ["jsonwebtoken", "npm:9.0.0"],\
             ["jwks-rsa", "npm:3.0.1"],\
-            ["koa", "npm:2.13.4"],\
+            ["koa", "npm:2.14.1"],\
             ["koa-jwt", "npm:4.0.4"],\
             ["koa-router", "npm:12.0.0"],\
             ["nock", "npm:13.3.0"],\
