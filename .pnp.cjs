@@ -34,7 +34,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/base64-url", "npm:2.2.0"],\
             ["@types/chai", "npm:4.3.4"],\
             ["@types/chai-as-promised", "npm:7.1.5"],\
-            ["@types/jest", "npm:29.4.0"],\
+            ["@types/jest", "npm:29.4.1"],\
             ["@types/jsonwebtoken", "npm:8.5.9"],\
             ["@types/nock", "npm:11.1.0"],\
             ["@types/node", "npm:18.14.6"],\
@@ -3530,10 +3530,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@types/jest", [\
-        ["npm:29.4.0", {\
-          "packageLocation": "./.yarn/cache/@types-jest-npm-29.4.0-e28b79cadc-2376028236.zip/node_modules/@types/jest/",\
+        ["npm:29.4.1", {\
+          "packageLocation": "./.yarn/cache/@types-jest-npm-29.4.1-1b1e6c84b6-75cdd18046.zip/node_modules/@types/jest/",\
           "packageDependencies": [\
-            ["@types/jest", "npm:29.4.0"],\
+            ["@types/jest", "npm:29.4.1"],\
             ["expect", "npm:29.2.0"],\
             ["pretty-format", "npm:29.2.0"]\
           ],\
@@ -7461,7 +7461,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/base64-url", "npm:2.2.0"],\
             ["@types/chai", "npm:4.3.4"],\
             ["@types/chai-as-promised", "npm:7.1.5"],\
-            ["@types/jest", "npm:29.4.0"],\
+            ["@types/jest", "npm:29.4.1"],\
             ["@types/jsonwebtoken", "npm:8.5.9"],\
             ["@types/nock", "npm:11.1.0"],\
             ["@types/node", "npm:18.14.6"],\
