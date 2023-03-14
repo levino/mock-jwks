@@ -5571,7 +5571,7 @@ __metadata:
     nock-12: "npm:nock@^12"
     node-forge: ^1.3.1
     node-rsa: ^1.1.1
-    pify: ^5
+    pify: ^6
     prettier: ^2.7.1
     supertest: ^6.3.0
     ts-node: ^10.9.1
@@ -5968,10 +5968,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pify@npm:^5":
-  version: 5.0.0
-  resolution: "pify@npm:5.0.0"
-  checksum: 443e3e198ad6bfa8c0c533764cf75c9d5bc976387a163792fb553ffe6ce923887cf14eebf5aea9b7caa8eab930da8c33612990ae85bd8c2bc18bedb9eae94ecb
+"pify@npm:^6":
+  version: 6.1.0
+  resolution: "pify@npm:6.1.0"
+  checksum: cb21ee8794e9e14955669fbc06b964d0dd3d4e6fa3c2ea3cf22f6794de61ec1ea5c1fac02dadfd4aa16c9cf589f6733406e826e64366f70e09f5e95917a0b8ac
   languageName: node
   linkType: hard
 

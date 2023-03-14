@@ -87,7 +87,7 @@
     "nock": "^13.2.9",
     "nock-11": "npm:nock@^11",
     "nock-12": "npm:nock@^12",
-    "pify": "^5",
+    "pify": "^6",
     "prettier": "^2.7.1",
     "supertest": "^6.3.0",
     "ts-node": "^10.9.1",

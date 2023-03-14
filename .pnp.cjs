@@ -68,7 +68,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ]],\
             ["node-forge", "npm:1.3.1"],\
             ["node-rsa", "npm:1.1.1"],\
-            ["pify", "npm:5.0.0"],\
+            ["pify", "npm:6.1.0"],\
             ["prettier", "npm:2.8.4"],\
             ["supertest", "npm:6.3.3"],\
             ["ts-node", "virtual:20b17bebd789dc1b64d4251582dae484bf13d57f4e18b2fcfca46ba9d108a92f5fe4539a81cfebfc95c6201759f2dc50f47f4607640d21202dc4062f8daecc90#npm:10.9.1"],\
@@ -7531,7 +7531,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ]],\
             ["node-forge", "npm:1.3.1"],\
             ["node-rsa", "npm:1.1.1"],\
-            ["pify", "npm:5.0.0"],\
+            ["pify", "npm:6.1.0"],\
             ["prettier", "npm:2.8.4"],\
             ["supertest", "npm:6.3.3"],\
             ["ts-node", "virtual:20b17bebd789dc1b64d4251582dae484bf13d57f4e18b2fcfca46ba9d108a92f5fe4539a81cfebfc95c6201759f2dc50f47f4607640d21202dc4062f8daecc90#npm:10.9.1"],\
@@ -7981,10 +7981,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["pify", [\
-        ["npm:5.0.0", {\
-          "packageLocation": "./.yarn/cache/pify-npm-5.0.0-f5abe8ab8d-443e3e198a.zip/node_modules/pify/",\
+        ["npm:6.1.0", {\
+          "packageLocation": "./.yarn/cache/pify-npm-6.1.0-780adaf873-cb21ee8794.zip/node_modules/pify/",\
           "packageDependencies": [\
-            ["pify", "npm:5.0.0"]\
+            ["pify", "npm:6.1.0"]\
           ],\
           "linkType": "HARD"\
         }]\
