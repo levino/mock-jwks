@@ -1,17 +1,17 @@
-import { verify } from 'jsonwebtoken'
-import { pki } from 'node-forge'
-import { createKeyPair, signJwt } from './tools'
+import * as JWT from 'jsonwebtoken'
+import forge from 'node-forge'
+import { createKeyPair, signJwt } from './tools.js'
 
 describe('jwt creation', () => {
-  let privateKey: pki.rsa.PrivateKey, publicKey: pki.rsa.PublicKey
+  let privateKey: forge.pki.rsa.PrivateKey, publicKey: forge.pki.rsa.PublicKey
   beforeEach(() => ({ privateKey, publicKey } = createKeyPair()))
   test('created tokens are valid in the PKI', () =>
     expect(
-      verify(
+      JWT.verify(
         signJwt(privateKey, {
           iss: 'SOMETHING',
         }),
-        pki.publicKeyToPem(publicKey)
+        forge.pki.publicKeyToPem(publicKey)
       )
     ).toBeTruthy())
 })

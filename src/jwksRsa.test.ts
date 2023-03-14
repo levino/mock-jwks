@@ -1,6 +1,6 @@
-import { verify, decode } from 'jsonwebtoken'
+import JWT from 'jsonwebtoken'
 import jwksClient, { CertSigningKey, RsaSigningKey } from 'jwks-rsa'
-import createAuth0Mock from './index'
+import createAuth0Mock from './index.js'
 import pify from 'pify'
 
 const auth0Mock = createAuth0Mock('https://hardfork.eu.auth0.com')
@@ -22,7 +22,7 @@ describe('Tests for JWKS being correctly consumed by jwks-rsa client', () => {
     const signingKey = String(
       (key as CertSigningKey).publicKey || (key as RsaSigningKey).rsaPublicKey
     )
-    expect(verify(auth0Mock.token({}), signingKey)).toBeTruthy()
+    expect(JWT.verify(auth0Mock.token({}), signingKey)).toBeTruthy()
   })
   test('iat and exp are numbers', async () => {
     const key = await pify(client.getSigningKey)(auth0Mock.kid())
@@ -31,19 +31,19 @@ describe('Tests for JWKS being correctly consumed by jwks-rsa client', () => {
     )
     expect(() =>
       // @ts-expect-error types should prevent using a string for iat
-      verify(auth0Mock.token({ iat: '123' }), signingKey)
+      JWT.verify(auth0Mock.token({ iat: '123' }), signingKey)
     ).toThrowError('iat')
     expect(() =>
       // @ts-expect-error types should prevent using a string for exp
-      verify(auth0Mock.token({ exp: '123' }), signingKey)
+      JWT.verify(auth0Mock.token({ exp: '123' }), signingKey)
     ).toThrowError('exp')
     expect(() =>
-      verify(auth0Mock.token({ iat: 123, exp: 64779973980000 }), signingKey)
+      JWT.verify(auth0Mock.token({ iat: 123, exp: 64779973980000 }), signingKey)
     ).not.toThrow()
   })
   test('token payload is correctly encoded', () =>
     expect(
-      decode(
+      JWT.decode(
         auth0Mock.token({
           nickname: 'jest.jester',
           name: 'jest@itest.com',
