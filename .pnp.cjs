@@ -35,7 +35,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/chai", "npm:4.3.4"],\
             ["@types/chai-as-promised", "npm:7.1.5"],\
             ["@types/jest", "npm:29.4.1"],\
-            ["@types/jsonwebtoken", "npm:8.5.9"],\
+            ["@types/jsonwebtoken", "npm:9.0.1"],\
             ["@types/nock", "npm:11.1.0"],\
             ["@types/node", "npm:18.14.6"],\
             ["@types/node-forge", "npm:1.3.1"],\
@@ -3550,14 +3550,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@types/jsonwebtoken", [\
-        ["npm:8.5.9", {\
-          "packageLocation": "./.yarn/cache/@types-jsonwebtoken-npm-8.5.9-79c2843a81-33815ab02d.zip/node_modules/@types/jsonwebtoken/",\
-          "packageDependencies": [\
-            ["@types/jsonwebtoken", "npm:8.5.9"],\
-            ["@types/node", "npm:18.14.6"]\
-          ],\
-          "linkType": "HARD"\
-        }],\
         ["npm:9.0.1", {\
           "packageLocation": "./.yarn/cache/@types-jsonwebtoken-npm-9.0.1-5f660fdf38-a7f0925e9a.zip/node_modules/@types/jsonwebtoken/",\
           "packageDependencies": [\
@@ -7462,7 +7454,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/chai", "npm:4.3.4"],\
             ["@types/chai-as-promised", "npm:7.1.5"],\
             ["@types/jest", "npm:29.4.1"],\
-            ["@types/jsonwebtoken", "npm:8.5.9"],\
+            ["@types/jsonwebtoken", "npm:9.0.1"],\
             ["@types/nock", "npm:11.1.0"],\
             ["@types/node", "npm:18.14.6"],\
             ["@types/node-forge", "npm:1.3.1"],\
