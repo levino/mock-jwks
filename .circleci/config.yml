@@ -2,11 +2,11 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: node:16-alpine
+      - image: cimg/node:lts
     parameters:
       nock-version:
-        description: "nock version"
-        default: "13"
+        description: 'nock version'
+        default: '13'
         type: string
     steps:
       - checkout
@@ -20,9 +20,12 @@ jobs:
             NOCK_VERSION: << parameters.nock-version >>
   lint:
     docker:
-      - image: node:16-alpine
+      - image: cimg/node:lts
     steps:
       - checkout
+      - run:
+          name: install-dependencies
+          command: yarn
       - run:
           name: linting
           command: yarn lint
@@ -37,5 +40,5 @@ workflows:
       - build:
           matrix:
             parameters:
-              nock-version: ["11", "12", "13"]
+              nock-version: ['11', '12', '13']
       - lint

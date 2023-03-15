@@ -1,4 +1,4 @@
-import { createJWKS, createKeyPair } from './tools'
+import { createJWKS, createKeyPair } from './tools.js'
 
 describe('JWKS', () => {
   test("'Exponent is correctly encoded'", () => {

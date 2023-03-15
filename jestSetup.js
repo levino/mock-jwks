@@ -1,3 +1,5 @@
+import {jest} from '@jest/globals';
+
 jest.mock('nock', () => {
   const versions = {
     "11": "nock-11",

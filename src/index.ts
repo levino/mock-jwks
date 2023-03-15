@@ -1,6 +1,6 @@
 import { JwtPayload } from 'jsonwebtoken'
 import nock from 'nock'
-import { createJWKS, createKeyPair, signJwt } from './tools'
+import { createJWKS, createKeyPair, signJwt } from './tools.js'
 
 const createJWKSMock = (
   jwksOrigin: string,

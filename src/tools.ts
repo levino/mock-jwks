@@ -1,8 +1,8 @@
 import * as base64url from 'base64-url'
 import { createHash } from 'crypto'
-import { sign, JwtPayload } from 'jsonwebtoken'
+import JWT from 'jsonwebtoken'
 export type { JwtPayload } from 'jsonwebtoken'
-import * as forge from 'node-forge'
+import forge from 'node-forge'
 import NodeRSA from 'node-rsa'
 
 /* HARDCODED MOCK RSA KEYS */
@@ -147,10 +147,10 @@ export const createKeyPair = () => {
 
 export const signJwt = (
   privateKey: forge.pki.PrivateKey,
-  jwtPayload: JwtPayload,
+  jwtPayload: JWT.JwtPayload,
   kid?: string
 ) =>
-  sign(jwtPayload, forge.pki.privateKeyToPem(privateKey), {
+  JWT.sign(jwtPayload, forge.pki.privateKeyToPem(privateKey), {
     header: { kid, alg: 'RS256' },
   })
 
