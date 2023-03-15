@@ -2,6 +2,10 @@
 
 A tool to mock a JWKS authentication service for development of microservices CONSUMING authentication and authorization jwts.
 
+## Breaking changes
+
+As of version 2 and march 2023 this package is a (pure esm package)[https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c]. Use version 1 for a commonjs version.
+
 ## Background
 
 If you use jtws for authentication and authorization of your users against your microservices, you want to automatically unit
@@ -12,143 +16,7 @@ authentication in your koa or express app. This is why I made this tool, which r
 
 ## Usage
 
-Lets say you have a pretty standard koa app (I use a factory function to make the app, so I can scope nicely):
-
-```js
-// File index.js
-const Koa = require('koa')
-const Router = require('koa-router')
-const jwt = require('koa-jwt')
-const jwksRsa = require('jwks-rsa')
-
-const createApp = ({ jwksUri }) => {
-  const app = new Koa()
-
-  // We set up the jwksRsa client as usual (with production host)
-  // We switch off caching to show how things work in ours tests.
-
-  app.use(
-    jwt({
-      secret: jwksRsa.koaJwtSecret({
-        cache: false,
-        jwksUri,
-      }),
-      audience: 'private',
-      issuer: 'master',
-      algorithms: ['RS256'],
-    })
-  )
-
-  const router = new Router()
-
-  // This route is protected by the authentication middleware
-  router.get('/', (ctx) => {
-    ctx.body = 'Authenticated!'
-  })
-
-  app.use(router.middleware())
-  return app
-}
-
-module.exports = createApp
-```
-
-You can easily unit test the authentication of this app like so:
-
-```js
-// File index.test.js
-const createJWKSMock = require('../src/index').default
-const createApp = require('./api')
-const supertest = require('supertest')
-const { assert } = require('chai')
-
-describe('Some tests for authentication for our api', () => {
-  let jwksMock, server, request
-  beforeEach(() => {
-    ;({ jwksMock, server, request } = createContext())
-  })
-  afterEach(async () => await tearDown({ jwksMock, server }))
-
-  test('should not get access without correct token', async () => {
-    // We start intercepting queries (see below)
-    jwksMock.start()
-    const { status } = await request.get('/')
-    assert.equal(status, 401)
-  })
-  test('should get access with mock token when jwksMock is running', async () => {
-    // Again we start intercepting queries
-    jwksMock.start()
-    const access_token = jwksMock.token({
-      aud: 'private',
-      iss: 'master',
-    })
-    const { status } = await request
-      .get('/')
-      .set('Authorization', `Bearer ${access_token}`)
-    assert.equal(status, 200)
-  })
-  test('should not get access with mock token when jwksMock is not running', async () => {
-    // Now we do not intercept queries. The queries of the middleware for the JKWS will
-    // go to the production server and the local key will be invalid.
-    const access_token = jwksMock.token({
-      aud: 'private',
-      iss: 'master',
-    })
-    const { status } = await request
-      .get('/')
-      .set('Authorization', `Bearer ${access_token}`)
-    assert.equal(status, 401)
-  })
-})
-
-test('Another example with a non-auth0-style jkwsUri', async () => {
-  const jwksMock = createJWKSMock(
-    'https://hardfork.eu.auth0.com',
-    '/protocol/openid-connect/certs'
-  )
-  // We start our app.
-  const server = createApp({
-    jwksUri: 'https://hardfork.eu.auth0.com/protocol/openid-connect/certs',
-  }).listen()
-
-  const request = supertest(server)
-
-  jwksMock.start()
-  const access_token = jwksMock.token({
-    aud: 'private',
-    iss: 'master',
-  })
-  const { status } = await request
-    .get('/')
-    .set('Authorization', `Bearer ${access_token}`)
-  await tearDown({ jwksMock, server })
-  assert.equal(status, 200)
-})
-
-const createContext = () => {
-  // This creates the local PKI
-  const jwksMock = createJWKSMock('https://hardfork.eu.auth0.com/')
-
-  // We start our app.
-  const server = createApp({
-    jwksUri: 'https://hardfork.eu.auth0.com/.well-known/jwks.json',
-  }).listen()
-
-  const request = supertest(server)
-  return {
-    jwksMock,
-    request,
-    server,
-  }
-}
-
-const tearDown = async ({ jwksMock, server }) => {
-  await server.close()
-  await jwksMock.stop()
-}
-```
-
-See also the [example](example/).
+Please see the [example test](example/authentication.test.js) of a simple [koa app](example/api.js). Usage for `express`, `hapi` or `graphql` is similar.
 
 ## Under the hood
 
