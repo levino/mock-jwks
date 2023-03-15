@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.3](https://github.com/levino/mock-jwks/compare/v2.0.2...v2.0.3) (2023-03-15)
+
+
+### Bug Fixes
+
+* use npm package name in readme example ([bdc4ba6](https://github.com/levino/mock-jwks/commit/bdc4ba68ede8071d9a3cc8f6cff9a158ec247077))
+
 ## [2.0.2](https://github.com/levino/mock-jwks/compare/v2.0.1...v2.0.2) (2023-03-15)
 
 
