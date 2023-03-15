@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.1](https://github.com/levino/mock-jwks/compare/v2.0.0...v2.0.1) (2023-03-15)
+
+
+### Bug Fixes
+
+* update readme for esm ([54c710c](https://github.com/levino/mock-jwks/commit/54c710c28e491ffae2a35cc74d9371273529d9b0))
+
 ## [2.0.0](https://github.com/levino/mock-jwks/compare/v1.0.9...v2.0.0) (2023-03-15)
 
 
