@@ -4,7 +4,7 @@ A tool to mock a JWKS authentication service for development of microservices CO
 
 ## Breaking changes
 
-As of version 2 and march 2023 this package is a (pure esm package)[https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c]. Use version 1 for a commonjs version.
+As of version 2 and march 2023 this package is a [pure esm package](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c). I made an [example](https://github.com/levino/use-mock-jwks/tree/4fd1622af213006dc7be32902273621bbe7aff3e) on how to use the module. Use version 1 for a commonjs version.
 
 ## Background
 
