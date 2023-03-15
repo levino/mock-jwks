@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.0.2](https://github.com/levino/mock-jwks/compare/v2.0.1...v2.0.2) (2023-03-15)
+
+
+### Bug Fixes
+
+* correct format ([c76af27](https://github.com/levino/mock-jwks/commit/c76af274151f0bd3c305e96229f4deca50267e1b))
+* re-add examples to readme for convenience ([60aa568](https://github.com/levino/mock-jwks/commit/60aa568ee40525ccf7ad79301b0b32067e25b131))
+
 ## [2.0.1](https://github.com/levino/mock-jwks/compare/v2.0.0...v2.0.1) (2023-03-15)
 
 
