@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.0](https://github.com/levino/mock-jwks/compare/v1.0.9...v2.0.0) (2023-03-15)
+
+
+### ⚠ BREAKING CHANGES
+
+* make it an esmodule
+
+### Features
+
+* make it an esmodule ([b98f022](https://github.com/levino/mock-jwks/commit/b98f0227bb3e781171bd05d79044a9472df81499))
+
 ## [1.0.9](https://github.com/levino/mock-jwks/compare/v1.0.8...v1.0.9) (2022-12-23)
 
 
