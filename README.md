@@ -54,7 +54,7 @@ You can test this app like so:
 
 ```js
 // authentication.test.js
-import createJWKSMock from '../src/index.js'
+import createJWKSMock from 'mock-jwks'
 import createApp from './api.js'
 import supertest from 'supertest'
 
