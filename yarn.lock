@@ -1231,7 +1231,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jest@npm:^29.1.2":
+"@types/jest@npm:^29.4.2":
   version: 29.4.2
   resolution: "@types/jest@npm:29.4.2"
   dependencies:
@@ -4436,7 +4436,7 @@ __metadata:
     "@types/base64-url": "npm:^2.2.0"
     "@types/chai": "npm:^4.3.3"
     "@types/chai-as-promised": "npm:^7.1.5"
-    "@types/jest": "npm:^29.1.2"
+    "@types/jest": "npm:^29.4.2"
     "@types/jsonwebtoken": "npm:^9.0.1"
     "@types/nock": "npm:^11.1.0"
     "@types/node": "npm:^18.15.3"

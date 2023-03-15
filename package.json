@@ -59,7 +59,7 @@
     "@types/base64-url": "^2.2.0",
     "@types/chai": "^4.3.3",
     "@types/chai-as-promised": "^7.1.5",
-    "@types/jest": "^29.1.2",
+    "@types/jest": "^29.4.2",
     "@types/jsonwebtoken": "^9.0.1",
     "@types/nock": "^11.1.0",
     "@types/node": "^18.15.3",
