@@ -1379,11 +1379,21 @@ __metadata:
   linkType: hard
 
 "@types/tape@npm:^4.13.2":
-  version: 4.13.2
-  resolution: "@types/tape@npm:4.13.2"
+  version: 4.13.4
+  resolution: "@types/tape@npm:4.13.4"
   dependencies:
     "@types/node": "npm:*"
-  checksum: c538c3388920842faf5cac0abb0265c2c95fbd58bc998c8c574c8d7e27286aad0f9bb44a4dafa4ca6645b51b648fbcdbcea94dbf8eff0dc886a9526dcb1418d1
+    "@types/through": "npm:*"
+  checksum: 65b747eb3bd2d276c81bad27e160cb80de40914203974e15a7503a719eaa1467d9cf63bb1183ec4ab68169d72ccca1114dba4eaaf5e3aa789060ba83cd6efcd1
+  languageName: node
+  linkType: hard
+
+"@types/through@npm:*":
+  version: 0.0.30
+  resolution: "@types/through@npm:0.0.30"
+  dependencies:
+    "@types/node": "npm:*"
+  checksum: 0aded384fa021481c050499bfaccecc7ef0c81b62fb7779c397ffe7468f39eebf6617e2a553dee835ebd15fd03db86cecfdaf051af0ce510d9edb8e21639947b
   languageName: node
   linkType: hard
 
