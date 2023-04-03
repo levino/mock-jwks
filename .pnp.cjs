@@ -33,7 +33,7 @@ const RAW_RUNTIME_STATE =
           ["@types/jsonwebtoken", "npm:9.0.1"],\
           ["@types/nock", "npm:11.1.0"],\
           ["@types/node", "npm:18.15.11"],\
-          ["@types/node-forge", "npm:1.3.1"],\
+          ["@types/node-forge", "npm:1.3.2"],\
           ["@types/node-rsa", "npm:1.1.1"],\
           ["@types/normalize-url", "npm:4.2.0"],\
           ["@types/pify", "npm:5.0.1"],\
@@ -1823,10 +1823,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@types/node-forge", [\
-      ["npm:1.3.1", {\
-        "packageLocation": "../../.yarn/berry/cache/@types-node-forge-npm-1.3.1-83c4635dd7-9.zip/node_modules/@types/node-forge/",\
+      ["npm:1.3.2", {\
+        "packageLocation": "../../.yarn/berry/cache/@types-node-forge-npm-1.3.2-39063d1da0-9.zip/node_modules/@types/node-forge/",\
         "packageDependencies": [\
-          ["@types/node-forge", "npm:1.3.1"],\
+          ["@types/node-forge", "npm:1.3.2"],\
           ["@types/node", "npm:18.15.11"]\
         ],\
         "linkType": "HARD"\
@@ -5590,7 +5590,7 @@ const RAW_RUNTIME_STATE =
           ["@types/jsonwebtoken", "npm:9.0.1"],\
           ["@types/nock", "npm:11.1.0"],\
           ["@types/node", "npm:18.15.11"],\
-          ["@types/node-forge", "npm:1.3.1"],\
+          ["@types/node-forge", "npm:1.3.2"],\
           ["@types/node-rsa", "npm:1.1.1"],\
           ["@types/normalize-url", "npm:4.2.0"],\
           ["@types/pify", "npm:5.0.1"],\

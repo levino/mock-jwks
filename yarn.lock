@@ -1274,11 +1274,11 @@ __metadata:
   linkType: hard
 
 "@types/node-forge@npm:^1.3.0":
-  version: 1.3.1
-  resolution: "@types/node-forge@npm:1.3.1"
+  version: 1.3.2
+  resolution: "@types/node-forge@npm:1.3.2"
   dependencies:
     "@types/node": "npm:*"
-  checksum: be6e7f3d4fd233bfd96ff54e760bdf3c532eea01ee830e09202e19600d8f2c70a1b17e75995d282c60d83b7c55cebb838b9b15db940e67db347e98275ae2221c
+  checksum: 6d6fe9d8c53f552e56b452efb6ebcce3675c96f06b388bffaa93d5ba19d3c8af20a1caf2853395d9416aa42a5c4015e8d10bca7be2a4650e700d4c8cdddf6b0d
   languageName: node
   linkType: hard
 
