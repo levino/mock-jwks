@@ -5491,8 +5491,8 @@ __metadata:
   linkType: hard
 
 "ts-jest@npm:^29.0.5":
-  version: 29.0.5
-  resolution: "ts-jest@npm:29.0.5"
+  version: 29.1.0
+  resolution: "ts-jest@npm:29.1.0"
   dependencies:
     bs-logger: "npm:0.x"
     fast-json-stable-stringify: "npm:2.x"
@@ -5507,7 +5507,7 @@ __metadata:
     "@jest/types": ^29.0.0
     babel-jest: ^29.0.0
     jest: ^29.0.0
-    typescript: ">=4.3"
+    typescript: ">=4.3 <6"
   peerDependenciesMeta:
     "@babel/core":
       optional: true
@@ -5519,7 +5519,7 @@ __metadata:
       optional: true
   bin:
     ts-jest: cli.js
-  checksum: 4dfe1712b6b510075666e8354bafc3de2043985604eb80ced72dca9d3a2165d2a248cd6a1d488e11e3348f0728a69bd7a58a72c63b39643d355578f548e49738
+  checksum: 0a30822a27a3cafdb40b0473816544b0ae92de7861671e6842080e3baa17cdf9f66a34d52b456043a7417c50abe9110ab26cf681bc8f3b26afc9c5cdb5d8ce9d
   languageName: node
   linkType: hard
 
