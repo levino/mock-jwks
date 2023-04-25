@@ -64,7 +64,7 @@ const RAW_RUNTIME_STATE =
           ["node-forge", "npm:1.3.1"],\
           ["node-rsa", "npm:1.1.1"],\
           ["pify", "npm:6.1.0"],\
-          ["prettier", "npm:2.8.7"],\
+          ["prettier", "npm:2.8.8"],\
           ["supertest", "npm:6.3.3"],\
           ["ts-jest", "virtual:20b17bebd789dc1b64d4251582dae484bf13d57f4e18b2fcfca46ba9d108a92f5fe4539a81cfebfc95c6201759f2dc50f47f4607640d21202dc4062f8daecc90#npm:29.1.0"],\
           ["ts-node", "virtual:20b17bebd789dc1b64d4251582dae484bf13d57f4e18b2fcfca46ba9d108a92f5fe4539a81cfebfc95c6201759f2dc50f47f4607640d21202dc4062f8daecc90#npm:10.9.1"],\
@@ -5673,7 +5673,7 @@ const RAW_RUNTIME_STATE =
           ["node-forge", "npm:1.3.1"],\
           ["node-rsa", "npm:1.1.1"],\
           ["pify", "npm:6.1.0"],\
-          ["prettier", "npm:2.8.7"],\
+          ["prettier", "npm:2.8.8"],\
           ["supertest", "npm:6.3.3"],\
           ["ts-jest", "virtual:20b17bebd789dc1b64d4251582dae484bf13d57f4e18b2fcfca46ba9d108a92f5fe4539a81cfebfc95c6201759f2dc50f47f4607640d21202dc4062f8daecc90#npm:29.1.0"],\
           ["ts-node", "virtual:20b17bebd789dc1b64d4251582dae484bf13d57f4e18b2fcfca46ba9d108a92f5fe4539a81cfebfc95c6201759f2dc50f47f4607640d21202dc4062f8daecc90#npm:10.9.1"],\
@@ -6160,10 +6160,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["prettier", [\
-      ["npm:2.8.7", {\
-        "packageLocation": "../../.yarn/berry/cache/prettier-npm-2.8.7-1962ac9483-9.zip/node_modules/prettier/",\
+      ["npm:2.8.8", {\
+        "packageLocation": "../../.yarn/berry/cache/prettier-npm-2.8.8-430828a36c-9.zip/node_modules/prettier/",\
         "packageDependencies": [\
-          ["prettier", "npm:2.8.7"]\
+          ["prettier", "npm:2.8.8"]\
         ],\
         "linkType": "HARD"\
       }]\
