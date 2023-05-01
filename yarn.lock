@@ -1249,11 +1249,11 @@ __metadata:
   linkType: hard
 
 "@types/jsonwebtoken@npm:^9.0.0, @types/jsonwebtoken@npm:^9.0.1":
-  version: 9.0.1
-  resolution: "@types/jsonwebtoken@npm:9.0.1"
+  version: 9.0.2
+  resolution: "@types/jsonwebtoken@npm:9.0.2"
   dependencies:
     "@types/node": "npm:*"
-  checksum: 44d3fccc6b35826ad231012e5b25f82d9ec9c5790b2c41263bb5095673a8bd57ea19c1969ec3849d07c036bb95c992655b70265a2e456b83f6fa2cb137a7670e
+  checksum: 4b1ecf9c0b3526c3bbdeca21c6f4727150b0dd41c43acaee5d9af1ad2137a19403f6ca1b7f2c6e84ae282e2e253b731f4187391133a5ba4345385d76cbbbe78b
   languageName: node
   linkType: hard
 
