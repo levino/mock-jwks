@@ -27,7 +27,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./",\
         "packageDependencies": [\
           ["@types/base64-url", "npm:2.2.0"],\
-          ["@types/chai", "npm:4.3.4"],\
+          ["@types/chai", "npm:4.3.5"],\
           ["@types/chai-as-promised", "npm:7.1.5"],\
           ["@types/jest", "npm:29.5.1"],\
           ["@types/jsonwebtoken", "npm:9.0.1"],\
@@ -1663,10 +1663,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@types/chai", [\
-      ["npm:4.3.4", {\
-        "packageLocation": "../../.yarn/berry/cache/@types-chai-npm-4.3.4-fc230290e8-9.zip/node_modules/@types/chai/",\
+      ["npm:4.3.5", {\
+        "packageLocation": "../../.yarn/berry/cache/@types-chai-npm-4.3.5-dce79013f2-9.zip/node_modules/@types/chai/",\
         "packageDependencies": [\
-          ["@types/chai", "npm:4.3.4"]\
+          ["@types/chai", "npm:4.3.5"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -1676,7 +1676,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../.yarn/berry/cache/@types-chai-as-promised-npm-7.1.5-c83fbd2182-9.zip/node_modules/@types/chai-as-promised/",\
         "packageDependencies": [\
           ["@types/chai-as-promised", "npm:7.1.5"],\
-          ["@types/chai", "npm:4.3.4"]\
+          ["@types/chai", "npm:4.3.5"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -5584,7 +5584,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["mock-jwks", "workspace:."],\
           ["@types/base64-url", "npm:2.2.0"],\
-          ["@types/chai", "npm:4.3.4"],\
+          ["@types/chai", "npm:4.3.5"],\
           ["@types/chai-as-promised", "npm:7.1.5"],\
           ["@types/jest", "npm:29.5.1"],\
           ["@types/jsonwebtoken", "npm:9.0.1"],\
