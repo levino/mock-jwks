@@ -30,7 +30,7 @@ const RAW_RUNTIME_STATE =
           ["@types/chai", "npm:4.3.5"],\
           ["@types/chai-as-promised", "npm:7.1.5"],\
           ["@types/jest", "npm:29.5.1"],\
-          ["@types/jsonwebtoken", "npm:9.0.1"],\
+          ["@types/jsonwebtoken", "npm:9.0.2"],\
           ["@types/nock", "npm:11.1.0"],\
           ["@types/node", "npm:18.16.3"],\
           ["@types/node-forge", "npm:1.3.2"],\
@@ -1785,10 +1785,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@types/jsonwebtoken", [\
-      ["npm:9.0.1", {\
-        "packageLocation": "../../.yarn/berry/cache/@types-jsonwebtoken-npm-9.0.1-5f660fdf38-9.zip/node_modules/@types/jsonwebtoken/",\
+      ["npm:9.0.2", {\
+        "packageLocation": "../../.yarn/berry/cache/@types-jsonwebtoken-npm-9.0.2-7af15f7b9b-9.zip/node_modules/@types/jsonwebtoken/",\
         "packageDependencies": [\
-          ["@types/jsonwebtoken", "npm:9.0.1"],\
+          ["@types/jsonwebtoken", "npm:9.0.2"],\
           ["@types/node", "npm:18.16.3"]\
         ],\
         "linkType": "HARD"\
@@ -5060,7 +5060,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["jwks-rsa", "npm:3.0.1"],\
           ["@types/express", "npm:4.17.14"],\
-          ["@types/jsonwebtoken", "npm:9.0.1"],\
+          ["@types/jsonwebtoken", "npm:9.0.2"],\
           ["debug", "virtual:0ba4ee80e1948381d2298d95c3b7084271d3ee06ca9a3cfc1f383d97f3d912d57a4ecd9f9c7116ff7304653ea5a5de7aab42b2909e4fca35d5cd5ce30e8aa54c#npm:4.3.4"],\
           ["jose", "npm:4.13.0"],\
           ["limiter", "npm:1.1.5"],\
@@ -5587,7 +5587,7 @@ const RAW_RUNTIME_STATE =
           ["@types/chai", "npm:4.3.5"],\
           ["@types/chai-as-promised", "npm:7.1.5"],\
           ["@types/jest", "npm:29.5.1"],\
-          ["@types/jsonwebtoken", "npm:9.0.1"],\
+          ["@types/jsonwebtoken", "npm:9.0.2"],\
           ["@types/nock", "npm:11.1.0"],\
           ["@types/node", "npm:18.16.3"],\
           ["@types/node-forge", "npm:1.3.2"],\
