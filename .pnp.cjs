@@ -32,7 +32,7 @@ const RAW_RUNTIME_STATE =
           ["@types/jest", "npm:29.5.1"],\
           ["@types/jsonwebtoken", "npm:9.0.2"],\
           ["@types/nock", "npm:11.1.0"],\
-          ["@types/node", "npm:18.16.3"],\
+          ["@types/node", "npm:20.1.1"],\
           ["@types/node-forge", "npm:1.3.2"],\
           ["@types/node-rsa", "npm:1.1.1"],\
           ["@types/normalize-url", "npm:4.2.0"],\
@@ -1818,6 +1818,13 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../.yarn/berry/cache/@types-node-npm-18.16.3-4036a5f5f3-9.zip/node_modules/@types/node/",\
         "packageDependencies": [\
           ["@types/node", "npm:18.16.3"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:20.1.1", {\
+        "packageLocation": "../../.yarn/berry/cache/@types-node-npm-20.1.1-f2d1ecf854-9.zip/node_modules/@types/node/",\
+        "packageDependencies": [\
+          ["@types/node", "npm:20.1.1"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -5641,7 +5648,7 @@ const RAW_RUNTIME_STATE =
           ["@types/jest", "npm:29.5.1"],\
           ["@types/jsonwebtoken", "npm:9.0.2"],\
           ["@types/nock", "npm:11.1.0"],\
-          ["@types/node", "npm:18.16.3"],\
+          ["@types/node", "npm:20.1.1"],\
           ["@types/node-forge", "npm:1.3.2"],\
           ["@types/node-rsa", "npm:1.1.1"],\
           ["@types/normalize-url", "npm:4.2.0"],\
@@ -6898,7 +6905,7 @@ const RAW_RUNTIME_STATE =
           ["@tsconfig/node12", "npm:1.0.11"],\
           ["@tsconfig/node14", "npm:1.0.3"],\
           ["@tsconfig/node16", "npm:1.0.3"],\
-          ["@types/node", "npm:18.16.3"],\
+          ["@types/node", "npm:20.1.1"],\
           ["@types/swc__core", null],\
           ["@types/swc__wasm", null],\
           ["@types/typescript", null],\
