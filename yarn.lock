@@ -1291,17 +1291,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*":
-  version: 18.16.3
-  resolution: "@types/node@npm:18.16.3"
-  checksum: 65277e1ad412757eef6de209d998ad0fe07030d5c52b290bdab4ae4ea2c423c9933fac6aead4546bee80c80ad4248807d45f247401ee862e46b0f364a06c3966
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:^20.1.1":
-  version: 20.1.1
-  resolution: "@types/node@npm:20.1.1"
-  checksum: 14240db486c09745ae3634004eda4c7996362322d1d0523c7ae3761c386f0a88996fa151cf3fa9d6bf1935f86fbade8ce4a16f82930247732f0d3481c777b200
+"@types/node@npm:*, @types/node@npm:^20.1.1":
+  version: 20.1.5
+  resolution: "@types/node@npm:20.1.5"
+  checksum: 7c5e634a77629afe8825acf8b79274cfc5c137f0d4b72cd56d5e91a62e5998ec22b4f6c3e1b6ef6ef9e6247dcedfa4a4d7854977a920d6effad4c0d69be4c6f1
   languageName: node
   linkType: hard
 
