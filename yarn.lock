@@ -1378,13 +1378,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/tape@npm:^4.13.2":
-  version: 4.13.4
-  resolution: "@types/tape@npm:4.13.4"
+"@types/tape@npm:^5.6.0":
+  version: 5.6.0
+  resolution: "@types/tape@npm:5.6.0"
   dependencies:
     "@types/node": "npm:*"
     "@types/through": "npm:*"
-  checksum: 65b747eb3bd2d276c81bad27e160cb80de40914203974e15a7503a719eaa1467d9cf63bb1183ec4ab68169d72ccca1114dba4eaaf5e3aa789060ba83cd6efcd1
+  checksum: b525a392e681703bdaa6c40d52df0751a4ef153330d4032d33f4ff73e7dd23b1390a0db5c09827257b719b27d993b602fadcc2dab87f7a46cae727f46c8ffaad
   languageName: node
   linkType: hard
 
@@ -4456,7 +4456,7 @@ __metadata:
     "@types/pify": "npm:^5.0.1"
     "@types/superagent": "npm:^4.1.15"
     "@types/supertest": "npm:^2.0.12"
-    "@types/tape": "npm:^4.13.2"
+    "@types/tape": "npm:^5.6.0"
     "@typescript-eslint/eslint-plugin": "npm:^5.40.0"
     "@typescript-eslint/parser": "npm:^5.40.0"
     base64-url: "npm:^2.3.3"
