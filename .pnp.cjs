@@ -39,7 +39,7 @@ const RAW_RUNTIME_STATE =
           ["@types/pify", "npm:5.0.1"],\
           ["@types/superagent", "npm:4.1.17"],\
           ["@types/supertest", "npm:2.0.12"],\
-          ["@types/tape", "npm:4.13.4"],\
+          ["@types/tape", "npm:5.6.0"],\
           ["@typescript-eslint/eslint-plugin", "virtual:20b17bebd789dc1b64d4251582dae484bf13d57f4e18b2fcfca46ba9d108a92f5fe4539a81cfebfc95c6201759f2dc50f47f4607640d21202dc4062f8daecc90#npm:5.59.7"],\
           ["@typescript-eslint/parser", "virtual:20b17bebd789dc1b64d4251582dae484bf13d57f4e18b2fcfca46ba9d108a92f5fe4539a81cfebfc95c6201759f2dc50f47f4607640d21202dc4062f8daecc90#npm:5.59.7"],\
           ["base64-url", "npm:2.3.3"],\
@@ -1939,10 +1939,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@types/tape", [\
-      ["npm:4.13.4", {\
-        "packageLocation": "../../.yarn/berry/cache/@types-tape-npm-4.13.4-0749304222-9.zip/node_modules/@types/tape/",\
+      ["npm:5.6.0", {\
+        "packageLocation": "../../.yarn/berry/cache/@types-tape-npm-5.6.0-457072f197-9.zip/node_modules/@types/tape/",\
         "packageDependencies": [\
-          ["@types/tape", "npm:4.13.4"],\
+          ["@types/tape", "npm:5.6.0"],\
           ["@types/node", "npm:20.2.3"],\
           ["@types/through", "npm:0.0.30"]\
         ],\
@@ -5596,7 +5596,7 @@ const RAW_RUNTIME_STATE =
           ["@types/pify", "npm:5.0.1"],\
           ["@types/superagent", "npm:4.1.17"],\
           ["@types/supertest", "npm:2.0.12"],\
-          ["@types/tape", "npm:4.13.4"],\
+          ["@types/tape", "npm:5.6.0"],\
           ["@typescript-eslint/eslint-plugin", "virtual:20b17bebd789dc1b64d4251582dae484bf13d57f4e18b2fcfca46ba9d108a92f5fe4539a81cfebfc95c6201759f2dc50f47f4607640d21202dc4062f8daecc90#npm:5.59.7"],\
           ["@typescript-eslint/parser", "virtual:20b17bebd789dc1b64d4251582dae484bf13d57f4e18b2fcfca46ba9d108a92f5fe4539a81cfebfc95c6201759f2dc50f47f4607640d21202dc4062f8daecc90#npm:5.59.7"],\
           ["base64-url", "npm:2.3.3"],\
