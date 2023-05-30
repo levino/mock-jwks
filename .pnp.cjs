@@ -37,7 +37,7 @@ const RAW_RUNTIME_STATE =
           ["@types/node-rsa", "npm:1.1.1"],\
           ["@types/normalize-url", "npm:4.2.0"],\
           ["@types/pify", "npm:5.0.1"],\
-          ["@types/superagent", "npm:4.1.17"],\
+          ["@types/superagent", "npm:4.1.18"],\
           ["@types/supertest", "npm:2.0.12"],\
           ["@types/tape", "npm:5.6.0"],\
           ["@typescript-eslint/eslint-plugin", "virtual:20b17bebd789dc1b64d4251582dae484bf13d57f4e18b2fcfca46ba9d108a92f5fe4539a81cfebfc95c6201759f2dc50f47f4607640d21202dc4062f8daecc90#npm:5.59.8"],\
@@ -1918,10 +1918,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@types/superagent", [\
-      ["npm:4.1.17", {\
-        "packageLocation": "../../.yarn/berry/cache/@types-superagent-npm-4.1.17-aebfcd31ac-9.zip/node_modules/@types/superagent/",\
+      ["npm:4.1.18", {\
+        "packageLocation": "../../.yarn/berry/cache/@types-superagent-npm-4.1.18-9a0c411a15-9.zip/node_modules/@types/superagent/",\
         "packageDependencies": [\
-          ["@types/superagent", "npm:4.1.17"],\
+          ["@types/superagent", "npm:4.1.18"],\
           ["@types/cookiejar", "npm:2.1.2"],\
           ["@types/node", "npm:20.2.5"]\
         ],\
@@ -1933,7 +1933,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../.yarn/berry/cache/@types-supertest-npm-2.0.12-deccb2551b-9.zip/node_modules/@types/supertest/",\
         "packageDependencies": [\
           ["@types/supertest", "npm:2.0.12"],\
-          ["@types/superagent", "npm:4.1.17"]\
+          ["@types/superagent", "npm:4.1.18"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -5646,7 +5646,7 @@ const RAW_RUNTIME_STATE =
           ["@types/node-rsa", "npm:1.1.1"],\
           ["@types/normalize-url", "npm:4.2.0"],\
           ["@types/pify", "npm:5.0.1"],\
-          ["@types/superagent", "npm:4.1.17"],\
+          ["@types/superagent", "npm:4.1.18"],\
           ["@types/supertest", "npm:2.0.12"],\
           ["@types/tape", "npm:5.6.0"],\
           ["@typescript-eslint/eslint-plugin", "virtual:20b17bebd789dc1b64d4251582dae484bf13d57f4e18b2fcfca46ba9d108a92f5fe4539a81cfebfc95c6201759f2dc50f47f4607640d21202dc4062f8daecc90#npm:5.59.8"],\
