@@ -1232,12 +1232,12 @@ __metadata:
   linkType: hard
 
 "@types/jest@npm:^29.4.2":
-  version: 29.5.1
-  resolution: "@types/jest@npm:29.5.1"
+  version: 29.5.2
+  resolution: "@types/jest@npm:29.5.2"
   dependencies:
     expect: "npm:^29.0.0"
     pretty-format: "npm:^29.0.0"
-  checksum: 1a67d4fe2de71feaaa46db749d748d4b13972bbe1fb536a3e8c6e81933a1c143c196b4c8be2656f1fba87f6d567d78a0581c3993a5fb0baeec8772d05fdf54f3
+  checksum: 999a7c560e956f32a60842495e079964c1d2c816fbc98520c6f83b5947e6c93d6598f92687676619b309f759cc7ad276a8548ee1dd579267d76b18c89ec87439
   languageName: node
   linkType: hard
 
