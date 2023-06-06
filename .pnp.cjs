@@ -29,7 +29,7 @@ const RAW_RUNTIME_STATE =
           ["@types/base64-url", "npm:2.2.0"],\
           ["@types/chai", "npm:4.3.5"],\
           ["@types/chai-as-promised", "npm:7.1.5"],\
-          ["@types/jest", "npm:29.5.1"],\
+          ["@types/jest", "npm:29.5.2"],\
           ["@types/jsonwebtoken", "npm:9.0.2"],\
           ["@types/nock", "npm:11.1.0"],\
           ["@types/node", "npm:20.2.5"],\
@@ -1765,10 +1765,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@types/jest", [\
-      ["npm:29.5.1", {\
-        "packageLocation": "../../.yarn/berry/cache/@types-jest-npm-29.5.1-0eddfd7e9a-9.zip/node_modules/@types/jest/",\
+      ["npm:29.5.2", {\
+        "packageLocation": "../../.yarn/berry/cache/@types-jest-npm-29.5.2-1a72e55a50-9.zip/node_modules/@types/jest/",\
         "packageDependencies": [\
-          ["@types/jest", "npm:29.5.1"],\
+          ["@types/jest", "npm:29.5.2"],\
           ["expect", "npm:29.2.0"],\
           ["pretty-format", "npm:29.2.0"]\
         ],\
@@ -5638,7 +5638,7 @@ const RAW_RUNTIME_STATE =
           ["@types/base64-url", "npm:2.2.0"],\
           ["@types/chai", "npm:4.3.5"],\
           ["@types/chai-as-promised", "npm:7.1.5"],\
-          ["@types/jest", "npm:29.5.1"],\
+          ["@types/jest", "npm:29.5.2"],\
           ["@types/jsonwebtoken", "npm:9.0.2"],\
           ["@types/nock", "npm:11.1.0"],\
           ["@types/node", "npm:20.2.5"],\
@@ -6846,7 +6846,7 @@ const RAW_RUNTIME_STATE =
           ["@types/babel-jest", null],\
           ["@types/babel__core", null],\
           ["@types/esbuild", null],\
-          ["@types/jest", "npm:29.5.1"],\
+          ["@types/jest", "npm:29.5.2"],\
           ["@types/jest__types", null],\
           ["@types/typescript", null],\
           ["babel-jest", null],\
