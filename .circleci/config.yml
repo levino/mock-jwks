@@ -24,6 +24,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: install-dependencies
+          command: yarn
+      - run:
           name: linting
           command: yarn lint
       - run:
