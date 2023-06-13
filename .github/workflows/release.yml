@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-      - main
+      - v1
 name: release-please
 jobs:
   release-please:
@@ -17,3 +17,4 @@ jobs:
           token: ${{ steps.generate-token.outputs.token }}
           release-type: node
           package-name: mock-jwks
+          default-branch: v1

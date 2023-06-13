@@ -107,7 +107,7 @@
       "./jestSetup.js"
     ]
   },
-  "packageManager": "yarn@3.2.4",
+  "packageManager": "yarn@4.0.0-rc.45",
   "resolutions": {
     "eslint": "~8.22",
     "eslint:comment": "https://youtrack.jetbrains.com/issue/WEB-57089/ESLint823-TypeError-thislibOptionsparse-is-not-a-function"
