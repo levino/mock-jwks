@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.10](https://github.com/levino/mock-jwks/compare/v1.0.9...v1.0.10) (2023-06-13)
+
+
+### Bug Fixes
+
+* reenable build of v1 ([bb6d965](https://github.com/levino/mock-jwks/commit/bb6d9657cd3125ab92f65a9bdb6a36d9ab56eb86))
+* use jsonwebtoken 9 ([a028848](https://github.com/levino/mock-jwks/commit/a0288483f1f2287400f982c947a30d716ef0a8cc)), closes [#193](https://github.com/levino/mock-jwks/issues/193)
+
 ## [1.0.9](https://github.com/levino/mock-jwks/compare/v1.0.8...v1.0.9) (2022-12-23)
 
 
