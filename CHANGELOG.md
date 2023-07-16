@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.1.0](https://github.com/levino/mock-jwks/compare/v3.0.0...v3.1.0) (2023-07-16)
+
+
+### Features
+
+* make createJWKS more robust on malformed base strings ([daa5d8a](https://github.com/levino/mock-jwks/commit/daa5d8a0c295fae62253da64803a298bf2c62b3d))
+
 ## [3.0.0](https://github.com/levino/mock-jwks/compare/v2.1.1...v3.0.0) (2023-07-16)
 
 
