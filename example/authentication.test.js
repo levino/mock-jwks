@@ -44,8 +44,8 @@ describe('Some tests for authentication for our api', () => {
 })
 test('Another example with a non-auth0-style jkwsUri', async () => {
   const jwksMock = createJWKSMock(
-    'https://keycloak.somedomain.com/auth/realm/application',
-    '/protocol/openid-connect/certs'
+    'https://keycloak.somedomain.com',
+    '/auth/realm/application/protocol/openid-connect/certs'
   )
   // We start our app.
   const server = createApp({
