@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.0](https://github.com/levino/mock-jwks/compare/v2.0.3...v2.1.0) (2023-07-16)
+
+
+### Features
+
+* use msw instead of nock ([3f02804](https://github.com/levino/mock-jwks/commit/3f0280449b3d3630fe885a406ecc494c2adc8f02))
+
 ## [2.0.3](https://github.com/levino/mock-jwks/compare/v2.0.2...v2.0.3) (2023-03-15)
 
 
