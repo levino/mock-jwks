@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.1](https://github.com/levino/mock-jwks/compare/v2.1.0...v2.1.1) (2023-07-16)
+
+
+### Bug Fixes
+
+* undo accidental release of msw suppport as minor release ([2dbfd9e](https://github.com/levino/mock-jwks/commit/2dbfd9e61bda4a77affbfadfa85edf31152da653))
+
 ## [2.1.0](https://github.com/levino/mock-jwks/compare/v2.0.3...v2.1.0) (2023-07-16)
 
 
