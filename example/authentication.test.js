@@ -1,15 +1,13 @@
-import createJWKSMock from '../src/index'
-import createApp from './api'
+import createJWKSMock from '../src/index.js'
+import createApp from './api.js'
 import supertest from 'supertest'
-import { beforeEach, describe, expect, test } from 'vitest'
 
 describe('Some tests for authentication for our api', () => {
   let jwksMock, server, request
   beforeEach(() => {
     ;({ jwksMock, server, request } = createContext())
-    return () => tearDown({ jwksMock, server })
   })
-
+  afterEach(async () => await tearDown({ jwksMock, server }))
   test('should not get access without correct token', async () => {
     // We start intercepting queries (see below)
     jwksMock.start()
@@ -66,7 +64,7 @@ test('Another example with a non-auth0-style jkwsUri', async () => {
 })
 const createContext = () => {
   // This creates the local PKI
-  const jwksMock = createJWKSMock('https://levino.eu.auth0.com')
+  const jwksMock = createJWKSMock('https://levino.eu.auth0.com/')
   // We start our app.
   const server = createApp({
     jwksUri: 'https://levino.eu.auth0.com/.well-known/jwks.json',
