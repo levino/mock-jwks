@@ -58,8 +58,9 @@ jspm_packages/
 # IDE settings
 .idea
 .vscode
+!.vscode/settings.json
 
-build
+/build
 .yarn/*
 !.yarn/cache
 !.yarn/patches
