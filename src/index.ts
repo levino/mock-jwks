@@ -4,17 +4,16 @@ import { setupServer } from 'msw/node'
 import { rest } from 'msw'
 
 const createJWKSMock = (
-  jwksOrigin: string,
+  jwksBase: string,
   jwksPath = '/.well-known/jwks.json'
 ) => {
   const keypair = createKeyPair()
   const JWKS = createJWKS({
     ...keypair,
-    jwksOrigin,
+    jwksOrigin: jwksBase,
   })
-
   const server = setupServer(
-    rest.get(`${jwksOrigin}${jwksPath}`, (_, res, ctx) =>
+    rest.get(new URL(jwksPath, jwksBase).href, (_, res, ctx) =>
       res(ctx.status(200), ctx.json(JWKS))
     )
   )

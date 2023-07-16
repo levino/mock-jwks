@@ -57,13 +57,15 @@ You can test this app like so:
 import createJWKSMock from 'mock-jwks'
 import createApp from './api.js'
 import supertest from 'supertest'
+import { beforeEach, describe, expect, test } from 'vitest'
 
 describe('Some tests for authentication for our api', () => {
   let jwksMock, server, request
   beforeEach(() => {
     ;({ jwksMock, server, request } = createContext())
+    return () => tearDown({ jwksMock, server })
   })
-  afterEach(async () => await tearDown({ jwksMock, server }))
+
   test('should not get access without correct token', async () => {
     // We start intercepting queries (see below)
     jwksMock.start()
@@ -98,8 +100,8 @@ describe('Some tests for authentication for our api', () => {
 })
 test('Another example with a non-auth0-style jkwsUri', async () => {
   const jwksMock = createJWKSMock(
-    'https://keycloak.somedomain.com/auth/realm/application',
-    '/protocol/openid-connect/certs'
+    'https://keycloak.somedomain.com',
+    '/auth/realm/application/protocol/openid-connect/certs'
   )
   // We start our app.
   const server = createApp({
@@ -143,7 +145,13 @@ You can also find [this example in the repo](example/authentication.test.js).
 ## Under the hood
 
 `createJWKSMock` will create a local PKI and generate a working JWKS.json. Calling `jwksMock.start()` will use [msw](https://mswjs.io/)
-to intercept all calls to `` `${ jwksOrigin }${ jwksPath || '/.well-known/jwks.json' }` ``. So when the `jwks-rsa` middleware gets a token to validate
+to intercept all calls to
+
+```typescript
+;`${jwksBase}${jwksPath ?? '/.well-known/jwks.json'}`
+```
+
+. So when the `jwks-rsa` middleware gets a token to validate
 it will fetch the key to verify against from our local PKI instead of the production one and as such, the token is valid
 when signed with the local private key.
 
