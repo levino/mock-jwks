@@ -1,6 +1,7 @@
 import { JwtPayload } from 'jsonwebtoken'
-import nock from 'nock'
 import { createJWKS, createKeyPair, signJwt } from './tools.js'
+import { setupServer } from 'msw/node'
+import { rest } from 'msw'
 
 const createJWKSMock = (
   jwksOrigin: string,
@@ -12,18 +13,19 @@ const createJWKSMock = (
     jwksOrigin,
   })
 
-  let jwksUrlInterceptor: nock.Interceptor
+  const server = setupServer(
+    rest.get(`${jwksOrigin}${jwksPath}`, (_, res, ctx) =>
+      res(ctx.status(200), ctx.json(JWKS))
+    )
+  )
 
   const kid = () => JWKS.keys[0].kid
 
   const start = () => {
-    jwksUrlInterceptor = nock(jwksOrigin).get(jwksPath)
-    jwksUrlInterceptor.reply(200, JWKS).persist()
+    server.listen({ onUnhandledRequest: 'bypass' })
   }
   const stop = () => {
-    if (jwksUrlInterceptor) {
-      nock.removeInterceptor(jwksUrlInterceptor)
-    }
+    server.close()
   }
 
   const token = (token: JwtPayload = {}) =>

@@ -120,7 +120,7 @@ test('Another example with a non-auth0-style jkwsUri', async () => {
 })
 const createContext = () => {
   // This creates the local PKI
-  const jwksMock = createJWKSMock('https://levino.eu.auth0.com/')
+  const jwksMock = createJWKSMock('https://levino.eu.auth0.com')
   // We start our app.
   const server = createApp({
     jwksUri: 'https://levino.eu.auth0.com/.well-known/jwks.json',
@@ -142,7 +142,7 @@ You can also find [this example in the repo](example/authentication.test.js).
 
 ## Under the hood
 
-`createJWKSMock` will create a local PKI and generate a working JWKS.json. Calling `jwksMock.start()` will use [nock](https://www.npmjs.com/package/nock)
+`createJWKSMock` will create a local PKI and generate a working JWKS.json. Calling `jwksMock.start()` will use [msw](https://mswjs.io/)
 to intercept all calls to `` `${ jwksOrigin }${ jwksPath || '/.well-known/jwks.json' }` ``. So when the `jwks-rsa` middleware gets a token to validate
 it will fetch the key to verify against from our local PKI instead of the production one and as such, the token is valid
 when signed with the local private key.

@@ -2,6 +2,7 @@ import JWT from 'jsonwebtoken'
 import jwksClient, { CertSigningKey, RsaSigningKey } from 'jwks-rsa'
 import createAuth0Mock from './index.js'
 import pify from 'pify'
+import { beforeEach, describe, expect, test } from 'vitest'
 
 const auth0Mock = createAuth0Mock('https://hardfork.eu.auth0.com')
 const client = jwksClient({
@@ -11,9 +12,7 @@ const client = jwksClient({
 describe('Tests for JWKS being correctly consumed by jwks-rsa client', () => {
   beforeEach(() => {
     auth0Mock.start()
-  })
-  afterEach(() => {
-    auth0Mock.stop()
+    return auth0Mock.stop
   })
   test('mock returns a signing key', () =>
     expect(pify(client.getSigningKey)(auth0Mock.kid())).resolves.toBeTruthy())
