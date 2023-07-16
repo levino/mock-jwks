@@ -6,6 +6,6 @@
     "strict": true,
     "esModuleInterop": true,
     "noUnusedLocals": true,
-    "allowJs": true,
+    "allowJs": true
   }
 }
