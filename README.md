@@ -120,7 +120,7 @@ test('Another example with a non-auth0-style jkwsUri', async () => {
 })
 const createContext = () => {
   // This creates the local PKI
-  const jwksMock = createJWKSMock('https://levino.eu.auth0.com/')
+  const jwksMock = createJWKSMock('https://levino.eu.auth0.com')
   // We start our app.
   const server = createApp({
     jwksUri: 'https://levino.eu.auth0.com/.well-known/jwks.json',
