@@ -8,7 +8,7 @@ As of version 2 and march 2023 this package is a [pure esm package](https://gist
 
 ## Background
 
-If you use jtws for authentication and authorization of your users against your microservices, you want to automatically unit
+If you use jwts for authentication and authorization of your users against your microservices, you want to automatically unit
 test the authentication in your microservice for security. Happy and unhappy paths. Doing this while actually using a running JWKS
 deployment (like the auth0 backend) is slow and annoying, so e.g. auth0 suggest you mock their api. This turns out to be
 somewhat difficult, especially in the case of using RSA for signing of the tokens and not wanting to heavily dependency inject the middleware for
