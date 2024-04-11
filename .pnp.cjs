@@ -3271,10 +3271,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["jose", [\
-        ["npm:4.13.0", {\
-          "packageLocation": "./.yarn/cache/jose-npm-4.13.0-7aadb67d50-6fc5941252.zip/node_modules/jose/",\
+        ["npm:4.15.5", {\
+          "packageLocation": "./.yarn/cache/jose-npm-4.15.5-15e487a3a1-7dde76447c.zip/node_modules/jose/",\
           "packageDependencies": [\
-            ["jose", "npm:4.13.0"]\
+            ["jose", "npm:4.15.5"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -3376,7 +3376,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/express", "npm:4.17.14"],\
             ["@types/jsonwebtoken", "npm:9.0.2"],\
             ["debug", "virtual:352060d453a801a0fd16b073afb56a2607e33f96a5ff7faf9351853a737843ea6ad854442954d36ef1f89461751ed94f005ea67c746b39723d1da041a244f7d2#npm:4.3.4"],\
-            ["jose", "npm:4.13.0"],\
+            ["jose", "npm:4.15.5"],\
             ["limiter", "npm:1.1.5"],\
             ["lru-memoizer", "npm:2.1.4"]\
           ],\
