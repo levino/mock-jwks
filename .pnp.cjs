@@ -5417,17 +5417,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["vite", [\
-        ["npm:4.5.2", {\
-          "packageLocation": "./.yarn/cache/vite-npm-4.5.2-e430b2c117-9d1f84f703.zip/node_modules/vite/",\
+        ["npm:4.5.3", {\
+          "packageLocation": "./.yarn/cache/vite-npm-4.5.3-5cedc7cb8f-fd3f512ce4.zip/node_modules/vite/",\
           "packageDependencies": [\
-            ["vite", "npm:4.5.2"]\
+            ["vite", "npm:4.5.3"]\
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:185bd601e02ffe31741ebe5fd9185af7ea79dc6e098f6290e1bb0212a50aac69c474ab2f2089ce16e96ddfd2444b0860d9e3457861e243603a62f3be84b37977#npm:4.5.2", {\
-          "packageLocation": "./.yarn/__virtual__/vite-virtual-407a75af67/0/cache/vite-npm-4.5.2-e430b2c117-9d1f84f703.zip/node_modules/vite/",\
+        ["virtual:185bd601e02ffe31741ebe5fd9185af7ea79dc6e098f6290e1bb0212a50aac69c474ab2f2089ce16e96ddfd2444b0860d9e3457861e243603a62f3be84b37977#npm:4.5.3", {\
+          "packageLocation": "./.yarn/__virtual__/vite-virtual-686a7de914/0/cache/vite-npm-4.5.3-5cedc7cb8f-fd3f512ce4.zip/node_modules/vite/",\
           "packageDependencies": [\
-            ["vite", "virtual:185bd601e02ffe31741ebe5fd9185af7ea79dc6e098f6290e1bb0212a50aac69c474ab2f2089ce16e96ddfd2444b0860d9e3457861e243603a62f3be84b37977#npm:4.5.2"],\
+            ["vite", "virtual:185bd601e02ffe31741ebe5fd9185af7ea79dc6e098f6290e1bb0212a50aac69c474ab2f2089ce16e96ddfd2444b0860d9e3457861e243603a62f3be84b37977#npm:4.5.3"],\
             ["@types/less", null],\
             ["@types/lightningcss", null],\
             ["@types/node", null],\
@@ -5463,10 +5463,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["virtual:41a18ab0e4f9beb6ec4b65d4cf65f6357ef3eafa35dfdf279b272254b11bf5a043801fbe3758a5109daae210cc7bde98349b09c9e7aebba1a101068410b4ec36#npm:4.5.2", {\
-          "packageLocation": "./.yarn/__virtual__/vite-virtual-dc70714c4b/0/cache/vite-npm-4.5.2-e430b2c117-9d1f84f703.zip/node_modules/vite/",\
+        ["virtual:41a18ab0e4f9beb6ec4b65d4cf65f6357ef3eafa35dfdf279b272254b11bf5a043801fbe3758a5109daae210cc7bde98349b09c9e7aebba1a101068410b4ec36#npm:4.5.3", {\
+          "packageLocation": "./.yarn/__virtual__/vite-virtual-923b3ae4af/0/cache/vite-npm-4.5.3-5cedc7cb8f-fd3f512ce4.zip/node_modules/vite/",\
           "packageDependencies": [\
-            ["vite", "virtual:41a18ab0e4f9beb6ec4b65d4cf65f6357ef3eafa35dfdf279b272254b11bf5a043801fbe3758a5109daae210cc7bde98349b09c9e7aebba1a101068410b4ec36#npm:4.5.2"],\
+            ["vite", "virtual:41a18ab0e4f9beb6ec4b65d4cf65f6357ef3eafa35dfdf279b272254b11bf5a043801fbe3758a5109daae210cc7bde98349b09c9e7aebba1a101068410b4ec36#npm:4.5.3"],\
             ["@types/less", null],\
             ["@types/lightningcss", null],\
             ["@types/node", "npm:20.3.1"],\
@@ -5513,7 +5513,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["mlly", "npm:1.4.0"],\
             ["pathe", "npm:1.1.1"],\
             ["picocolors", "npm:1.0.0"],\
-            ["vite", "virtual:185bd601e02ffe31741ebe5fd9185af7ea79dc6e098f6290e1bb0212a50aac69c474ab2f2089ce16e96ddfd2444b0860d9e3457861e243603a62f3be84b37977#npm:4.5.2"]\
+            ["vite", "virtual:185bd601e02ffe31741ebe5fd9185af7ea79dc6e098f6290e1bb0212a50aac69c474ab2f2089ce16e96ddfd2444b0860d9e3457861e243603a62f3be84b37977#npm:4.5.3"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -5566,7 +5566,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["strip-literal", "npm:1.0.1"],\
             ["tinybench", "npm:2.5.0"],\
             ["tinypool", "npm:0.6.0"],\
-            ["vite", "virtual:41a18ab0e4f9beb6ec4b65d4cf65f6357ef3eafa35dfdf279b272254b11bf5a043801fbe3758a5109daae210cc7bde98349b09c9e7aebba1a101068410b4ec36#npm:4.5.2"],\
+            ["vite", "virtual:41a18ab0e4f9beb6ec4b65d4cf65f6357ef3eafa35dfdf279b272254b11bf5a043801fbe3758a5109daae210cc7bde98349b09c9e7aebba1a101068410b4ec36#npm:4.5.3"],\
             ["vite-node", "npm:0.33.0"],\
             ["webdriverio", null],\
             ["why-is-node-running", "npm:2.2.2"]\
