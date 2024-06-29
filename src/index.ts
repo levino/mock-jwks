@@ -1,7 +1,7 @@
 import { JwtPayload } from 'jsonwebtoken'
 import { createJWKS, createKeyPair, signJwt } from './tools.js'
 import { setupServer } from 'msw/node'
-import { rest } from 'msw'
+import { HttpResponse, http } from 'msw'
 
 const createJWKSMock = (
   jwksBase: string,
@@ -13,8 +13,8 @@ const createJWKSMock = (
     jwksOrigin: jwksBase,
   })
   const server = setupServer(
-    rest.get(new URL(jwksPath, jwksBase).href, (_, res, ctx) =>
-      res(ctx.status(200), ctx.json(JWKS))
+    http.get(new URL(jwksPath, jwksBase).href, () =>
+      HttpResponse.json(JWKS),
     )
   )
 
