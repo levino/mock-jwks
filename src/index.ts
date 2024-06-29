@@ -1,7 +1,7 @@
 import { JwtPayload } from 'jsonwebtoken'
 import { createJWKS, createKeyPair, signJwt } from './tools.js'
 import { setupServer } from 'msw/node'
-import { HttpResponse, http } from 'msw'
+import { HttpResponse, http, RequestHandlerOptions } from 'msw'
 
 const createJWKSMock = (
   jwksBase: string,
@@ -12,11 +12,13 @@ const createJWKSMock = (
     ...keypair,
     jwksOrigin: jwksBase,
   })
-  const server = setupServer(
-    http.get(new URL(jwksPath, jwksBase).href, () =>
-      HttpResponse.json(JWKS),
+  const jwksHandler = (options?: RequestHandlerOptions) =>
+    http.get(
+      new URL(jwksPath, jwksBase).href,
+      () => HttpResponse.json(JWKS),
+      options
     )
-  )
+  const server = setupServer(jwksHandler())
 
   const kid = () => JWKS.keys[0].kid
 
@@ -35,6 +37,7 @@ const createJWKSMock = (
     stop,
     kid,
     token,
+    jwksHandler,
   }
 }
 
