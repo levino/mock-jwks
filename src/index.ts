@@ -1,12 +1,12 @@
 import { JwtPayload } from 'jsonwebtoken'
 import { createJWKS, createKeyPair, signJwt } from './tools.js'
 import { setupServer } from 'msw/node'
-import { HttpResponse, http, RequestHandlerOptions } from 'msw'
+import { HttpResponse, http, RequestHandlerOptions, HttpHandler } from 'msw'
 
 const createJWKSMock = (
   jwksBase: string,
   jwksPath = '/.well-known/jwks.json'
-) => {
+): JWKSMock => {
   const keypair = createKeyPair()
   const JWKS = createJWKS({
     ...keypair,
@@ -41,6 +41,12 @@ const createJWKSMock = (
   }
 }
 
-export type JWKSMock = ReturnType<typeof createJWKSMock>
+export type JWKSMock = {
+  start: () => void
+  stop: () => void
+  kid: () => string
+  token: (token: JwtPayload) => string
+  jwksHandler: (options?: RequestHandlerOptions) => HttpHandler
+}
 
 export default createJWKSMock
