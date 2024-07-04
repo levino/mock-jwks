@@ -142,6 +142,31 @@ const tearDown = async ({ jwksMock, server }) => {
 
 You can also find [this example in the repo](example/authentication.test.js).
 
+### Custom Mock Server Worker (MSW) usage
+
+Internally this library uses Mock Server Worker (MSW) to create network mocks
+for the JWKS keyset. This can cause issues if you're already using MSW because
+running multiple MSW server instances is not recommended.
+
+In this case, instead of calling `start()/stop()`, use the `jwksHandler()` 
+function to create an MSW handler you can add to your existing server
+instance. Like this:
+
+```typescript
+// Import your existing global msw server
+import { server } from "./msw-server.js";
+
+describe("example reusing global msw server", () => {
+  beforeEach(() => {
+    // Prepend the jwks handler to the server
+    server.use(jwksMock.jwksHandler())
+  })
+  test("does something requiring jwks", () => {
+    // Test logic
+  })
+})
+```
+
 ## Under the hood
 
 `createJWKSMock` will create a local PKI and generate a working JWKS.json. Calling `jwksMock.start()` will use [msw](https://mswjs.io/)
