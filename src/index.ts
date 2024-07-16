@@ -1,30 +1,32 @@
 import { JwtPayload } from 'jsonwebtoken'
 import { createJWKS, createKeyPair, signJwt } from './tools.js'
-import { setupServer } from 'msw/node'
-import { HttpResponse, http, RequestHandlerOptions, HttpHandler } from 'msw'
+import { SetupServerApi, setupServer } from 'msw/node'
+import { HttpHandler, HttpResponse, http } from 'msw'
 
-const createJWKSMock = (
+export const createJWKSMock = (
   jwksBase: string,
   jwksPath = '/.well-known/jwks.json'
-): JWKSMock => {
+) => {
   const keypair = createKeyPair()
   const JWKS = createJWKS({
     ...keypair,
     jwksOrigin: jwksBase,
   })
-  const jwksHandler = (options?: RequestHandlerOptions) =>
-    http.get(
-      new URL(jwksPath, jwksBase).href,
-      () => HttpResponse.json(JWKS),
-      options
-    )
-  const server = setupServer(jwksHandler())
+
+  const handler: HttpHandler = http.get(new URL(jwksPath, jwksBase).href, () =>
+    HttpResponse.json(JWKS)
+  )
 
   const kid = () => JWKS.keys[0].kid
 
+  let server: SetupServerApi
+
   const start = () => {
+    server = setupServer(handler)
     server.listen({ onUnhandledRequest: 'bypass' })
+    return () => server.close()
   }
+
   const stop = () => {
     server.close()
   }
@@ -34,19 +36,19 @@ const createJWKSMock = (
 
   return {
     start,
+    /**
+     * @deprecated Use the thunk returned by `start` instead.
+     */
     stop,
     kid,
     token,
-    jwksHandler,
+    mswHandler: handler,
   }
 }
 
-export type JWKSMock = {
-  start: () => void
-  stop: () => void
-  kid: () => string
-  token: (token: JwtPayload) => string
-  jwksHandler: (options?: RequestHandlerOptions) => HttpHandler
-}
+export type JWKSMock = ReturnType<typeof createJWKSMock>
 
+/**
+ * @deprecated Use the named export instead
+ */
 export default createJWKSMock

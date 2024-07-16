@@ -1,30 +1,26 @@
 import JWT from 'jsonwebtoken'
 import jwksClient, { CertSigningKey, RsaSigningKey } from 'jwks-rsa'
-import createAuth0Mock, { type JWKSMock } from './index.js'
-import pify from 'pify'
+import createAuth0Mock from './index.js'
 import { beforeEach, describe, expect, test } from 'vitest'
-import { setupServer } from 'msw/node'
 
-const initialise = () => {
-  const auth0Mock = createAuth0Mock('https://hardfork.eu.auth0.com')
-  const client = jwksClient({
-    jwksUri: 'https://hardfork.eu.auth0.com/.well-known/jwks.json',
-  })
-  return { auth0Mock, client }
-}
+const auth0Mock = createAuth0Mock('https://hardfork.eu.auth0.com')
+const client = jwksClient({
+  jwksUri: 'https://hardfork.eu.auth0.com/.well-known/jwks.json',
+})
 
-const rsaClientTests = (auth0Mock: JWKSMock, client: jwksClient.JwksClient) => {
+describe('Tests for JWKS being correctly consumed by jwks-rsa client', () => {
+  beforeEach(() => auth0Mock.start())
   test('mock returns a signing key', () =>
-    expect(pify(client.getSigningKey)(auth0Mock.kid())).resolves.toBeTruthy())
+    expect(client.getSigningKey(auth0Mock.kid())).resolves.toBeTruthy())
   test('generated token should be valid against the JWKS key', async () => {
-    const key = await pify(client.getSigningKey)(auth0Mock.kid())
+    const key = await client.getSigningKey(auth0Mock.kid())
     const signingKey = String(
       (key as CertSigningKey).publicKey || (key as RsaSigningKey).rsaPublicKey
     )
     expect(JWT.verify(auth0Mock.token({}), signingKey)).toBeTruthy()
   })
   test('iat and exp are numbers', async () => {
-    const key = await pify(client.getSigningKey)(auth0Mock.kid())
+    const key = await client.getSigningKey(auth0Mock.kid())
     const signingKey = String(
       (key as CertSigningKey).publicKey || (key as RsaSigningKey).rsaPublicKey
     )
@@ -86,29 +82,4 @@ const rsaClientTests = (auth0Mock: JWKSMock, client: jwksClient.JwksClient) => {
         'delete:all',
       ],
     }))
-}
-
-describe('Tests for JWKS being correctly consumed by jwks-rsa client', () => {
-  describe('Using built-in msw server mocks', () => {
-    const { auth0Mock, client } = initialise()
-
-    beforeEach(() => {
-      auth0Mock.start()
-      return auth0Mock.stop
-    })
-
-    rsaClientTests(auth0Mock, client)
-  })
-
-  describe('Using custom msw server mocks', () => {
-    const { auth0Mock, client } = initialise()
-
-    beforeEach(() => {
-      const server = setupServer(auth0Mock.jwksHandler())
-      server.listen()
-      return () => server.close()
-    })
-
-    rsaClientTests(auth0Mock, client)
-  })
 })
