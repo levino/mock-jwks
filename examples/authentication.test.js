@@ -6,7 +6,6 @@ import { describe, expect, test, onTestFinished } from 'vitest'
 
 // This creates the local PKI
 const jwksMock = createJWKSMock('https://levino.eu.auth0.com')
-// We start our app.
 const app = createApp({
   jwksUri: 'https://levino.eu.auth0.com/.well-known/jwks.json',
 })
