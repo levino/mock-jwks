@@ -5,7 +5,7 @@
   "exports": "./build/index.js",
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
-    "test": "vitest",
+    "test": "yarn build && vitest",
     "clean": "rm -rf build",
     "prepack": "yarn clean && yarn build",
     "postpack": "yarn clean",
