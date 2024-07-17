@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.2.0](https://github.com/levino/mock-jwks/compare/v3.1.0...v3.2.0) (2024-07-17)
+
+
+### Features
+
+* support custom msw server ([e8f341f](https://github.com/levino/mock-jwks/commit/e8f341fe100d6fadf3b74a0145f3c090a7510476))
+
 ## [3.1.0](https://github.com/levino/mock-jwks/compare/v3.0.0...v3.1.0) (2023-07-16)
 
 
