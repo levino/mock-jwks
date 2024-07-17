@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.2.1](https://github.com/levino/mock-jwks/compare/v3.2.0...v3.2.1) (2024-07-17)
+
+
+### Bug Fixes
+
+* publication pipeline fails ([dd6635b](https://github.com/levino/mock-jwks/commit/dd6635b0debebdeea10eea9ecbaf58dafbe4f729))
+
 ## [3.2.0](https://github.com/levino/mock-jwks/compare/v3.1.0...v3.2.0) (2024-07-17)
 
 
