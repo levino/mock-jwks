@@ -84,9 +84,10 @@
     "koa": "^2.13.4",
     "koa-jwt": "^4.0.3",
     "koa-router": "^12.0.0",
-    "nock": "^13.2.9",
+    "nock": "^14",
     "nock-11": "npm:nock@^11",
     "nock-12": "npm:nock@^12",
+    "nock-13": "npm:nock@^13",
     "pify": "^5",
     "prettier": "^2.7.1",
     "supertest": "^6.3.0",
@@ -94,7 +95,7 @@
     "typescript": "^4.8.4"
   },
   "peerDependencies": {
-    "nock": "^11 || ^12 || ^13"
+    "nock": "^11 || ^12 || ^13 || ^14"
   },
   "dependencies": {
     "base64-url": "^2.3.3",
@@ -107,5 +108,5 @@
       "./jestSetup.js"
     ]
   },
-  "packageManager": "yarn@4.0.0-rc.45"
+  "packageManager": "yarn@4.6.0"
 }

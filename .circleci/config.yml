@@ -2,7 +2,7 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: node:18-alpine
+      - image: node:22-alpine
     parameters:
       nock-version:
         description: 'nock version'
@@ -20,7 +20,7 @@ jobs:
             NOCK_VERSION: << parameters.nock-version >>
   lint:
     docker:
-      - image: node:18-alpine
+      - image: node:22-alpine
     steps:
       - checkout
       - run:
@@ -40,5 +40,5 @@ workflows:
       - build:
           matrix:
             parameters:
-              nock-version: ['11', '12', '13']
+              nock-version: ['11', '12', '13','14']
       - lint
