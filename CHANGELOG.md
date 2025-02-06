@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.3.2](https://github.com/levino/mock-jwks/compare/v3.3.1...v3.3.2) (2025-02-06)
+
+
+### Bug Fixes
+
+* correctly set token for publication ([8b46074](https://github.com/levino/mock-jwks/commit/8b460745af73f0ab01d2e7d9c68f7e4d91c5bc6f))
+
 ## [3.3.1](https://github.com/levino/mock-jwks/compare/v3.3.0...v3.3.1) (2025-02-06)
 
 
