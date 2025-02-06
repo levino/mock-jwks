@@ -19,7 +19,9 @@
   "engines": {
     "node": ">=14.16"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
   },
@@ -46,7 +48,12 @@
     "type": "git",
     "url": "git+https://github.com/Levino/mock-jwks.git"
   },
-  "keywords": ["jwks", "jwt", "mock", "testing"],
+  "keywords": [
+    "jwks",
+    "jwt",
+    "mock",
+    "testing"
+  ],
   "author": "Levin Keller",
   "license": "MIT",
   "bugs": {

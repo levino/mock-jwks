@@ -19,7 +19,13 @@
     "lineWidth": 80,
     "attributePosition": "auto",
     "bracketSpacing": true,
-    "ignore": ["**/.pnp.*", "**/.yarn", "**/build", "**/CHANGELOG.md"]
+    "ignore": [
+      "**/.pnp.*",
+      "**/.yarn",
+      "**/build",
+      "**/CHANGELOG.md",
+      "package.json"
+    ]
   },
   "organizeImports": {
     "enabled": true
