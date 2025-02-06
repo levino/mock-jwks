@@ -8,10 +8,10 @@
   "types": "dist/types.d.ts",
   "scripts": {
     "build": "parcel build",
-    "test": "yarn build && vitest",
+    "test": "vitest",
     "clean": "rm -rf build",
-    "prepack": "yarn clean && yarn build",
-    "postpack": "yarn clean",
+    "prepack": "npm run clean && npm run build",
+    "postpack": "npm run clean",
     "lint": "biome check",
     "format": "biome check --write",
     "check:code": "tsc --noEmit -p tsconfig.check.json"
@@ -75,7 +75,6 @@
     "@types/supertest": "^2.0.12",
     "express": "^4.19.2",
     "express-jwt": "^8.4.1",
-    "husky": "^8.0.1",
     "jwks-rsa": "^3.0.1",
     "parcel": "^2.13.3",
     "supertest": "^6.3.0",
