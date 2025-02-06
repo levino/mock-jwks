@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.3.4](https://github.com/levino/mock-jwks/compare/v3.3.3...v3.3.4) (2025-02-06)
+
+
+### Bug Fixes
+
+* correctly set repository url ([83a62cd](https://github.com/levino/mock-jwks/commit/83a62cd963d6996cae9a77c39082c2efefae3977))
+
 ## [3.3.3](https://github.com/levino/mock-jwks/compare/v3.3.2...v3.3.3) (2025-02-06)
 
 
