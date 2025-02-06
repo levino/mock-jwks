@@ -2,11 +2,12 @@
 /**
  * @typedef
  */
+// @ts-expect-error - self referencing does not work without "type": "module"
 import createJWKSMock from 'mock-jwks'
-import { createApp } from './api.js'
+import { setupServer } from 'msw/node'
 import supertest from 'supertest'
 import { beforeAll, beforeEach, describe, expect, test } from 'vitest'
-import { setupServer } from 'msw/node'
+import { createApp } from './api.js'
 
 const jwksMock = createJWKSMock('https://levino.eu.auth0.com')
 const app = createApp({

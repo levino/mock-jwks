@@ -1,7 +1,7 @@
 import JWT from 'jsonwebtoken'
-import jwksClient, { CertSigningKey, RsaSigningKey } from 'jwks-rsa'
-import createAuth0Mock from './index.js'
+import jwksClient, { type CertSigningKey, type RsaSigningKey } from 'jwks-rsa'
 import { beforeEach, describe, expect, test } from 'vitest'
+import createAuth0Mock from './index.js'
 
 const auth0Mock = createAuth0Mock('https://hardfork.eu.auth0.com')
 const client = jwksClient({

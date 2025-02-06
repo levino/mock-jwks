@@ -1,7 +1,7 @@
-import { JwtPayload } from 'jsonwebtoken'
+import type { JwtPayload } from 'jsonwebtoken'
+import { http, type HttpHandler, HttpResponse } from 'msw'
+import { type SetupServerApi, setupServer } from 'msw/node'
 import { createJWKS, createKeyPair, signJwt } from './tools.js'
-import { SetupServerApi, setupServer } from 'msw/node'
-import { HttpHandler, HttpResponse, http } from 'msw'
 
 export const createJWKSMock = (
   jwksBase: string,

@@ -60,7 +60,7 @@ jspm_packages/
 .vscode
 !.vscode/settings.json
 
-/build
+dist/
 .yarn/*
 !.yarn/cache
 !.yarn/patches
@@ -68,3 +68,4 @@ jspm_packages/
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+.parcel-cache/
