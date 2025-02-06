@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.3.1](https://github.com/levino/mock-jwks/compare/v3.3.0...v3.3.1) (2025-02-06)
+
+
+### Bug Fixes
+
+* use npm to publish package ([f9d4209](https://github.com/levino/mock-jwks/commit/f9d42090ade701d03adffd3895954892f475541e))
+
 ## [3.3.0](https://github.com/levino/mock-jwks/compare/v3.2.2...v3.3.0) (2025-02-06)
 
 
