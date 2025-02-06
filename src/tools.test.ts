@@ -1,5 +1,5 @@
-import { createJWKS, createKeyPair } from './tools.js'
 import { describe, expect, test } from 'vitest'
+import { createJWKS, createKeyPair } from './tools.js'
 
 describe('JWKS', () => {
   test("'Exponent is correctly encoded'", () => {

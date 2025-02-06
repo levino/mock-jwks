@@ -1,8 +1,9 @@
 // @ts-check
+// @ts-expect-error - self referencing does not work without "type": "module"
 import { createJWKSMock } from 'mock-jwks'
-import { createApp } from './api.js'
 import supertest from 'supertest'
-import { describe, expect, test, onTestFinished } from 'vitest'
+import { describe, expect, onTestFinished, test } from 'vitest'
+import { createApp } from './api.js'
 
 // This creates the local PKI
 const jwksMock = createJWKSMock('https://levino.eu.auth0.com')

@@ -1,5 +1,5 @@
+import { createHash } from 'node:crypto'
 import * as base64url from 'base64-url'
-import { createHash } from 'crypto'
 import JWT from 'jsonwebtoken'
 export type { JwtPayload } from 'jsonwebtoken'
 import forge from 'node-forge'
@@ -58,7 +58,7 @@ export interface JWKS {
       e: string
       kid: string
       x5t: string
-    }
+    },
   ]
 }
 
@@ -163,15 +163,15 @@ function btoa(bin: string) {
 function bnToB64(bn: string) {
   let hex = BigInt(bn).toString(16)
   if (hex.length % 2) {
-    hex = '0' + hex
+    hex = `0${hex}`
   }
 
   const bin = []
   let i = 0
-  let d
-  let b
+  let d: number
+  let b: string
   while (i < hex.length) {
-    d = parseInt(hex.slice(i, i + 2), 16)
+    d = Number.parseInt(hex.slice(i, i + 2), 16)
     b = String.fromCharCode(d)
     bin.push(b)
     i += 2
