@@ -9,7 +9,12 @@
   },
   "customizations": {
     "vscode": {
-      "extensions": ["biomejs.biome"]
+      "extensions": ["biomejs.biome"],
+
+      "settings": {
+        "editor.defaultFormatter": "biomejs.biome",
+        "terminal.integrated.defaultProfile.linux": "zsh"
+      }
     }
   }
 
