@@ -26,7 +26,6 @@ export const createJWKSMock = (
     server = undefined
   }
 
-
   const start = () => {
     if (server) {
       throw new Error('JWKSMock is already started')
@@ -35,7 +34,6 @@ export const createJWKSMock = (
     server.listen({ onUnhandledRequest: 'bypass' })
     return () => stop()
   }
-
 
   const token = (token: JwtPayload = {}) =>
     signJwt(keypair.privateKey, token, kid())
