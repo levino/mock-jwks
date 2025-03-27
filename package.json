@@ -78,8 +78,7 @@
     "parcel": "^2.13.3",
     "supertest": "^6.3.0",
     "typescript": "^5.0.2",
-    "vitest": "^2.0.3",
-    "waait": "^1.0.5"
+    "vitest": "^3.0.9"
   },
   "dependencies": {
     "base64-url": "^2.3.3",
