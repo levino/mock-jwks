@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.3.5](https://github.com/levino/mock-jwks/compare/v3.3.4...v3.3.5) (2025-03-27)
+
+
+### Bug Fixes
+
+* multiple calls to start produce unexpected behaviour ([5cad8cb](https://github.com/levino/mock-jwks/commit/5cad8cba3ef686f97b85d59d5a7c8cba3977bfa8))
+
 ## [3.3.4](https://github.com/levino/mock-jwks/compare/v3.3.3...v3.3.4) (2025-02-06)
 
 
