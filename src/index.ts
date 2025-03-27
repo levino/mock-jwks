@@ -19,17 +19,23 @@ export const createJWKSMock = (
 
   const kid = () => JWKS.keys[0].kid
 
-  let server: SetupServerApi
-
-  const start = () => {
-    server = setupServer(handler)
-    server.listen({ onUnhandledRequest: 'bypass' })
-    return () => server.close()
-  }
+  let server: SetupServerApi | undefined
 
   const stop = () => {
-    server.close()
+    server?.close()
+    server = undefined
   }
+
+
+  const start = () => {
+    if (server) {
+      throw new Error('JWKSMock is already started')
+    }
+    server = setupServer(handler)
+    server.listen({ onUnhandledRequest: 'bypass' })
+    return () => stop()
+  }
+
 
   const token = (token: JwtPayload = {}) =>
     signJwt(keypair.privateKey, token, kid())
