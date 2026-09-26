@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "isolatedDeclarations": false,
+    "declaration": false,
+    "allowJs": true,
+    "paths": {
+      "mock-jwks": ["./src/index.ts"]
+    }
+  },
+  "include": ["examples"]
+}

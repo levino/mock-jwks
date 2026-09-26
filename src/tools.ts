@@ -1,9 +1,6 @@
-import { createHash } from 'node:crypto'
-import * as base64url from 'base64-url'
+import { createHash, createPublicKey } from 'node:crypto'
 import JWT from 'jsonwebtoken'
-export type { JwtPayload } from 'jsonwebtoken'
 import forge from 'node-forge'
-import NodeRSA from 'node-rsa'
 
 /* HARDCODED MOCK RSA KEYS */
 
@@ -62,15 +59,15 @@ export interface JWKS {
   ]
 }
 
-export const createCertificate = ({
+const createCertificate = ({
   publicKey,
   privateKey,
   jwksOrigin,
 }: {
-  publicKey: forge.pki.PublicKey
-  privateKey: forge.pki.PrivateKey
+  publicKey: forge.pki.rsa.PublicKey
+  privateKey: forge.pki.rsa.PrivateKey
   jwksOrigin?: string
-}) => {
+}): string => {
   const cert = forge.pki.createCertificate()
   cert.publicKey = publicKey
   cert.serialNumber = '123'
@@ -88,11 +85,30 @@ export const createCertificate = ({
   return forge.pki.certificateToPem(cert)
 }
 
-const getCertThumbprint = (certificate: string) => {
+const getCertThumbprint = (certificate: string): string => {
   const shasum = createHash('sha1')
   const der = Buffer.from(certificate).toString('binary')
   shasum.update(der)
   return shasum.digest('base64')
+}
+
+const getRsaComponents = (publicKey: forge.pki.rsa.PublicKey) => {
+  const { n, e } = createPublicKey(forge.pki.publicKeyToPem(publicKey)).export({
+    format: 'jwk',
+  })
+  if (!n || !e) {
+    throw new Error('Public key is not an RSA key')
+  }
+  const modulus = Buffer.from(n, 'base64url')
+  return {
+    // Keeps the modulus encoding of previous releases (standard base64 of the
+    // signed big-endian integer) so the published JWKS stays byte-identical.
+    n: (modulus[0] & 0x80
+      ? Buffer.concat([Buffer.from([0]), modulus])
+      : modulus
+    ).toString('base64'),
+    e,
+  }
 }
 
 export const createJWKS = ({
@@ -100,13 +116,11 @@ export const createJWKS = ({
   publicKey,
   jwksOrigin,
 }: {
-  privateKey: forge.pki.PrivateKey
-  publicKey: forge.pki.PublicKey
+  privateKey: forge.pki.rsa.PrivateKey
+  publicKey: forge.pki.rsa.PublicKey
   jwksOrigin?: string
 }): JWKS => {
-  const helperKey = new NodeRSA()
-  helperKey.importKey(forge.pki.privateKeyToPem(privateKey))
-  const { n: modulus, e: exponent } = helperKey.exportKey('components')
+  const { n, e } = getRsaComponents(publicKey)
   const certPem = createCertificate({
     jwksOrigin,
     privateKey,
@@ -117,17 +131,17 @@ export const createJWKS = ({
       .toDer(forge.pki.certificateToAsn1(forge.pki.certificateFromPem(certPem)))
       .getBytes()
   )
-  const thumbprint = base64url.encode(getCertThumbprint(certDer))
+  const thumbprint = Buffer.from(getCertThumbprint(certDer)).toString(
+    'base64url'
+  )
   return {
     keys: [
       {
         alg: 'RS256',
-        e: Buffer.isBuffer(exponent)
-          ? exponent.toString()
-          : bnToB64(String(exponent)),
+        e,
         kid: thumbprint,
         kty: 'RSA',
-        n: modulus.toString('base64'),
+        n,
         use: 'sig',
         x5c: [certDer],
         x5t: thumbprint,
@@ -136,7 +150,7 @@ export const createJWKS = ({
   }
 }
 
-export const createKeyPair = () => {
+export const createKeyPair = (): forge.pki.rsa.KeyPair => {
   const privateKey = forge.pki.privateKeyFromPem(PRIVATE_KEY_PEM)
   const publicKey = forge.pki.publicKeyFromPem(PUBLIC_KEY_PEM)
   return {
@@ -146,36 +160,10 @@ export const createKeyPair = () => {
 }
 
 export const signJwt = (
-  privateKey: forge.pki.PrivateKey,
+  privateKey: forge.pki.rsa.PrivateKey,
   jwtPayload: JWT.JwtPayload,
   kid?: string
-) =>
+): string =>
   JWT.sign(jwtPayload, forge.pki.privateKeyToPem(privateKey), {
     header: { kid, alg: 'RS256' },
   })
-
-// Below taken from https://coolaj86.com/articles/bigints-and-base64-in-javascript/
-// Binary string to ASCII (base64)
-function btoa(bin: string) {
-  return Buffer.from(bin, 'binary').toString('base64')
-}
-
-function bnToB64(bn: string) {
-  let hex = BigInt(bn).toString(16)
-  if (hex.length % 2) {
-    hex = `0${hex}`
-  }
-
-  const bin = []
-  let i = 0
-  let d: number
-  let b: string
-  while (i < hex.length) {
-    d = Number.parseInt(hex.slice(i, i + 2), 16)
-    b = String.fromCharCode(d)
-    bin.push(b)
-    i += 2
-  }
-
-  return btoa(bin.join(''))
-}

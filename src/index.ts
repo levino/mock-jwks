@@ -1,12 +1,25 @@
 import type { JwtPayload } from 'jsonwebtoken'
-import { http, type HttpHandler, HttpResponse } from 'msw'
-import { type SetupServerApi, setupServer } from 'msw/node'
+import { type HttpHandler, HttpResponse, http } from 'msw'
+import { type SetupServer, setupServer } from 'msw/node'
 import { createJWKS, createKeyPair, signJwt } from './tools.js'
+
+export type { JwtPayload }
+
+export interface JWKSMock {
+  start: () => () => void
+  /**
+   * @deprecated Use the thunk returned by `start` instead.
+   */
+  stop: () => void
+  kid: () => string
+  token: (token?: JwtPayload) => string
+  mswHandler: HttpHandler
+}
 
 export const createJWKSMock = (
   jwksBase: string,
   jwksPath = '/.well-known/jwks.json'
-) => {
+): JWKSMock => {
   const keypair = createKeyPair()
   const JWKS = createJWKS({
     ...keypair,
@@ -19,7 +32,7 @@ export const createJWKSMock = (
 
   const kid = () => JWKS.keys[0].kid
 
-  let server: SetupServerApi | undefined
+  let server: SetupServer | undefined
 
   const stop = () => {
     server?.close()
@@ -40,9 +53,6 @@ export const createJWKSMock = (
 
   return {
     start,
-    /**
-     * @deprecated Use the thunk returned by `start` instead.
-     */
     stop,
     kid,
     token,
@@ -50,9 +60,8 @@ export const createJWKSMock = (
   }
 }
 
-export type JWKSMock = ReturnType<typeof createJWKSMock>
-
 /**
  * @deprecated Use the named export instead
  */
-export default createJWKSMock
+const deprecatedDefaultExport: typeof createJWKSMock = createJWKSMock
+export default deprecatedDefaultExport

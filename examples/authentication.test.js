@@ -1,5 +1,4 @@
 // @ts-check
-// @ts-expect-error - self referencing does not work without "type": "module"
 import { createJWKSMock } from 'mock-jwks'
 import supertest from 'supertest'
 import { describe, expect, onTestFinished, test } from 'vitest'
