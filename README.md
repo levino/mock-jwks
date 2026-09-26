@@ -15,6 +15,14 @@ wanting to heavily dependency inject the middleware for authentication in your
 koa or express app. This is why I made this tool, which requires less changes to
 your code.
 
+## Installation
+
+```sh
+npm install --save-dev mock-jwks
+```
+
+`mock-jwks` requires Node.js 22 or later.
+
 ## Usage
 
 Consider a basic `express` app (works also with `koa`, `hapi` or `graphql`):
@@ -47,13 +55,12 @@ You can test this app like so:
 // authentication.test.js
 // @ts-check
 import { createJWKSMock } from 'mock-jwks'
-import { createApp } from './api.js'
 import supertest from 'supertest'
-import { describe, expect, test, onTestFinished } from 'vitest'
+import { describe, expect, onTestFinished, test } from 'vitest'
+import { createApp } from './api.js'
 
 // This creates the local PKI
 const jwksMock = createJWKSMock('https://levino.eu.auth0.com')
-// We start our app.
 const app = createApp({
   jwksUri: 'https://levino.eu.auth0.com/.well-known/jwks.json',
 })
@@ -123,18 +130,16 @@ for the JWKS keyset. Instead of letting `mock-jwks` run its own `msw` instance,
 you can add the required handlers to your running instance.
 
 In this case, instead of calling `start()/stop()`, provide the `mswHandler` to
-to your existing server instance:
+your existing server instance:
 
 ```js
+// customMSWServer.test.js
 // @ts-check
-/**
- * @typedef
- */
-import createJWKSMock from 'mock-jwks'
-import { createApp } from './api.js'
+import { createJWKSMock } from 'mock-jwks'
+import { setupServer } from 'msw/node'
 import supertest from 'supertest'
 import { beforeAll, beforeEach, describe, expect, test } from 'vitest'
-import { setupServer } from 'msw/node'
+import { createApp } from './api.js'
 
 const jwksMock = createJWKSMock('https://levino.eu.auth0.com')
 const app = createApp({
@@ -142,7 +147,7 @@ const app = createApp({
 })
 
 describe('Some tests for authentication for our api', () => {
-  /** @type {import('msw/node').SetupServerApi} */
+  /** @type {import('msw/node').SetupServer} */
   let mswServer
   beforeAll(() => {
     mswServer = setupServer()
@@ -198,13 +203,13 @@ You can also find [this example in the repo](examples/customMSWServer.test.js).
 
 `createJWKSMock` will create a local PKI and generate a working JWKS.json.
 Calling `jwksMock.start()` will use [msw](https://mswjs.io/) to intercept all
-calls to
+`GET` requests to
 
 ```typescript
-;`${jwksBase}${jwksPath ?? '/.well-known/jwks.json'}`
+new URL(jwksPath ?? '/.well-known/jwks.json', jwksBase).href
 ```
 
-. So when the `jwks-rsa` middleware gets a token to validate it will fetch the
+So when the `jwks-rsa` middleware gets a token to validate it will fetch the
 key to verify against from our local PKI instead of the production one and as
 such, the token is valid when signed with the local private key.
 

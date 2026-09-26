@@ -49,9 +49,6 @@ jspm_packages/
 # Output of 'npm pack'
 *.tgz
 
-# Yarn Integrity file
-.yarn-integrity
-
 # dotenv environment variables file
 .env
 
@@ -61,11 +58,3 @@ jspm_packages/
 !.vscode/settings.json
 
 dist/
-.yarn/*
-!.yarn/cache
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/sdks
-!.yarn/versions
-.parcel-cache/

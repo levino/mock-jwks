@@ -1,5 +1,4 @@
-# This workflow will run tests using node and then publish a package to GitHub Packages when a release is created
-# For more information see: https://help.github.com/actions/language-and-framework-guides/publishing-nodejs-packages
+# Publishes the package to npm when release-please creates a GitHub release.
 
 name: Node.js Package
 
@@ -11,11 +10,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
-          node-version: 22
-          cache: 'npm'
+          node-version-file: .nvmrc
       - run: npm ci
       - run: npm test
 
@@ -24,13 +22,12 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      id-token: write    
+      id-token: write
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
-          node-version: 22
-          cache: 'npm'
+          node-version-file: .nvmrc
           registry-url: 'https://registry.npmjs.org'
       - run: npm ci
       - run: npm publish --provenance
