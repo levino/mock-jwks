@@ -1,5 +1,16 @@
 # Changelog
 
+## [4.0.0](https://github.com/levino/mock-jwks/compare/v3.3.5...v4.0.0) (2026-09-26)
+
+
+### ⚠ BREAKING CHANGES
+
+* Node.js 22 or later is required (previously >=14.16). package.json now declares an "exports" map. Only "mock-jwks" and "mock-jwks/package.json" can be imported; ESM consumers get a native ESM build (dist/index.mjs), CommonJS consumers dist/index.cjs. The former files dist/main.js, dist/module.js and dist/types.d.ts no longer exist.
+
+### Features
+
+* require Node.js 22, ship dual ESM/CJS build and update all dependencies ([#286](https://github.com/levino/mock-jwks/issues/286)) ([7ae9a24](https://github.com/levino/mock-jwks/commit/7ae9a243ffa72ef92d47dd4c6a98b8f9bca8fbad))
+
 ## [3.3.5](https://github.com/levino/mock-jwks/compare/v3.3.4...v3.3.5) (2025-03-27)
 
 
