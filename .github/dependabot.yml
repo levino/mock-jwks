@@ -1,0 +1,85 @@
+# Abhaengigkeiten automatisch aktualisieren.
+#
+# Bisher gab es hier keine dependabot.yml: Es kamen nur ungruppierte
+# Security-PRs, je Advisory einer, und niemand hat sie gemergt. Jetzt:
+# hoechstens drei Sammel-PRs je Oekosystem und Monat (`minor-and-patch`,
+# `security`, `majors`); automerge.yml mergt alles ausser `major`, sobald die
+# Checks gruen sind. Security-Updates ignorieren `schedule` und kommen sofort.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: monthly
+      time: "04:00"
+      timezone: Europe/Berlin
+    labels:
+      - dependencies
+    # Hoch mit Absicht: Ist das Limit erschoepft, legt Dependabot auch die
+    # Sammel-PRs nicht mehr an.
+    open-pull-requests-limit: 20
+    groups:
+      # Ein Sammel-PR fuer alle Minor-/Patch-Version-Updates.
+      minor-and-patch:
+        applies-to: version-updates
+        patterns:
+          - "*"
+        update-types:
+          - minor
+          - patch
+      # Ein Sammel-PR fuer alle Sicherheitsupdates statt eines PRs pro Advisory
+      # (bisher kam z.B. #288 source-map-js und #289 vite einzeln). Ohne Majors,
+      # damit automerge.yml ihn mergen darf; ein Sicherheitsfix, den es nur als
+      # Major gibt, kommt als eigener PR mit Label `major`.
+      security:
+        applies-to: security-updates
+        patterns:
+          - "*"
+        update-types:
+          - minor
+          - patch
+      # Ein Review-Paket fuer alle Majors; automerge.yml labelt es `major`.
+      majors:
+        applies-to: version-updates
+        patterns:
+          - "*"
+        update-types:
+          - major
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+      time: "04:00"
+      timezone: Europe/Berlin
+    labels:
+      - dependencies
+    # Hoch mit Absicht: Ist das Limit erschoepft, legt Dependabot auch die
+    # Sammel-PRs nicht mehr an.
+    open-pull-requests-limit: 20
+    groups:
+      # Ein Sammel-PR fuer alle Minor-/Patch-Version-Updates.
+      minor-and-patch:
+        applies-to: version-updates
+        patterns:
+          - "*"
+        update-types:
+          - minor
+          - patch
+      # Ein Sammel-PR fuer alle Sicherheitsupdates statt eines PRs pro Advisory
+      # (bisher kam z.B. #288 source-map-js und #289 vite einzeln). Ohne Majors,
+      # damit automerge.yml ihn mergen darf; ein Sicherheitsfix, den es nur als
+      # Major gibt, kommt als eigener PR mit Label `major`.
+      security:
+        applies-to: security-updates
+        patterns:
+          - "*"
+        update-types:
+          - minor
+          - patch
+      # Ein Review-Paket fuer alle Majors; automerge.yml labelt es `major`.
+      majors:
+        applies-to: version-updates
+        patterns:
+          - "*"
+        update-types:
+          - major
