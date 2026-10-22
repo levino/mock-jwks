@@ -50,11 +50,13 @@ jobs:
       - run: npm run check:code
   lint:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - uses: actions/checkout@v7
-      - uses: actions/setup-node@v7
         with:
-          node-version-file: .nvmrc
-          cache: 'npm'
-      - run: npm ci
-      - run: npm run lint
+          persist-credentials: false
+      # Takes the Biome version from package.json, see
+      # https://biomejs.dev/recipes/continuous-integration/
+      - uses: biomejs/setup-biome@v2
+      - run: biome ci .
