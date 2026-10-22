@@ -1,12 +1,17 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "description": "Renovate hält npm-Pakete, GitHub Actions und das Devcontainer-Image aktuell; es merged selbst über GitHub-Auto-Merge, sobald die Pflicht-Checks grün sind.",
-  "extends": ["config:recommended", ":disableDependencyDashboard"],
+  "description": "Renovate (Mend-App) öffnet nur noch Sicherheitsupdates (sofort) und montags früh einen gebündelten PR für neu gebaute Basis-Images (gleicher Tag, neuer Digest). Es merged selbst über GitHub-Auto-Merge, sobald die Pflicht-Checks grün sind.",
+  "extends": [
+    "config:recommended",
+    ":disableDependencyDashboard",
+    "security:only-security-updates"
+  ],
   "timezone": "Europe/Berlin",
   "labels": ["dependencies"],
   "osvVulnerabilityAlerts": true,
   "vulnerabilityAlerts": {
-    "minimumReleaseAge": null
+    "minimumReleaseAge": null,
+    "enabled": true
   },
   "prHourlyLimit": 0,
   "prConcurrentLimit": 20,
@@ -15,30 +20,35 @@
   "rebaseWhen": "conflicted",
   "packageRules": [
     {
-      "description": "Basis-Images und Actions per Digest pinnen: nur so sieht Renovate, dass z. B. node:26-alpine mit einem Node-Sicherheitsfix neu gebaut wurde. Sie laufen im gebündelten Routine-PR mit.",
-      "matchManagers": ["dockerfile", "devcontainer", "github-actions"],
-      "pinDigests": true
+      "description": "Das Preset security:only-security-updates schaltet alle Abhängigkeiten schon vor dem Nachschlagen ab. Docker-Images hier wieder einschalten, sonst findet Renovate keine neuen Digests; welche Updates davon kommen, regeln die beiden folgenden Regeln.",
+      "matchManagers": ["dockerfile", "docker-compose", "kubernetes"],
+      "enabled": true
     },
     {
-      "description": "Routine-Updates gebündelt in einem PR, montags und donnerstags (spart CI-Läufe). Sicherheitsfixes kommen weiter sofort.",
-      "matchUpdateTypes": ["digest", "pin", "pinDigest", "patch", "minor"],
-      "groupName": "Routine-Updates",
-      "schedule": ["before 6am on monday", "before 6am on thursday"]
-    },
-    {
-      "description": "Keine Major-PRs. Majors erst, wenn der Support der genutzten Version endet.",
-      "matchUpdateTypes": ["major"],
+      "description": "Bei Docker-Images keine Tag-Wechsel (z. B. node:22 → node:24 oder 22.1 → 22.2), nur Digests.",
+      "matchManagers": ["dockerfile", "docker-compose", "kubernetes"],
+      "matchUpdateTypes": [
+        "major",
+        "minor",
+        "patch",
+        "pin",
+        "rollback",
+        "replacement"
+      ],
       "enabled": false
     },
     {
-      "matchPackageNames": ["@biomejs/biome"],
-      "groupName": "biome",
-      "schedule": ["before 6am on monday", "before 6am on thursday"]
+      "description": "Nur Basis-Image-Digests (gleiche Version, neu gebaut, z. B. Node-Sicherheitspatch), einmal pro Woche gebündelt.",
+      "matchManagers": ["dockerfile", "docker-compose", "kubernetes"],
+      "matchUpdateTypes": ["digest", "pinDigest"],
+      "enabled": true,
+      "groupName": "Basis-Images",
+      "schedule": ["before 6am on monday"]
     },
     {
-      "description": "Lieferketten-Schutz: Actions- und npm-Releases erst nach 3 Tagen übernehmen (kompromittierte Releases werden meist in Stunden bis Tagen zurückgezogen). Basis-Image-Digests und Sicherheitsfixes kommen sofort.",
-      "matchManagers": ["github-actions", "npm"],
-      "minimumReleaseAge": "3 days"
+      "description": "Basis-Images in Dockerfiles per Digest pinnen: nur so sieht Renovate, dass derselbe Tag neu gebaut wurde.",
+      "matchManagers": ["dockerfile"],
+      "pinDigests": true
     }
   ]
 }
