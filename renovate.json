@@ -1,4 +1,5 @@
 {
+  "dependencyDashboard": false,
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "description": "Renovate (Mend-App) öffnet nur noch Sicherheitsupdates (sofort) und montags früh einen gebündelten PR für neu gebaute Basis-Images (gleicher Tag, neuer Digest). Es merged selbst über GitHub-Auto-Merge, sobald die Pflicht-Checks grün sind.",
   "extends": [
