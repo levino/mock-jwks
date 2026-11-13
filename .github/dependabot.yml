@@ -1,0 +1,82 @@
+# Abhaengigkeiten automatisch aktualisieren.
+#
+# Bisher gab es hier keine dependabot.yml: Es kamen nur ungruppierte
+# Security-PRs, je Advisory einer, und niemand hat sie gemergt. Jetzt:
+# hoechstens zwei Sammel-PRs je Oekosystem und Woche (`minor-and-patch`,
+# `security`); automerge.yml mergt alles ausser `major`, sobald die
+# Checks gruen sind. Security-Updates ignorieren `schedule` und kommen sofort.
+#
+# Keine Major-Updates: Majors erst, wenn der Support der genutzten Version
+# endet (separat verfolgt). Jeder Eintrag ignoriert `version-update:semver-major`.
+# Das gilt laut GitHub-Doku auch fuer Security-Updates: ein Sicherheitsfix, den
+# es nur als Major gibt, kommt nicht als PR, sondern nur als Dependabot-Alert.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      time: "04:00"
+      timezone: Europe/Berlin
+    labels:
+      - dependencies
+    # Hoch mit Absicht: Ist das Limit erschoepft, legt Dependabot auch die
+    # Sammel-PRs nicht mehr an.
+    open-pull-requests-limit: 20
+    groups:
+      # Ein Sammel-PR fuer alle Minor-/Patch-Version-Updates.
+      minor-and-patch:
+        applies-to: version-updates
+        patterns:
+          - "*"
+        update-types:
+          - minor
+          - patch
+      # Ein Sammel-PR fuer alle Sicherheitsupdates statt eines PRs pro Advisory
+      # (bisher kam z.B. #288 source-map-js und #289 vite einzeln). Ohne Majors,
+      # damit automerge.yml ihn mergen darf.
+      security:
+        applies-to: security-updates
+        patterns:
+          - "*"
+        update-types:
+          - minor
+          - patch
+    ignore:
+      # Keine Major-Updates: Majors erst, wenn der Support endet (separat verfolgt).
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      time: "04:00"
+      timezone: Europe/Berlin
+    labels:
+      - dependencies
+    # Hoch mit Absicht: Ist das Limit erschoepft, legt Dependabot auch die
+    # Sammel-PRs nicht mehr an.
+    open-pull-requests-limit: 20
+    groups:
+      # Ein Sammel-PR fuer alle Minor-/Patch-Version-Updates.
+      minor-and-patch:
+        applies-to: version-updates
+        patterns:
+          - "*"
+        update-types:
+          - minor
+          - patch
+      # Ein Sammel-PR fuer alle Sicherheitsupdates statt eines PRs pro Advisory
+      # (bisher kam z.B. #288 source-map-js und #289 vite einzeln). Ohne Majors,
+      # damit automerge.yml ihn mergen darf.
+      security:
+        applies-to: security-updates
+        patterns:
+          - "*"
+        update-types:
+          - minor
+          - patch
+    ignore:
+      # Keine Major-Updates: Majors erst, wenn der Support endet (separat verfolgt).
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]

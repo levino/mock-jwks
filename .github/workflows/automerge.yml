@@ -1,0 +1,147 @@
+# Ordnet offene Dependabot-PRs ein und mergt die harmlosen davon.
+#
+# Warum das alles in EINEM Zeitplan-Workflow steckt (und nicht mehr zusaetzlich
+# in einem `dependabot-label.yml`, das am PR-Event haengt):
+#
+#   * Die Token-Falle: Workflows, die per `pull_request` von `dependabot[bot]`
+#     ausgeloest werden, bekommen von GitHub einen READ-ONLY GITHUB_TOKEN. Ein
+#     `permissions:`-Block im Workflow hebt das NICHT auf -- er kann Rechte nur
+#     einschraenken, nicht zurueckholen. `gh pr edit --add-label` lief dort also
+#     zwangslaeufig in einen 403.
+#   * Die Zeitfalle: ein PR, der schon offen war, bevor es den Workflow gab,
+#     liefert nie ein `opened`-Event nach. Er waere also selbst mit korrekten
+#     Rechten nie eingeordnet worden.
+#   * Dieser Workflow laeuft per `schedule`/`workflow_dispatch` auf dem
+#     Default-Branch. Da gilt der normale Schreib-Token, und er sieht bei jedem
+#     Lauf ALLE offenen Dependabot-PRs -- auch die aelteren.
+#   * `pull_request_target` waere die andere Loesung, holt sich aber ohne Not
+#     Schreibrechte in einen Kontext, in dem fremder PR-Code liegt.
+#
+# Einordnung: Major -> Label `major`, bleibt liegen, bis ein Mensch draufschaut.
+#             Alles andere -> Label `automerge`, wird gemergt sobald gruen.
+#
+# Woran die Einordnung haengt, in genau dieser Reihenfolge:
+#
+#   1. GRUPPIERTE PRs ueber den Gruppennamen. Wichtig: ein gruppierter
+#      Dependabot-PR hat KEINEN `update-type:`-Trailer -- der Block
+#      `updated-dependencies` fuehrt dort nur `dependency-name`,
+#      `dependency-version`, `dependency-type` und `dependency-group`. Auf den
+#      Trailer allein zu bauen hiesse, jeden Sammel-PR blind zu raten.
+#      `dependency-group: majors` (bzw. der Branch `dependabot/.../majors-...`)
+#      ist dagegen eindeutig: das ist die Gruppe aus dependabot.yml, die per
+#      `update-types: [major]` definiert NUR Majors enthaelt -> `major`.
+#      `dependency-group: minor-and-patch` ist genauso eindeutig die andere
+#      Richtung: die Gruppe ist per `update-types` auf minor/patch begrenzt,
+#      Dependabot kann dort kein Major hineinlegen -> `automerge`.
+#      Die Gruppe `security` steht bewusst NICHT in dieser Liste -- ein
+#      Security-Update darf auch ein Major sein, das faellt unten durch.
+#   2. UNGRUPPIERTE PRs ueber den `update-type:`-Trailer, den Dependabot in die
+#      Commit-Message schreibt (das, was `dependabot/fetch-metadata` liest).
+#   3. Rest: "from A to B" aus den von Dependabot erzeugten Zeilen vergleichen.
+#      Ist auch das nicht lesbar, gewinnt im Zweifel der Mensch (`major`).
+#      Ein Sammel-PR, der versehentlich alle Majors auf einmal automergt, waere
+#      ein Incident -- Unsicherheit geht deshalb immer nach `major`.
+#
+# Nur der GITHUB_TOKEN dieses Repos, kein PAT, keine App, nichts im Cluster.
+name: Automerge
+on:
+  schedule:
+    - cron: '17 * * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+  pull-requests: write
+  # Ein `permissions:`-Block setzt ALLE nicht genannten Scopes auf `none`.
+  # Ohne diese beiden liefert `gh pr view --json statusCheckRollup` in Repos mit
+  # Checks fremder Apps ein "Resource not accessible by integration" und der
+  # Merge-Schritt stirbt, bevor er irgendetwas gemergt hat.
+  checks: read
+  statuses: read
+  # Und `actions: read` dazu: `gh pr view --json statusCheckRollup` fragt intern
+  # auch `checkSuite.workflowRun` ab. Ohne diesen Scope antwortet GraphQL mit
+  # "Resource not accessible by integration
+  # (...statusCheckRollup.contexts.nodes.0.checkSuite.workflowRun)", gh gibt
+  # einen Fehlercode zurueck, der Status wird `unreadable` und der PR wird nie
+  # gemergt -- lautlos, denn die Schleife laeuft ja weiter (gesehen am
+  # 2026-09-08 in den fws-maschsee-Repos).
+  actions: read
+  # Zum Anlegen der Labels `automerge` und `major` (erster Schritt).
+  issues: write
+jobs:
+  automerge:
+    runs-on: ubuntu-latest
+    steps:
+      # Die Labels gibt es in diesem Repo (noch) nicht; ohne sie scheitert
+      # `gh pr edit --add-label`, und es wird nie etwas gemergt.
+      - name: Labels `automerge` und `major` sicherstellen
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh label create automerge --repo "$GITHUB_REPOSITORY" --color 0e8a16 \
+            --description "Dependabot: wird gemergt, sobald alle Checks gruen sind" 2>/dev/null || true
+          gh label create major --repo "$GITHUB_REPOSITORY" --color d93f0b \
+            --description "Dependabot: Major-Update, bitte von Hand pruefen" 2>/dev/null || true
+      - name: Unetikettierte Dependabot-PRs einordnen
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          offen=$(gh pr list --repo "$GITHUB_REPOSITORY" --author 'app/dependabot' --state open \
+            --json number,labels \
+            --jq '.[] | select([.labels[].name] | any(. == "automerge" or . == "major") | not) | .number')
+          for pr in $offen; do
+            meta=$(gh pr view "$pr" --repo "$GITHUB_REPOSITORY" --json title,body,headRefName,commits \
+              --jq '[.title, .headRefName, .body, (.commits[]?.messageHeadline), (.commits[]?.messageBody)] | join("\n")')
+            if printf '%s\n' "$meta" | grep -qE '^ *dependency-group: *majors *$|^dependabot/.+/majors-[0-9a-f]+$'; then
+              # Sammel-PR der Gruppe `majors` -- per Definition nur Majors.
+              label=major
+            elif printf '%s\n' "$meta" | grep -qE 'update-type: *version-update:semver-major'; then
+              label=major
+            elif printf '%s\n' "$meta" | grep -qE '^ *dependency-group: *minor-and-patch *$|^dependabot/.+/minor-and-patch-[0-9a-f]+$'; then
+              # Sammel-PR der Gruppe `minor-and-patch` -- per `update-types` auf
+              # minor/patch begrenzt, kann also kein Major enthalten.
+              label=automerge
+            elif printf '%s\n' "$meta" | grep -qE 'update-type: *version-update:semver-'; then
+              label=automerge
+            else
+              # Weder Gruppe noch Trailer (z.B. Docker-Tags, `security`-Gruppe,
+              # manuell umgeschriebene PRs): "from A to B" auswerten -- aber nur
+              # aus den Zeilen, die Dependabot selbst erzeugt, nicht aus den
+              # mitkopierten Release-Notes.
+              # `|| true`, weil `set -o pipefail` sonst am leeren grep-Treffer
+              # abbricht (z.B. "node from 22-alpine to 26-alpine") und der Rest
+              # der offenen PRs nie eingeordnet wird.
+              paare=$(printf '%s\n' "$meta" \
+                | grep -E '^(Bump|Bumps|Updates) ' \
+                | grep -oiE 'from v?[0-9]+(\.[0-9]+)* to v?[0-9]+(\.[0-9]+)*' \
+                | sed -E 's/[Ff]rom v?([0-9.]+) to v?([0-9.]+)/\1 \2/' || true)
+              if [ -z "$paare" ]; then
+                label=major
+              elif printf '%s\n' "$paare" \
+                   | awk 'NF==2 { split($1,a,"."); split($2,b,"."); if (a[1]+0 != b[1]+0) f=1 } END { exit f?0:1 }'; then
+                label=major
+              else
+                label=automerge
+              fi
+            fi
+            echo "PR #$pr -> $label"
+            gh pr edit "$pr" --repo "$GITHUB_REPOSITORY" --add-label "$label" \
+              || echo "PR #$pr konnte nicht etikettiert werden -- naechster Lauf versucht es erneut"
+          done
+      - name: Gruene `automerge`-PRs mergen
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          for pr in $(gh pr list --repo "$GITHUB_REPOSITORY" --author 'app/dependabot' --label automerge --state open --json number --jq '.[].number'); do
+            # Alle Checks muessen fertig und gruen sein (keine Checks = ok).
+            state=$(gh pr view "$pr" --repo "$GITHUB_REPOSITORY" --json statusCheckRollup,mergeable \
+              --jq '[.statusCheckRollup[]? | select(.name != "Automerge") | (.conclusion // .state)] as $c
+                    | if ($c | length) == 0 then "green"
+                      elif ($c | map(. == "SUCCESS" or . == "NEUTRAL" or . == "SKIPPED") | all) then "green"
+                      elif ($c | map(. == "FAILURE" or . == "ERROR" or . == "CANCELLED" or . == "TIMED_OUT") | any) then "red"
+                      else "pending" end' || echo unreadable)
+            echo "PR #$pr: $state"
+            [ "$state" = green ] || continue
+            gh pr merge "$pr" --repo "$GITHUB_REPOSITORY" --squash --delete-branch || echo "PR #$pr konnte nicht gemergt werden (Konflikt? Schutzregel?)"
+          done
